@@ -119,7 +119,7 @@ Mining is the process of validating transactions on the blockchain. The reward f
 You can also set nervad to mine automatically after launching, with the command:
 ``nervad --start-mining <address> --mining-threads <threads>``
 
-If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining_faq).
+If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
 
 ### Making transactions
 No currency is complete without a way to spend it. nerva-wallet-cli provides the means to transfer funds to other accounts.
