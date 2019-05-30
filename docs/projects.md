@@ -32,9 +32,12 @@ Link: [https://webapp.yaslabs.com/](https://webapp.yaslabs.com/)
 ### Nerva Faucet
 ![yasfaucet](img/yasfaucet.jpg)
 
-A faucet for free coins, by **yas**
-
+A faucet for free coins, by **yas**<br>
 Link: [https://store.yaslabs.com/faucet/](https://store.yaslabs.com/faucet/)
+<br><br>
+### Forkmaps Benchmarks
+A selection of NERVA mining benchmarks, maintained by **JerMe404**<br>
+Link: [https://forkmaps.com/#/benchmarks](https://forkmaps.com/#/benchmarks)
 <br><br>
 ### Nerva.Exchange (defunct)
 An easy way to buy XNV for BTC, by **Nithronium**.
