@@ -1,5 +1,5 @@
 # Index
-The documentation here is a work in progress and not exhaustive; the main focus of these pages is providing easy to follow tutorials, and helping users resolve common problems. Some additional developer-oriented documentaton is available [on BitBucket](https://bitbucket.org/snippets/nerva-project/), and in the README files of individual repositories.
+The documentation here is not exhaustive; the main focus of these pages is providing easy to follow tutorials, and helping users resolve common problems. Some additional developer-oriented documentaton is available [on BitBucket](https://bitbucket.org/snippets/nerva-project/), and in the README files of individual repositories.
 
 If you can't find what you need with the search function, help is always available on [Discord](https://discord.gg/xBHxnGN) or [Telegram](https://t.me/NervaXNV).
 
@@ -12,6 +12,7 @@ NERVA has both a graphical interface (GUI) and a command-line interface, with th
 * [NERVA CLI Guide](guides/cli/) (with common issues & FAQ)
 * [NERVA GUI Quick Guide](guides/gui/)
 * [Ledger Hardware Wallet Guide](guides/ledger/)
+* [Mining FAQ](guides/mining/)
 
 ## How to contribute
 The Nerva documentation is written and maintained by the community, and you can contribute too! To submit changes or new pages, refer to [the GitHub repository](https://github.com/mrsyzygy/nerva-docs) for a brief contributor's guide.
