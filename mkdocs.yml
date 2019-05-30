@@ -1,0 +1,5 @@
+site_name: NERVA Docs
+theme: bootstrap
+extra_css: [nerva.css]
+repo_url: https://github.com/mrsyzygy/nerva-docs
+site_description: Official NERVA documentation
