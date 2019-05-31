@@ -1,4 +1,7 @@
-# About NERVA
+# About
+This page aims to provide some more information about the NERVA project and answer common (non-technical) questions. For help using the NERVA software, refer to the Guides section.
+
+### What is NERVA?
 *"Proof-of-work is essentially one-CPU-one-vote" - Satoshi Nakamoto*
 
 **NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined, and can only be mined, by standard computer processors - like the one in the device you're using to read this text. NERVA is also intended to be solo-mined only, thus avoiding the hashrate centralisation that plagues so many pool-mined coins. By engineering the network to be as decentralised as possible, NERVA is naturally resistant to 51% attacks and this resistance will only strengthen as the network scales. Through this combination, made possible by the unique Cryptonight Adaptive algoritm, NERVA aims to take crypto back to its roots - away from corporatisation and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network.
@@ -19,13 +22,16 @@ You can read more about the NERVA project on the [main website](https://getnerva
 * Emission Speed: 18
 * Block Time: 60 seconds
 * Maturity: 10 blocks
-* Premine: ~1% (187,663+ XNV)
+* Premine: 1.05% (193,861 XNV)
 * Ring size: 5 (fixed for all transactions)
 
 NERVA forked from Monero and Masari and had its genesis block on May 1st, 2018. The official NERVA blockchain exploer can be found [here](https://explorer.getnerva.org/). Additional network statistics are available on [Freeboard](https://freeboard.io/board/EV5-se) and the [Nodemap](https://nerva.syzygy.cc).
 
 #### Premine
-A premine of 180,000 coins was included in the genesis block. This is to finance the infrastructure to run the network for the years to come. Additionally, each of the 3 seed nodes in place at launch were each mining on 1 CPU core, as a temporary measure to establish the network. This results in an effective premine of slightly over 1% of the total supply (pre tail emission).
+A premine of 180,000 coins was included in the genesis block. Additionally, each of the 3 seed nodes in place at launch were each mining on 1 CPU core as a temporary measure to establish the network. The first 200 blocks were mined, bringing the total 
+funds in the dev wallet to 193,861 XNV. This results in a premine of slightly over 1% of the total supply (pre tail emission).
+
+The premine is to finance the infrastructure to run the network for the years to come. These funds will support the coin by paying for exchange listings where required, server costs to maintain the seed nodes and provide bonuses and incentives to miners to support the network.
 
 ### CryptoNight-Adaptive
 The CryptoNight-Adaptive algorithm was developed for NERVA. The idea is quite simple: create a hash algorithm that changes automatically at regular intervals to break support for ASICS, mining pools, and GPU software, making solo-mining with a daemon and wallet the most efficient viable option. The initial release was based on the Monero v7 algorithm present in the latest Masari hard fork, with a few changes. First, the scratchpad was halved, like CryptoNight Lite. Second, we adapted the ASIC resistant changes from Alloy (XAO) which changes the number of mixing functions at each hard fork to instead change every block. The number of mixing functions is automatically incremented every block and reset every 1024 blocks.
@@ -39,10 +45,29 @@ With solo mining, miner rewards are not as consistent as they often are with poo
 
 It should be noted that whilst it is difficult by design to develop a pool for NERVA, it is not impossible. Should a pool be developed in the future, the community and developer consensus is that a hardfork would then occur to make it ineffectual.
 
-### Pond Mining (proposed)
+#### Pond Mining (proposed)
 Pond Mining is a concept developed by the NERVA community for a peer-to-peer version of pool mining, which would avoid the centralization inherent in traditional mining pools. A [whitepaper](https://github.com/nithronium/pondmining/blob/master/pondmining.pdf) explaining the proposed system was published by community member Nithronium in November 2018.
 
 Pond Mining remains an area of interest but is not currently under active development.
+
+### Hard Forks
+NERVA is a project under constant development. Every now and then the developers will make changes to the algorithm or other parts of the code. Changes like these often require a hard fork, just like you have with other big projects like Monero. Hard forks are network updates where the newer version of the client software is not compatible with the older versions. To avoid problems, NERVA uses version blocking: every new hard fork version will always block earlier versions.
+
+**Does a hard fork mean that I will get extra coins, like 'Nerva Classic' or 'Nerva ABC'?** Technically, your coins still exist on the old chain for as long as (unupdated) nodes are mining it. But no, there is still only one main chain. Hard forks in NERVA do not create chain splits, there is just NERVA.
+
+**Will you lose your coins after a hard fork?** No, there is no need for concern. A hard fork simply upgrades a part of the network software. As soon as you upgrade you will be able to transact again with your account.
+  
+**Will the exchange support this hard fork?** Yes. The developers are in close communication with every exchange that currently lists NERVA. Scheduled forks are communicated well in advance to exchanges to make everything go smooth.
+
+#### Previous hard forks
+Here is a summarised history of NERVA network upgrades. More detailed release notes for each were published in Discord.
+
+- **v6**, at block 45000 (1st June 2018). Fixed blockchain stability issues. `Minimum version: 0.1.2.1`
+- **v7**, at block 173500 (30th August 2018). Introduced the CryptoNight-Adaptive v2 algorithm. `Minimum version: 0.1.3.4`
+- **v8**, at block 180000 (3rd September 2018). Resolved unforeseen chain stability issues arising from the v7 hardfork. `Minimum version: 0.1.3.5`
+- **v9**, at block 240500 (15th October 2018). New features and bugfixes, iterated the algoritm to v3. `Minimum version: 0.1.4.0`
+- **v10**, at block 341000 (24th December 2018). More updates and algo changes. `Minimum version: 0.1.5.4`
+- **v11**, at block 500000 (13th April 2019). This update introduced many new features and bugfixes and much faster syncing. `Minimum version: 0.1.6.4`
 
 ### Commerce
 A WooCommerce integration has been developed which allows for online stores to accept payment in NERVA. There are two variants available, [woo-static](https://bitbucket.org/nerva-project/woo-static/) and [woo-dynamic](https://bitbucket.org/nerva-project/woo-dynamic). Documentation for both is available on BitBucket.
