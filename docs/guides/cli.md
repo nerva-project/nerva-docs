@@ -216,20 +216,6 @@ Nodes always broadcast what they think is the right block height but this is not
 * The other possibility is that two miners find a block simultaneously (a so called uncle block situation) and both get half the network behind 'their' chain. This creates a temporary fork and happens every so often (daily). It goes like this:
 
 Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganised" onto the right one.
- 
-### Concerning Hard Forks
-
-NERVA is a project under constant development. Every now and then the developers will make changes to the algorithm or other parts of the code. Changes like these often require a hard fork, just like you have with other big projects like Monero (XMR). Hard forks are network updates where the newer version of the client software is not compatible with the older versions. To avoid problems, NERVA uses version blocking: every new hard fork version will always block earlier versions.
-
-#### Does a hard fork imply that you will get extra coins, as people have come to expect from all the Bitcoin forks? Will you get NERVA Classic or NERVA ABC?
-Technically, your coins still exist on the old chain for as long as (unupdated) nodes are mining it.
-But no, there is still only one main chain. Hard forks in NERVA do not create chain splits, there is just NERVA.
-
-#### Will you lose your coins after a hard fork?
-No, there is no need for concern. A hard fork simply upgrades a part of the network software. As soon as you upgrade you will be able to transact again with your account.
-  
-#### Will the exchange support this hard fork?
-Yes. The developers are in close communication with every exchange that currently lists NERVA. Scheduled forks are communicated well in advance to exchanges to make everything go smooth.
 
 ### Concerning Seed Nodes
 
