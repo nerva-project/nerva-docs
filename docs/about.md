@@ -39,7 +39,7 @@ With solo mining, miner rewards are not as consistent as they often are with poo
 
 It should be noted that whilst it is difficult by design to develop a pool for NERVA, it is not impossible. Should a pool be developed in the future, the community and developer consensus is that a hardfork would then occur to make it ineffectual.
 
-#### Pond Mining (proposed)
+### Pond Mining (proposed)
 Pond Mining is a concept developed by the NERVA community for a peer-to-peer version of pool mining, which would avoid the centralization inherent in traditional mining pools. A [whitepaper](https://github.com/nithronium/pondmining/blob/master/pondmining.pdf) explaining the proposed system was published by community member Nithronium in November 2018.
 
 Pond Mining remains an area of interest but is not currently under active development.
