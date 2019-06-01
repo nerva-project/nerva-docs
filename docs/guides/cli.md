@@ -69,12 +69,9 @@ This process will take a while. If you have opted to use the quicksync feature, 
 ### Understanding daemon messages
 You **don't** need to understand what any of this means, but if you want to learn more, daemon messages are formatted as follows:
 
-* Every announcement has a **time stamp**: ``YYYY-MM-DD`` followed by ``HH:MM:SS.sss`` (yes, miliseconds)
-* The **source ID** is a number that identifies a thread during startup or shutdown, while ``SRV_MAIN``, ``P2P1``, ``PSP4`` etc are basically log tags indicating a source for the message.
+* Every announcement has a **time stamp**: ``YYYY-MM-DD`` followed by ``HH:MM:SS.sss`` (yes, miliseconds).
 * ``INFO`` is a [log level](#changing-log-level) indicator. Other possibilities are ``WARNING`` and ``ERROR``. Only errors require you to take action, as they indicate a problem. It is usually safe to ignore warnings.
-* ``global`` is a category in the log file
-* The **source line** points to a file and a specific line of code in it
-* The **message** explains what is happening in the startup processes
+* The **message** explains the event of interest.
 
 Running nervad with an increased [log level](#changing-log-level), you'll see a lot of messages while the daemon starts up all the necessary processes. The first few lines initialize the CryptoNote core module, which is the base protocol of all CryptoNote coins. The lines after that are all about booting up the servers required for accepting network requests and Remote Procedure Call (RPC) requests, which basically means the peer-to-peer stuff on the network or in simpler terms: this lets your computer talk to other computers on the NERVA network.
 
@@ -190,12 +187,9 @@ Finally you'll be asked to enter a block height to scan your wallet from. If you
 ## Things to consider & FAQ
 ### Concerning Nethash
 
-As mentioned earlier, when you type ``status`` in the daemon one of the things you see is the network's total hashrate.
-It is a very common misconception that this nethash actually represents the network hashrate. It doesn't and it's not even close. The nethash is derived from the current difficulty, which is in turn derived from the block time. Add to that the way the Difficulty Adjusting Algorithm (DAA) responds to the block time, which it does at every block, and you have spiking nethash. 
+As mentioned earlier, when you type ``status`` in the daemon one of the things you see is the network's total hashrate; this value is only an estimate, and so it can depart from the true network hashrate, which cannot be directly observed. The nethash value you see derives from the recent rate at which blocks have been produced. Consequently, luck may cause the nethash reading to fluctuate substantially, even if the real network hashrate hasn't changed at all.
 
-An example: blocks get found quickly, so it looks like the total nethash has increased;the DAA adjusts to compensate, blocks slow down and it looks like nethash has decreased. Up and down.
-
-The reason this is mentioned here is to make it abundantly clear that nethash is not an accurate representation of actual hash on the network. This problem is intensified because Nerva cannot be mined in pools, only solo.  A pool can better reflect hashrate because it can collect info on the shares submitted to the pool. Solo miners don't have that option.
+An example: Blocks get found quickly, so it looks like the total nethash has increased; the estimate adjusts to compensate, then blocks slow down and it looks like nethash has decreased.
 
 ### Concerning Addresses
 
