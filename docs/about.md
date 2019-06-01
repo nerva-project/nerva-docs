@@ -25,7 +25,7 @@ You can read more about the NERVA project on the [main website](https://getnerva
 * Premine: 1.05% (193,861 XNV)
 * Ring size: 5 (fixed for all transactions)
 
-NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain exploer can be found [here](https://explorer.getnerva.org/). Additional network statistics are available on [Freeboard](https://freeboard.io/board/EV5-se) and the [Nodemap](https://nerva.syzygy.cc).
+NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here](https://explorer.getnerva.org/). Additional network statistics are available on [Freeboard](https://freeboard.io/board/EV5-se) and the [Nodemap](https://nerva.syzygy.cc).
 
 #### Premine
 A premine of 180,000 coins was included in the genesis block. Additionally, each of the 3 seed nodes in place at launch were each mining on 1 CPU core as a temporary measure to establish the network. The first 200 blocks were mined, bringing the total 
