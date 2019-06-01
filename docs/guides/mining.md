@@ -10,7 +10,12 @@ Most blockchains are mainly mined by large GPU pools or ASIC mining farms. In th
 Refer to the [CLI Guide](../cli) or [GUI Guide](../gui) according to which you are using.
 
 ## How do I see my hashrate?
-In the GUI, your hashrate is shown visually. In the CLI you can use the `status` command. You can also use the `show_hr` command to toggle a constant output.
+In the GUI, your hashrate is shown visually. In the CLI you can use the `status` command. You can also use the `show_hr` and `hide_hr` commands to toggle between a constant output of your current hashrate.
+
+## How will I know if I find a block?
+A message will be displayed in the daemon along the lines of `Found block at height: xxxxxx`.
+
+If you have your wallet open, you will also see the block reward as an incoming transaction.
 
 ## Understanding threads
 A thread is simply a virtual representation of a CPU core. Modern CPU's have 2-8+ cores, with some very high end models packing 32 or more cores. Most modern CPU's also feature Simultaneous Multithreading (SMT), also known as HyperThreading, which allows for multiple threads per core.
@@ -46,8 +51,3 @@ This is a very common question and almost always just bad luck. Unless there is 
 
 ### Does my chance of finding a block increase over time?
 All else being equal (ie if the network difficulty and your hashrate have not changed), no. You have the same likelihood each block, of finding that block. There is no advantage from having mined longer than someone else.
-
-## How will I know when I found a block?
-A message will be displayed in the daemon along the lines of `Found block at height xxxxxx`.
-
-If you have your wallet open, you will also see the block reward as an incoming transaction.
