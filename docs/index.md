@@ -1,4 +1,4 @@
-# Index
+# Nerva Docs
 The documentation here is not exhaustive; the main focus of these pages is providing easy to follow tutorials, and helping users resolve common problems. Some additional developer-oriented documentaton is available [on BitBucket](https://bitbucket.org/snippets/nerva-project/), and in the README files of individual repositories.
 
 If you can't find what you need with the search function, help is always available on [Discord](https://discord.gg/xBHxnGN) or [Telegram](https://t.me/NervaXNV).
