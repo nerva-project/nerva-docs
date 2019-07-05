@@ -75,7 +75,7 @@ You **don't** need to understand what any of this means, but if you want to lear
 
 Running nervad with an increased [log level](#changing-log-level), you'll see a lot of messages while the daemon starts up all the necessary processes. The first few lines initialize the CryptoNote core module, which is the base protocol of all CryptoNote coins. The lines after that are all about booting up the servers required for accepting network requests and Remote Procedure Call (RPC) requests, which basically means the peer-to-peer stuff on the network or in simpler terms: this lets your computer talk to other computers on the NERVA network.
 
-## Creating a wallet
+## Create a wallet
 *If you wish to store your funds on a Ledger hardware wallet, refer to the [Ledger guide](../ledger/).*
 
 Once you have synchronized the blockchain, you'll need to create a wallet so that can you receive and spend NERVA. This is done through nerva-wallet-cli.
@@ -102,21 +102,33 @@ Therefore, your wallet file is really nothing more than a cache for storing info
 
 The 25 word mnemonic seed is the private view and spend keys combined in a human readable form. It is a convenience option to recover your wallet. Both the CLI and GUI wallet will provide you a way to [recover your funds](#restore-a-wallet) from the seed, or from the private keys.
 
+## Restore a wallet
+You can open a previously created wallet by simply launching nerva-wallet-cli and typing the name of the wallet.
+If the wallet file was lost or corrupted, or you have forgotten the password, you will need to restore the wallet through one of these methods:
+
+### Restore from 25 word mnemonic seed
+You can restore from seed with the following command:
+
+`nerva-wallet-cli --restore-deterministic-wallet`
+
+Set a name for your wallet, then carefully input your 25 word seed.
+You will be asked to enter the seed encryption passphrase - usually there is no passphrase, so just hit enter. Then enter a strong password for the wallet, as if you were creating a new one.
+Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
+
+### Restore from private spend key
+You can restore from the spend key with the following command:
+
+`nerva-wallet-cli --generate-from-spend-key <name>`
+
+Replace `<name>` with the name you'd like your restored wallet to have.
+You'll be prompted to enter your (secret) spend key. Carefully type it in.
+Next choose a strong password for your wallet and confirm it, then choose your language (1 for English).
+Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
+
 ## Basic usage
 **In both nervad and nerva-wallet-cli, you can see a full list of commands with ``help``, and more information on a given command with ``help <command>``.** Some commands are explained in further detail below.
 
 You can view your public address (that you can receive funds to) with the wallet command ``address``. You can see your current balance with ``balance``.
-
-### Mining
-Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. There are two ways to start mining:
-
-* In ``nerva-wallet-cli``, with the command ``start_mining <threads>`` - this will mine to your wallet address
-* In ``nervad``, with the command ``start_mining <address> <threads>``
-
-You can also set nervad to mine automatically after launching, with the command:
-``nervad --start-mining <address> --mining-threads <threads>``
-
-If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
 
 ### Making transactions
 No currency is complete without a way to spend it. nerva-wallet-cli provides the means to transfer funds to other accounts.
@@ -161,28 +173,16 @@ This shows you the height, network you are connected to, hash rate, number of co
 ### Exiting
 You should always use the ``exit`` command to safely close both nervad and nerva-wallet-cli.
 
-## Restore a wallet
-You can open a previously created wallet by simply launching nerva-wallet-cli and typing the name of the wallet.
-If the wallet file was lost or corrupted, or you have forgotten the password, you will need to restore the wallet through one of these methods:
+## Mining
+Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. There are two ways to start mining:
 
-### Restore from 25 word mnemonic seed
-You can restore from seed with the following command:
+* In ``nerva-wallet-cli``, with the command ``start_mining <threads>`` - this will mine to your wallet address
+* In ``nervad``, with the command ``start_mining <address> <threads>``
 
-`nerva-wallet-cli --restore-deterministic-wallet`
+You can also set nervad to mine automatically after launching, with the command:
+``nervad --start-mining <address> --mining-threads <threads>``
 
-Set a name for your wallet, then carefully input your 25 word seed.
-You will be asked to enter the seed encryption passphrase - usually there is no passphrase, so just hit enter. Then enter a strong password for the wallet, as if you were creating a new one.
-Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
-
-### Restore from private spend key
-You can restore from the spend key with the following command:
-
-`nerva-wallet-cli --generate-from-spend-key <name>`
-
-Replace `<name>` with the name you'd like your restored wallet to have.
-You'll be prompted to enter your (secret) spend key. Carefully type it in.
-Next choose a strong password for your wallet and confirm it, then choose your language (1 for English).
-Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
+If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
 
 ## Things to consider & FAQ
 ### Concerning Nethash
@@ -295,4 +295,4 @@ If you have git installed, you may also try building from source:
 Try launching the wallet with the flag ``--daemon-ssl disabled``.
 
 ## Getting help
-If you have questions that are not answered here or with the ``help`` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/xBHxnGN) (in **#cli-help**), our community is active and helpful.
+If you have questions that are not answered here or with the ``help`` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/xBHxnGN) (in the **#cli-help** channel), our community is active and helpful.
