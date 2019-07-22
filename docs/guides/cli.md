@@ -252,7 +252,7 @@ Excluding the time to download the bootstrap, the import process should take les
 
 what's the difference between Nerva's Quicksync and a regular Bootstrap?
 Bootstrap is a copy of all the blocks up to a certain point; it is possible to enable full block verification with a Bootstrop file if you wish to do so.
-Quicksync, on the other hand, just contains hashes. Proof-of-Work hashes are compared to what is in the Quicksync file rather than being computed on the fly; there's no fully validating mode.
+Quicksync, on the other hand, is a binary file that contains all of the chain's block hashes up to a certain height. While quicksyncing, the block hashes are compared to what is in the Quicksync file rather than being computed on the fly. That saves you having to hash the block yourself which is what makes the synchronization quick. It doesn't fully bypass the verification process, it just bypasses the slow part of hashing the block.  
 
 ### What are node blocked messages?
 Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. Nerva also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
