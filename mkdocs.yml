@@ -1,5 +1,6 @@
 site_name: NERVA Docs
 theme: bootstrap
+favicon: img/favicon.ico
 extra_css: [nerva.css]
 repo_url: https://github.com/mrsyzygy/nerva-docs
 site_description: Official NERVA documentation
