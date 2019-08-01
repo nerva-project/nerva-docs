@@ -9,7 +9,7 @@ Live network statistics, by **xmranon**. [https://freeboard.io/board/EV5-se](htt
 ### Nodemap
 ![nodemap](img/nodemap.jpg)
 
-A map of NERVA full nodes around the world with stats, by **syzygy**. [https://nerva.syzygy.cc](https://nerva.syzygy.cc)
+A map of NERVA full nodes around the world with stats, by **syzygy**. [https://map.getnerva.org](https://map.getnerva.org)
 
 ### Nerva Store Project
 ![nervashop](img/nervashop.jpg)
