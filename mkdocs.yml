@@ -1,6 +1,25 @@
 site_name: NERVA Docs
-theme: bootstrap
-favicon: img/favicon.ico
-extra_css: [nerva.css]
+site_url: https://docs.getnerva.org
 repo_url: https://github.com/mrsyzygy/nerva-docs
 site_description: Official NERVA documentation
+edit_uri: blob/master/docs/
+theme:
+    name: null
+    custom_dir: 'mkdocs_bootstrap4'
+    suppress_nextprev: true
+extra_css: [nerva.css]
+copyright: "&copy; 2019 <strong>The NERVA Project</strong>"
+nav:
+    - About: 'about.md'
+    - User Guides:
+        - 'CLI Guide': 'guides/cli.md'
+        - 'GUI Guide': 'guides/gui.md'
+        - 'Mining FAQ': 'guides/mining.md'
+        - 'Ledger Hardware Wallet': 'guides/ledger.md'
+    - Community Projects: 'projects.md'
+plugins:
+    - git-committers:
+        repository: mrsyzygy/nerva-docs
+        branch: master
+        token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+    - search

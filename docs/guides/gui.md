@@ -1,4 +1,4 @@
-# GUI Quick Guide
+# NERVA GUI Quick Guide
 This guide is a little outdated but should cover the basics.
 ## Screenshots
 
