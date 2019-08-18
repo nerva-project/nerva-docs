@@ -9,6 +9,8 @@ All you need to help us write the docs is a basic knowledge of the [Markdown for
 Contributions may not immediately appear on the website, as the docs must first be rebuilt (into HTML) via mkdocs.
 
 ## Building the docs locally
+Set environment variable *MKDOCS_GIT_COMMITTERS_APIKEY* to [your GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+
     $ pip install mkdocs mkdocs-git-committers-plugin
     $ git clone https://github.com/mrsyzygy/nerva-docs.git
     $ cd nerva-docs
