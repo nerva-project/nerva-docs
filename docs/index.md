@@ -3,7 +3,7 @@ The documentation here is not exhaustive; the main focus of these pages is provi
 
 NERVA has both a graphical interface (GUI) and a command-line interface, with the CLI being generally preferred as it has more features and stability. However, both options are supported and guides are available for each. Here's what you might be looking for:
 
-* [More information about Nerva](about/)
+* [More information about NERVA](about/)
 * [NERVA CLI Guide](guides/cli/) (with common issues & FAQ)
 * [NERVA GUI Quick Guide](guides/gui/)
 * [Ledger Hardware Wallet Guide](guides/ledger/)
@@ -14,6 +14,6 @@ If you can't find what you need with the search function, help is always availab
 
 <hr>
 ### Contributing
-The Nerva documentation is written and maintained by the community, and you can contribute too! To submit changes or new pages, refer to [the GitHub repository](https://github.com/mrsyzygy/nerva-docs) for a brief contributor's guide.
+The NERVA documentation is written and maintained by the community, and you can contribute too! To submit changes or new pages, refer to [the GitHub repository](https://github.com/mrsyzygy/nerva-docs) for a brief contributor's guide.
 
-If you'd like to volunteer to help the Nerva project in another way - as a developer, or a graphic designer, or something completely different - join us on Discord to see where your talents may be useful. NERVA is all about the community and the more it grows, the stronger we will be.
+If you'd like to volunteer to help the NERVA project in another way - as a developer, or a graphic designer, or something completely different - join us on Discord to see where your talents may be useful. NERVA is all about the community and the more it grows, the stronger we will be.

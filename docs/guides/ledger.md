@@ -23,7 +23,7 @@ There is an installation script for Linux/Mac and Windows which contain the foll
 This option will set up the ledger loader so you can install the app
 
 - Install: `ledger install`
-This option will install the nerva app on your ledger
+This option will install the NERVA app on your ledger
 
 - Uninstall: `ledger uninstall`
 This option will uninstall the ledger app.
@@ -32,7 +32,7 @@ This option will uninstall the ledger app.
 This option will send the seed for your ledger wallet to the device so that it can be viewed under the *Show Seed* option within the app  
 It is advised to backup the seed for your wallet, as it will allow you to restore the wallet independent of an ledger device in the future
 
-### Using the ledger with the Nerva CLI
+### Using the ledger with the NERVA CLI
 
 Generate a hardware wallet  
 `./nerva-wallet-cli --generate-from-device <wallet-path>`

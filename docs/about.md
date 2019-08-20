@@ -91,7 +91,7 @@ NERVA is a project under constant development. Sometimes, improvements require c
 
 **Will I lose my coins after a hard fork?** No, there is no need for concern. A hard fork simply upgrades a part of the network software. As soon as you upgrade you will be able to transact again with your account.
 
-**Does a hard fork mean that I will get extra coins, like "Nerva Classic" or "Nerva ABC"?** Technically, your coins still exist on the old chain for as long as (unupdated) nodes are mining it. But no, there is still only one main chain. Hard forks in NERVA do not create chain splits, there is just NERVA.
+**Does a hard fork mean that I will get extra coins, like "NERVA Classic" or "NERVA ABC"?** Technically, your coins still exist on the old chain for as long as (unupdated) nodes are mining it. But no, there is still only one main chain. Hard forks in NERVA do not create chain splits, there is just NERVA.
 
 **What if I sent coins after a hard fork, but didn't upgrade?** Your transaction should be rejected in the upgraded network, returning the funds to your wallet. Once you upgrade to the latest software, you will need to rescan the blockchain from scratch, which will cause your wallet reflect the state of the upgraded network. To rescan the blockchain, simply restore your wallet from a seed phrase.
   

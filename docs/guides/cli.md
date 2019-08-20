@@ -19,7 +19,7 @@ To get these programs, open the [NERVA downloads page](https://getnerva.org/#dow
 
 2. (Optional) Move the `quicksync.raw` file we downloaded earlier into your NERVA folder.
 
-3. Inside your Nerva folder, click on the path/address bar at the top of the window (see screenshot) and type in:
+3. Inside your NERVA folder, click on the path/address bar at the top of the window (see screenshot) and type in:
 `nervad.exe --quicksync quicksync.raw`, then hit enter.
 
 *If you are not using quicksync, simply double click on `nervad.exe`*
@@ -75,7 +75,7 @@ Once you have synchronized the blockchain, you'll need to create a wallet so tha
 
 The wallet creation process is straightforward. After launching nerva-wallet-cli, you'll be asked to specify a wallet name. You should use *only* alphanumeric characters (a-z,A-Z,0-9). Then confirm wallet creation by typing Yes and hitting enter.
 
-Next you'll be asked for a wallet password. The password you enter will be used to encrypt your wallet data, so that even if somebody else had access to your computer, your funds would remain safe (at least until/unless they brute forced the password). You *can* skip providing a password by just hitting enter, but it's recommended to enter a secure random password at this stage. You'll be required to enter this password whenever you open your wallet, when you spend Nerva and (by default) also when you receive Nerva. *Nothing will appear on the screen as you type your password - this is normal.*
+Next you'll be asked for a wallet password. The password you enter will be used to encrypt your wallet data, so that even if somebody else had access to your computer, your funds would remain safe (at least until/unless they brute forced the password). You *can* skip providing a password by just hitting enter, but it's recommended to enter a secure random password at this stage. You'll be required to enter this password whenever you open your wallet, when you spend coins and (by default) also when you receive coins. *Nothing will appear on the screen as you type your password - this is normal.*
 
 Finally, specify your language (1 for English) and your wallet is all set up.
 
@@ -177,8 +177,8 @@ An example: Blocks get found quickly, so it looks like the total nethash has inc
 
 #### Concerning Addresses
 
-Nerva has different types of addresses:
-A **normal address** for Nerva starts with `NV`. If you send coins to an exchange or a merchant you have to add a payment ID to this kind of address. Due to the untraceability of transactions, they will need this to know the payment comes from you. Alternatively, you can use an **integrated address** which starts with `Niz`. Don't ask how the Z got there. This is likely a wrongly configured prefix; when the chain launched with it, it stayed forever. Integrated addresses don't require a separate payment ID because it is...integrated into it. A third kind of address is a **subaddress**. This is what you get if you create more than one address for a wallet. Subaddresses start with `NS`. Subaddresses are the next generation of privacy enhancing address.
+NERVA has different types of addresses:
+A **normal address** for NERVA starts with `NV`. If you send coins to an exchange or a merchant you have to add a payment ID to this kind of address. Due to the untraceability of transactions, they will need this to know the payment comes from you. Alternatively, you can use an **integrated address** which starts with `Niz`. Don't ask how the Z got there. This is likely a wrongly configured prefix; when the chain launched with it, it stayed forever. Integrated addresses don't require a separate payment ID because it is...integrated into it. A third kind of address is a **subaddress**. This is what you get if you create more than one address for a wallet. Subaddresses start with `NS`. Subaddresses are the next generation of privacy enhancing address.
 
 To summarize:
 
@@ -222,12 +222,12 @@ Replace `<level>` with a number from 0-4, with 0 being minimal information, and 
 Download the latest version and simply overwrite the existing files.
 
 #### How do I sync even faster?
-Syncing the Nerva blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
+Syncing the NERVA blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
 The preferred method is to use [quicksync](https://getnerva.org/content/bootstrap/quicksync.raw), as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:
 
 `nervad --quicksync <path/to/quicksync.raw>`.
 
-An even faster method, especially useful if deploying Nerva to multiple machines, is to download the latest [full bootstrap](https://getnerva.org/content/bootstrap/mainnet.raw) and import this via the command:
+An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest [full bootstrap](https://getnerva.org/content/bootstrap/mainnet.raw) and import this via the command:
 
 `nerva-blockchain-import --input-file <path/to/mainnet.raw> --verify 0`
 
@@ -238,14 +238,14 @@ What's the difference between NERVA's quicksync method and a regular bootstrap? 
 Quicksync, on the other hand, is a binary file that contains all of the chain's block hashes up to a certain height. While quicksyncing, the block hashes are compared to what is in the quicksync file rather than being computed on the fly. That saves your daemon from hashing each block itself, which is what makes the synchronization quick. It doesn't fully bypass the verification process, only the slow part of hashing the block.  
 
 #### What are node blocked messages?
-Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. Nerva also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
+Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. NERVA also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
 
 If you are worried about these errors, you should type `status` into your node. If you have connections to the network, then there is nothing to worry about. If it reports you have no connections, then it is highly probable that it is in fact your node that is blocked from the network.
 
 <hr>
 ## Common issues
 
-#### Nervad will not launch or crashes after launching
+#### nervad will not launch or crashes after launching
 The most common reason this occurs is if you already have another instance of nervad running in the background. If in doubt, try restarting your computer.
 
 If this did not fix the issue, check [the logs](#log-location) for more information.
@@ -256,7 +256,7 @@ There are a number of reasons this can occur. Following these steps should resol
 * Restart the daemon
 * Restart your computer
 * Check your system's clock. If you clock's time is off from the network time by more than the future time limit, the local daemon will reject the block.
-* Ensure you are running the latest version of Nerva.
+* Ensure you are running the latest version of NERVA.
 * It is possible your blockchain is corrupted or you are on a forked chain. Run this command:
 `nerva-blockchain-import --pop-blocks 1000`, then restart the daemon again.
 * You may have been blocked by the seed nodes. Waiting or changing your IP should resolve this, or you can unblock yourself in the #atom channel in Discord.
