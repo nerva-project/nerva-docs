@@ -1,6 +1,6 @@
 site_name: NERVA Docs
 site_url: https://docs.getnerva.org
-repo_url: https://github.com/mrsyzygy/nerva-docs
+repo_url: https://github.com/nerva-project/nerva-docs
 site_description: Official NERVA documentation
 edit_uri: blob/master/docs/
 theme:
@@ -19,7 +19,7 @@ nav:
     - Community Projects: 'projects.md'
 plugins:
     - git-committers:
-        repository: mrsyzygy/nerva-docs
+        repository: nerva-project/nerva-docs
         branch: master
         token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
     - search
