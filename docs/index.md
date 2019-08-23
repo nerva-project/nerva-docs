@@ -14,6 +14,6 @@ If you can't find what you need with the search function, help is always availab
 
 <hr>
 ### Contributing
-The NERVA documentation is written and maintained by the community, and you can contribute too! To submit changes or new pages, refer to [the GitHub repository](https://github.com/mrsyzygy/nerva-docs) for a brief contributor's guide.
+The NERVA documentation is written and maintained by the community, and you can contribute too! To submit changes or new pages, refer to [the GitHub repository](https://github.com/nerva-project/nerva-docs) for a brief contributor's guide.
 
 If you'd like to volunteer to help the NERVA project in another way - as a developer, or a graphic designer, or something completely different - join us on Discord to see where your talents may be useful. NERVA is all about the community and the more it grows, the stronger we will be.
