@@ -12,7 +12,7 @@ Contributions may not immediately appear on the website, as the docs must first 
 Set environment variable *MKDOCS_GIT_COMMITTERS_APIKEY* to [your GitHub personal access token](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
     $ pip install mkdocs mkdocs-git-committers-plugin
-    $ git clone https://github.com/nerva-docs/nerva-docs.git
+    $ git clone https://github.com/nerva-project/nerva-docs.git
     $ cd nerva-docs
     $ git clone https://github.com/mrsyzygy/mkdocs-bootstrap4.git
     $ mkdocs build
