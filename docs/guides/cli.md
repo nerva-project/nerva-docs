@@ -243,6 +243,13 @@ Other nodes can be blocked from connecting to your node if they have mined an in
 If you are worried about these errors, you should type `status` into your node. If you have connections to the network, then there is nothing to worry about. If it reports you have no connections, then it is highly probable that it is in fact your node that is blocked from the network.
 
 <hr>
+## Updating NERVA
+
+Each new release of the software brings new features, improvements or optimisations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../about/#hard-forks) which makes updating your node mandatory.
+
+To update, simply close all NERVA processes, download the new binaries, extract them and copy your wallet files from the old version to the new. Alternatively you can paste the new binaries into your existing NERVA directory, overwriting the old contents. Before updating, you should ensure that your wallet seed phrase is backed up, just in case something goes wrong.
+
+<hr>
 ## Common issues
 
 #### AES-NI error
