@@ -245,6 +245,9 @@ If you are worried about these errors, you should type `status` into your node. 
 <hr>
 ## Common issues
 
+#### AES-NI error
+The official NERVA binaries require that your CPU supports the AES-NI instruction set. This is present in practically all modern CPU's but may be absent on older systems, causing this error. Be aware that it is not practical to mine on a non-AES CPU, and your hashrate will not be competitive. However, you can build NERVA from source if you wish to run the daemon anyway.
+
 #### nervad will not launch or crashes after launching
 The most common reason this occurs is if you already have another instance of nervad running in the background. If in doubt, try restarting your computer.
 
