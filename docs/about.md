@@ -115,4 +115,4 @@ If you would like to integrate NERVA as a payment solution or have other suggest
 
 <hr>
 ## Exchanges
-XNV is currently traded on [TradeOgre](https://tradeogre.com/exchange/BTC-XNV), [Cratex](https://cratex.io/index.php?pair=XNV/BTC) and [QBTC](https://www.myqbtc.com/trade?symbol=XNV_CNYT).
+XNV is currently traded on [TradeOgre](https://tradeogre.com/exchange/BTC-XNV), [Cratex](https://cratex.io/index.php?pair=XNV/BTC) and [QBTC](https://www.qbtc.com/trade?symbol=XNV_CNYT).
