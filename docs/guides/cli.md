@@ -245,7 +245,7 @@ If you are worried about these errors, you should type `status` into your node. 
 <hr>
 ## Updating NERVA
 
-Each new release of the software brings new features, improvements or optimisations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../about/#hard-forks) which makes updating your node mandatory.
+Each new release of the software brings new features, improvements or optimisations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../../about/#hard-forks) which makes updating your node mandatory.
 
 To update, simply close all NERVA processes, download the new binaries, extract them and copy your wallet files from the old version to the new. Alternatively you can paste the new binaries into your existing NERVA directory, overwriting the old contents. Before updating, you should ensure that your wallet seed phrase is backed up, just in case something goes wrong.
 
