@@ -109,9 +109,9 @@ Here is a summarised history of NERVA network upgrades. More detailed release no
 
 <hr>
 ## Commerce
-A WooCommerce integration has been developed which allows for online stores to accept payment in NERVA. There are two variants available, [woo-static](https://bitbucket.org/nerva-project/woo-static/) and [woo-dynamic](https://bitbucket.org/nerva-project/woo-dynamic). Documentation for both is available on BitBucket.
+A WooCommerce integration has been developed which allows for online stores to accept payment in XNV. There are two variants available, [woo-static](https://bitbucket.org/nerva-project/woo-static/) and [woo-dynamic](https://bitbucket.org/nerva-project/woo-dynamic). Documentation for both is available on BitBucket.
 
-If you would like to integrate NERVA as a payment solution or have other suggestions, please join us in the commerce channel on Discord.
+We are actively working on integrating NERVA with other platforms and services to further its usage as a currency. If you would like to integrate NERVA as a payment solution or have other suggestions, please join us in the commerce channel on Discord.
 
 <hr>
 ## Exchanges
