@@ -15,5 +15,5 @@ Requires [python/pip](https://pip.pypa.io/en/stable/installing/) and git. You'll
     $ git clone https://github.com/nerva-project/nerva-docs.git
     $ cd nerva-docs
     $ git clone https://github.com/mrsyzygy/mkdocs-bootstrap4.git
-    $ MKDOCS_GIT_COMMITERS_APIKEY=<your-access-token-here> mkdocs build
+    $ MKDOCS_GIT_COMMITTERS_APIKEY=<Your-Access-Token-Here> mkdocs build
 The generated HTML files will be placed in the **site** subdirectory.
