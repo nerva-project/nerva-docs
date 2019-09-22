@@ -39,7 +39,7 @@ It's possible to build 32-bit binaries yourself, but these are not officially pr
 NERVA previously had an official build for Android (with mining support) but it was discontinued due to limited use and practicality. Again, you're welcome to attempt to build the software for other platforms, but it isn't an official focus at this time. (However, a mobile wallet for both Android and iOS is in development and nearing completion).
 
 #### Can I mine NERVA at the same time as GPU-mining another coin?
-Definitely! Mining NERVA is actually great way to boost the effiency and profitability of your GPU mining rig - its CPU is mostly idle, and the electricity cost of an increased load to the CPU is neglible compared to the GPU's power consumption. Depending on the requirements of the GPU mining software you're using, it may be best to leave one or more threads free for it, while mining NERVA on the remaining theads.
+Definitely! Mining NERVA is actually great way to boost the efficiency and profitability of your GPU mining rig - its CPU is mostly idle, and the electricity cost of an increased load to the CPU is negligible compared to the power consumption of your GPU(s). Depending on the requirements of the GPU mining software you're using, it may be best to leave one or more threads free for it, while mining NERVA on the remaining theads.
 
 #### Can I mine on a VPS / cloud server?
 Yes, but be aware that mining may be against the ToS of some providers.
