@@ -17,6 +17,9 @@ A message will be displayed in the daemon along the lines of `Found block at hei
 
 If you have your wallet open, you will also see the block reward as an incoming transaction.
 
+#### What is the current block reward?
+Refer to the [block explorer](https://explorer.getnerva.org/) to see the current block reward.
+
 #### Understanding threads
 A thread is simply a virtual representation of a CPU core. Modern CPU's have 2-8+ cores, with some very high end models packing 32 or more cores. Most modern CPU's also feature Simultaneous Multithreading (SMT), also known as HyperThreading, which allows for multiple threads per core.
 
@@ -25,12 +28,21 @@ Basically, if you have a quad core CPU, it will have either 4 or 8 threads depen
 So, you should mine on all the threads, right? Probably not. Not only will it slow down anything else you try to do on the computer while mining, but it will often result in a suboptimal hashrate as well due to other hardware bottlenecks. You should experiment to find what works best for your hardware configuration.
 
 #### Can I really mine on any CPU?
-Yes, with a few caveats. The official NERVA binaries require support for the `AES-NI` instruction set. Practically all modern CPU's support this instruction set, but older (5+ years) models may not. It is possible to build NERVA to work without AES support, but mining on such a CPU is not practical.
+Yes, with a few caveats. The official NERVA binaries require support for the `AES-NI` instruction set. Practically all modern CPU's support this instruction set, but older (5+ years) models may not. It's possible to build NERVA to work without AES support, but mining isn't practical on CPU without it. For this reason it isn't officially supported.
 
-Obviously, actual results will vary depending on your CPU. It is beneficial to have a large amount of cores, and as a rule of thumb, the more powerful your CPU the better. Some specific NERVA CPU benchmarks are available on [Forkmaps](https://forkmaps.com/#/benchmarks) (collected by **JerMe404**), and in the #benchmarks channel in Discord. This allows you to get an idea of what hashrate to expect, and thereby decide whether mining is worthwhile.
+As for whether it is *practical* to mine on a given CPU, this will vary depending on your hardware configuration. Your CPU should be reasonably modern to be competitive. It is beneficial to have a large amount of cores and cache, and memory frequency will impact your hashrate as well, amongst other things. Some NERVA CPU benchmarks are available on [Forkmaps](https://forkmaps.com/#/benchmarks) (collected by **JerMe404**), as well as in the #benchmarks channel in Discord (search for yours or a similar CPU model). These resources should allow you to get an idea of what hashrate to expect, and thereby decide whether mining is worth it for you.
+
+##### What about 32-bit (i386) systems?
+It's possible to build 32-bit binaries yourself, but these are not officially provided or supported. 32-bit operating systems are no longer mainstream and you probably shouldn't be using one.
 
 ##### What about non-x86 platforms?
-NERVA previously had an official build for Android (with mining support) but it was discontinued due to limited use and practicality. You are welcome to attempt to build the software on other platforms, but it is not an official focus at this time.
+NERVA previously had an official build for Android (with mining support) but it was discontinued due to limited use and practicality. Again, you're welcome to attempt to build the software for other platforms, but it isn't an official focus at this time. (However, a mobile wallet for both Android and iOS is in development and nearing completion).
+
+#### Can I mine NERVA at the same time as GPU-mining another coin?
+Definitely! Mining NERVA is actually great way to boost the effiency and profitability of your GPU mining rig - its CPU is mostly idle, and the electricity cost of an increased load to the CPU is neglible compared to the GPU's power consumption. Depending on the requirements of the GPU mining software you're using, it may be best to leave one or more threads free for it, while mining NERVA on the remaining theads.
+
+#### Can I mine on a VPS / cloud server?
+Yes, but be aware that mining may be against the ToS of some providers.
 
 #### Probability of finding a block
 For a quick answer, you can reference [Freeboard](https://freeboard.io/board/EV5-se) which has a live estimate of how long it will take to find a block with a hashrate of 1000H/s (simply divide/multiply this figure according to your actual hashrate). If using the GUI to mine, it also will provide an estimate based on the same mathematics.
