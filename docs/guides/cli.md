@@ -2,6 +2,13 @@
 Running NERVA from the command-line gives you the most features, flexibility and stability, and is recommended for crypto veterans and newbies alike. If you're a less technical user and aren't familiar with the command-line, we know this can be intimidating at first. In truth, it's easy and you'll be a pro in no time at all. No prior knowledge is assumed in this guide, except basic computer skills. Let's get started!
 
 ## Getting started
+---
+#### WARNING!
+
+**As of the most current release** when downloading the CLI package you will be provided with 2 versions of the daemon.  **`nervad-aes` and `nervad-noaes`**.  In most cases you will want to use the AES version. No AES is intended for users who have older systems that are not cabaple of using AES-NI.  
+
+---
+
 NERVA consists of 2 primary components:
 
 **nervad** is the NERVA daemon. This is your node, your connection to the NERVA network. nervad manages your network connections, the blockchain and is the software you can use to mine.
@@ -252,8 +259,11 @@ To update, simply close all NERVA processes, download the new binaries, extract 
 <hr>
 ## Common issues
 
+#### Created a new wallet but transactions or found blocks do not display
+If this happens please use the command `rescan_bc`.  If this does not help the current solutuion is to restore your wallet from its seed phrase.  This will fix the issue.
+
 #### AES-NI error
-The official NERVA binaries require that your CPU supports the AES-NI instruction set. This is present in practically all modern CPU's but may be absent on older systems, causing this error. Be aware that it is not practical to mine on a non-AES CPU, and your hashrate will not be competitive. However, you can build NERVA from source if you wish to run the daemon anyway.
+Use the **noaes** version of nervad.
 
 #### nervad will not launch or crashes after launching
 The most common reason this occurs is if you already have another instance of nervad running in the background. If in doubt, try restarting your computer.
