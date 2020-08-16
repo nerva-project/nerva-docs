@@ -1,5 +1,5 @@
 # About
-This page aims to provide some more information about the NERVA project and answer common (non-technical) questions. For help using the NERVA software, refer to the Guides section. You can also read more about the project on the [main website](https://getnerva.org), and join our growing community on [Discord](https://discord.gg/xBHxnGN), [Telegram](https://t.me/NervaXNV) and [Reddit](https://www.reddit.com/r/Nerva/).
+This page aims to provide some more information about the NERVA project and answer common (non-technical) questions. For help using the NERVA software, refer to the Guides section. You can also read more about the project on the [main website](https://getnerva.org), and join our growing community on [Discord](https://discord.gg/jsdbEns), [Telegram](https://t.me/NervaXNV) and [Reddit](https://www.reddit.com/r/Nerva/).
 
 ## What is NERVA?
 *"Proof-of-work is essentially one-CPU-one-vote" - Satoshi Nakamoto*
