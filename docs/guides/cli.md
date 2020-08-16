@@ -301,4 +301,4 @@ Try launching the wallet with the flag `--daemon-ssl disabled`.
 
 <hr>
 ## Getting help
-If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/xBHxnGN) (in the **#cli-help** channel), our community is active and helpful.
+If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/jsdbEns) (in the **#cli-help** channel), our community is active and helpful.
