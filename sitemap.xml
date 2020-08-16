@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>https://docs.getnerva.org/about/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.getnerva.org/guides/cli/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.getnerva.org/guides/gui/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.getnerva.org/guides/mining/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.getnerva.org/guides/ledger/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://docs.getnerva.org/projects/</loc>
+     <lastmod>2020-08-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>

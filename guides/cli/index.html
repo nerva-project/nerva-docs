@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <script>
+	// Hack for scrolling window when linking to anchor tag with fixed nav header
+        var shiftWindow = function() { scrollBy(0, -75) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+      </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://docs.getnerva.org/guides/cli/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>CLI Guide - NERVA Docs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../nerva.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../../js/base.js"></script> 
+    </head>
+
+    <body class="">
+
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<div class="container">
+	<a class="navbar-brand" href="../.."><img src="../../img/logo.ico" alt="NERVA Docs" width="22" height="22"> NERVA Docs</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse">
+          <!-- Main navigation -->
+          <nav class="nav">
+            <ul class="navbar-nav">
+              <li >
+                <a class="nav-link" href="../../about/">About</a>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nav-dropdown-User Guides">User Guides <b class="caret"></b></a>
+                <div class="dropdown-menu" aria-labelledby="nav-dropdown-User Guides">
+                  
+<a href="./" class="dropdown-item active">CLI Guide</a>
+                  
+<a href="../gui/" class="dropdown-item">GUI Guide</a>
+                  
+<a href="../mining/" class="dropdown-item">Mining FAQ</a>
+                  
+<a href="../ledger/" class="dropdown-item">Ledger Hardware Wallet</a>
+                </div>
+              </li>
+              <li >
+                <a class="nav-link" href="../../projects/">Community Projects</a>
+              </li>
+            </ul>
+          </nav>
+
+          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+		<i class="fa fa-search"></i> Search
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/nerva-project/nerva-docs/blob/master/docs/guides/cli.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+            </li>
+          </ul>
+	</div>
+	</div>
+      </nav><div id="content" class="container">
+        
+      <div class="row">
+        <div class="col-md-9" role="main">
+
+<h1 id="nerva-cli-guide">NERVA CLI Guide</h1>
+<p>Running NERVA from the command-line gives you the most features, flexibility and stability, and is recommended for crypto veterans and newbies alike. If you're a less technical user and aren't familiar with the command-line, we know this can be intimidating at first. In truth, it's easy and you'll be a pro in no time at all. No prior knowledge is assumed in this guide, except basic computer skills. Let's get started!</p>
+<h2 id="getting-started">Getting started</h2>
+<hr />
+<h4 id="warning">WARNING!</h4>
+<p><strong>As of the most current release</strong> when downloading the CLI package you will be provided with 2 versions of the daemon.  <strong><code>nervad-aes</code> and <code>nervad-noaes</code></strong>.  In most cases you will want to use the AES version. No AES is intended for users who have older systems that are not cabaple of using AES-NI.  </p>
+<hr />
+<p>NERVA consists of 2 primary components:</p>
+<p><strong>nervad</strong> is the NERVA daemon. This is your node, your connection to the NERVA network. nervad manages your network connections, the blockchain and is the software you can use to mine.</p>
+<p><strong>nerva-wallet-cli</strong> is the wallet program for NERVA. nerva-wallet-cli manages your balances, accounts and transfers of funds. <em>In order to make use of the wallet, nervad must also be running.</em></p>
+<p>There are other programs which are part of NERVA, but these are only used in specific circumstances.</p>
+<p>To get these programs, open the <a href="https://getnerva.org/#downloads">NERVA downloads page</a> and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file - this will save you a lot of time. Then follow the instructions below for your specific operating system:</p>
+<h4 id="getting-started-windows">Getting started: Windows</h4>
+<p><strong>Tip for Windows users:</strong> <a href="https://cmder.net/">Cmder</a> is an alternative command prompt which improves the CLI experience. It is not required but is being used in the screenshots in this guide.</p>
+<ol>
+<li>
+<p>Open your Downloads folder and extract the contents of <code>nerva-vx.x.x.x_windows-x64.zip</code> into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is.</p>
+</li>
+<li>
+<p>(Optional) Move the <code>quicksync.raw</code> file we downloaded earlier into your NERVA folder.</p>
+</li>
+<li>
+<p>Inside your NERVA folder, click on the path/address bar at the top of the window (see screenshot) and type in:
+<code>nervad.exe --quicksync quicksync.raw</code>, then hit enter.</p>
+</li>
+</ol>
+<p><em>If you are not using quicksync, simply double click on <code>nervad.exe</code></em>
+ <img alt="windir" src="../img/win_nervacli_dir.png" /></p>
+<p>If you get a pop-up from Windows Firewall or any other security software, make sure to click 'Allow'. You are now running nervad. In the future you can launch it by simply double-clicking on <code>nervad.exe</code>, and you can launch the wallet by double-clicking <code>nerva-wallet-cli.exe</code>.</p>
+<h4 id="getting-started-macos">Getting started: macOS</h4>
+<ol>
+<li>
+<p>Open Finder and go to your Downloads folder. Right click on the <code>nerva-vx.x.x.x_osx-x64.zip</code> file and select <strong>Open With &gt; Archive Utility</strong>. This should automatically extract the contents into a new folder with the same name.
+ <em>If you downloaded the file with Safari, it may have automatically been extracted.</em></p>
+</li>
+<li>
+<p><em>(Optional)</em> Drag the <code>quicksync.raw</code> file into this new folder, and then open the folder. You should see an <code>install</code> file in here, but <strong>don't open it yet</strong>.
+ <img alt="osxdir" src="../img/osx_nervacli_dir.png" /></p>
+</li>
+<li>
+<p>Open Terminal (by pressing Command + Space, then type <code>terminal</code> and hit enter).
+ In the terminal window, we are going to type in <code>sudo</code> followed by a space. Now drag the <code>install</code> file from Finder into your Terminal window, and it should automatically add the location of the file to our command. Then hit enter to run the command.</p>
+</li>
+<li>
+<p>You will be prompted for your Mac user account password. Type your password, and then hit enter. No dots will appear as you type the password - this is normal.
+ <strong>If at this or any point you receive a warning about running software from an unidentified developer, you need to open your System Preferences &gt; Security &amp; Privacy &gt; General, and hit allow at the bottom of that page.</strong></p>
+</li>
+<li>
+<p>If nothing happened except a new line in the terminal, the installation was successful. Now we will type another command:
+  <code>nervad --quicksync</code> followed by a space and this time drag the <code>quicksync.raw</code> file into Terminal. Now hit enter. (<em>If you are not using quicksync, simply type <code>nervad</code></em>)</p>
+</li>
+</ol>
+<p>You are now running nervad. In the future you can relaunch it by typing <code>nervad</code> in any Terminal window, and can launch the wallet with the command <code>nerva-wallet-cli</code>. You can open multiple terminals by clicking <strong>Shell &gt; New Terminal</strong> from the top menu bar.</p>
+<h4 id="getting-started-linux">Getting started: Linux</h4>
+<ol>
+<li>
+<p>Download and unzip the Linux binaries into a new directory, and move the <code>quicksync.raw</code> file there.</p>
+</li>
+<li>
+<p>Run the command <code>./nervad --quicksync quicksync.raw</code> (<em>If you are not using quicksync, simply run <code>./nervad</code></em>)</p>
+</li>
+</ol>
+<p>You are now running nervad. In the future you can relaunch it via the <code>./nervad</code> command. You can launch the wallet with the command <code>./nerva-wallet-cli</code>.</p>
+<hr>
+
+<h2 id="running-the-daemon">Running the daemon</h2>
+<p>Once all the necessary processes have booted up, the NERVA daemon will check how far along your copy of the blockchain is. If it finds that your copy of the database has not caught up to the current block, it will tell you how far behind you are. After that, it will start synchronizing your chain with those of the peers you connect to. <em>Synchronizing</em> refers to the daemon keeping an up to date copy of the blockchain on your computer. Your daemon must have a full copy of the blockchain to work properly. You cannot mine and your wallet balance will not be accurate unless the blockchain is synchronized.</p>
+<p><img alt="syncing" src="../img/nerva-syncing.png" /></p>
+<p>This process will take a while. If you have opted to use the quicksync feature, the sync should be completed in less than 20 minutes on most computers. Once your daemon has synchronised, you will receive a <code>SYNCHRONIZED OK</code> message and you then are ready to start using NERVA.</p>
+<h4 id="understanding-daemon-messages">Understanding daemon messages</h4>
+<ul>
+<li>Every announcement has a <strong>time stamp</strong>: <code>YYYY-MM-DD</code> followed by <code>HH:MM:SS.sss</code> (yes, miliseconds).</li>
+<li><code>INFO</code> (<code>I</code>) is a <a href="#changing-log-level">log level</a> indicator. Other possibilities are <code>WARNING</code> (<code>W</code>) and <code>ERROR</code> (<code>E</code>). Only errors require you to take action, as they indicate a problem. It is usually safe to ignore warnings.</li>
+<li>The <strong>message</strong> explains the event of interest.</li>
+</ul>
+<p>If you run nervad with an increased <a href="#changing-log-level">log level</a>, you'll see a lot of messages while the daemon starts up all the necessary processes. The first few lines initialize the CryptoNote core module, which is the base protocol of all CryptoNote coins. The lines after that are all about booting up the servers required for accepting network requests and Remote Procedure Call (RPC) requests, which basically means the peer-to-peer stuff on the network or in simpler terms: this lets your computer talk to other computers on the NERVA network.</p>
+<hr>
+
+<h2 id="creating-a-wallet">Creating a wallet</h2>
+<p><em>If you wish to store your funds on a Ledger hardware wallet, refer to the <a href="../ledger/">Ledger guide</a>.</em></p>
+<p>Once you have synchronized the blockchain, you'll need to create a wallet so that can you receive and spend NERVA. This is done through nerva-wallet-cli.</p>
+<p>The wallet creation process is straightforward. After launching nerva-wallet-cli, you'll be asked to specify a wallet name. You should use <em>only</em> alphanumeric characters (a-z,A-Z,0-9). Then confirm wallet creation by typing Yes and hitting enter.</p>
+<p>Next you'll be asked for a wallet password. The password you enter will be used to encrypt your wallet data, so that even if somebody else had access to your computer, your funds would remain safe (at least until/unless they brute forced the password). You <em>can</em> skip providing a password by just hitting enter, but it's recommended to enter a secure random password at this stage. You'll be required to enter this password whenever you open your wallet, when you spend coins and (by default) also when you receive coins. <em>Nothing will appear on the screen as you type your password - this is normal.</em></p>
+<p>Finally, specify your language (1 for English) and your wallet is all set up.</p>
+<p><img alt="osxcli" src="../img/nerva-wallet.png" /></p>
+<h4 id="backing-up-your-seed">Backing up your seed</h4>
+<p>It is <strong>extremely important</strong> that you write down your unique 25 word seed phrase. These words are all that is needed to access your funds should your wallet file become lost or corrupted. <strong>DO NOT</strong> save the seed on your computer or any unencrypted digital storage. Ideally you should not print it either. The generally recommended method is to write your seed in block letters on old fashioned paper, and store it in a secure place.</p>
+<p>It may seem obvious but is worth repeating: <strong>NEVER share your seed with anybody else.</strong> Your seed is the key to your funds, and anybody who has your seed can steal your funds.</p>
+<p>You can optionally choose to backup your private view key and spend key. <strong>Only the seed phrase is required.</strong> You can view these at a later date with the commands <code>seed</code>, <code>viewkey</code> and <code>spendkey</code>.</p>
+<h4 id="what-are-all-these-seedskeys">What are all these seeds/keys?</h4>
+<p>There are 2 sets of keypairs in NERVA. The view key and spend key. Each pair consists of a public key and a private key.</p>
+<p>To place it in basic terms, the public spend and view keys are combined to form your wallet address. People use that information to send you funds. However due to the private nature of Monero and its forks (NERVA included), funds are not actually sent to you. The transaction is encrypted with your public key and stored in the blockchain. Your wallet then scans the blockchain with your private keys to figure out which of these encrypted transactions belongs to you. When it finds a matching transaction, the information is stored in your wallet and your balance is updated.</p>
+<p>Therefore, your wallet file is really nothing more than a cache for storing information about your transactions on the blockchain. The real work is done by the view and spend keys. And this is why it is of absolute importance to keep a copy of these keys safe. Without them, you cannot find your transactions on the blockchain and they are gone forever.</p>
+<p>The 25 word mnemonic seed is the private view and spend keys combined in a human readable form. It is a convenience option to recover your wallet. Both the CLI and GUI wallet will provide you a way to recover your funds from the seed, or from the private keys.</p>
+<hr>
+
+<h2 id="restoring-a-wallet">Restoring a wallet</h2>
+<p>You can open a previously created wallet by simply launching nerva-wallet-cli and typing the name of the wallet.
+If the wallet file was lost or corrupted, or you have forgotten the password, you will need to restore the wallet through one of these methods:</p>
+<h4 id="restore-from-25-word-mnemonic-seed">Restore from 25 word mnemonic seed</h4>
+<p>You can restore from seed with the following command: <code>nerva-wallet-cli --restore-deterministic-wallet</code></p>
+<p>Set a name for your wallet, then carefully input your 25 word seed.
+You will be asked to enter the seed encryption passphrase - usually there is no passphrase, so just hit enter. Then enter a strong password for the wallet, as if you were creating a new one.
+Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.</p>
+<h4 id="restore-from-private-spend-key">Restore from private spend key</h4>
+<p>You can restore from the spend key with the following command: <code>nerva-wallet-cli --generate-from-spend-key &lt;name&gt;</code></p>
+<p>Replace <code>&lt;name&gt;</code> with the name you'd like your restored wallet to have.
+You'll be prompted to enter your (secret) spend key. Carefully type it in.
+Next choose a strong password for your wallet and confirm it, then choose your language (1 for English).
+Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.</p>
+<hr>
+
+<h2 id="basic-usage">Basic usage</h2>
+<p><strong>In both nervad and nerva-wallet-cli, you can see a full list of commands with <code>help</code>, and more information on a given command with <code>help &lt;command&gt;</code>.</strong> Some commands are explained in further detail below.</p>
+<p>You can view your public address (that you can receive funds to) with the wallet command <code>address</code>. You can see your current balance with <code>balance</code>.</p>
+<h4 id="making-transactions">Making transactions</h4>
+<p>No currency is complete without a way to spend it. nerva-wallet-cli provides the means to transfer funds to other accounts. The most basic way to send funds is to use the command: <code>transfer &lt;address&gt; &lt;amount&gt;</code>, where <code>address</code> is the address to send XNV to and <code>amount</code> is the amount to send. After you press ENTER, you will be informed of the fee and asked to confirm. Confirm the transaction to send.</p>
+<p>There are other options when it comes to sending XNV. The following command includes some of the optional features: <code>transfer &lt;priority&gt; &lt;address&gt; &lt;amount&gt; &lt;payment_id&gt;</code></p>
+<p>Additional to <code>address</code> and <code>amount</code>, you now also have a <code>priority</code> which specifies the importance of the transaction and a <code>payment_id</code> which may optionally be required by the receiving party. There are 4 priority levels:</p>
+<ul>
+<li>default</li>
+<li>low</li>
+<li>medium</li>
+<li>high</li>
+</ul>
+<p>Higher priority transactions are processed before lower priority transactions, however they cost more in fees. In most cases, the <code>default</code> priority (automatically set when you omit the priority) is suitable. Transaction fees collected are placed into the next block and included as part of the block reward for the miner of the next block.</p>
+<p>The payment ID is an optional identifier used to label a transaction. This is most often used to distinguish who is sending funds to a particular wallet. For example, exchanges listing NERVA have only one address, and use the payment ID to determine which user is depositing funds to the exchange. Usually, exchanges use an <a href="#concerning-addresses"><em>integrated address</em></a>.</p>
+<h4 id="viewing-transactions">Viewing transactions</h4>
+<p>You can use the <code>show_transfers</code> command in nerva-wallet-cli to see your transaction history (both sent and received).</p>
+<p>Your wallet will automatically detect any new transactions, but if it doesn't (for example if it previously lost connection to nervad) you can manually refresh it with the <code>refresh</code> command. You can also fully rescan the blockchain with the command <code>rescan_bc</code> which will usually resolve any wallet issues.</p>
+<h4 id="checking-node-status">Checking node status</h4>
+<p>In nervad, type the following command: <code>status</code></p>
+<p>This will produce an output such as:
+<code>Height: 93582/93582 (100.0%) on mainnet, mining at 607 H/s, net hash 365.58 kH/s, v6, up to date, 8(out)+0(in) connections, uptime 0d 5h 35m 18s</code></p>
+<p>This shows you the height, network you are connected to, hash rate, number of connections and uptime. This comprises most information a user might require about the NERVA network.</p>
+<h4 id="exiting">Exiting</h4>
+<p>You should always use the <code>exit</code> command to safely close both nervad and nerva-wallet-cli.</p>
+<hr>
+
+<h2 id="mining">Mining</h2>
+<p>Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. There are two ways to start mining:</p>
+<ul>
+<li>In <code>nerva-wallet-cli</code>, with the command <code>start_mining &lt;threads&gt;</code> - this will mine to your wallet address</li>
+<li>In <code>nervad</code>, with the command <code>start_mining &lt;address&gt; &lt;threads&gt;</code></li>
+</ul>
+<p>You can also set nervad to mine automatically after launching, with the command:
+<code>nervad --start-mining &lt;address&gt; --mining-threads &lt;threads&gt;</code></p>
+<p>If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the <a href="../mining">Mining FAQ</a>.</p>
+<hr>
+
+<h2 id="things-to-consider-faq">Things to consider &amp; FAQ</h2>
+<h4 id="concerning-nethash">Concerning Nethash</h4>
+<p>As mentioned earlier, when you type <code>status</code> in the daemon one of the things you see is the network's total hashrate; this value is only an estimate, and so it can depart from the true network hashrate, which cannot be directly observed. The nethash value you see derives from the recent rate at which blocks have been produced. Consequently, luck may cause the nethash reading to fluctuate substantially, even if the real network hashrate hasn't changed at all.</p>
+<p>An example: Blocks get found quickly, so it looks like the total nethash has increased; the estimate adjusts to compensate, then blocks slow down and it looks like nethash has decreased.</p>
+<h4 id="concerning-addresses">Concerning Addresses</h4>
+<p>NERVA has different types of addresses:
+A <strong>normal address</strong> for NERVA starts with <code>NV</code>. If you send coins to an exchange or a merchant you have to add a payment ID to this kind of address. Due to the untraceability of transactions, they will need this to know the payment comes from you. Alternatively, you can use an <strong>integrated address</strong> which starts with <code>Niz</code>. Don't ask how the Z got there. This is likely a wrongly configured prefix; when the chain launched with it, it stayed forever. Integrated addresses don't require a separate payment ID because it is...integrated into it. A third kind of address is a <strong>subaddress</strong>. This is what you get if you create more than one address for a wallet. Subaddresses start with <code>NS</code>. Subaddresses are the next generation of privacy enhancing address.</p>
+<p>To summarize:</p>
+<ul>
+<li><strong>normal address</strong>: starts with <code>NV</code>, can be combined with payment ID</li>
+<li><strong>integrated address</strong>: starts with <code>Niz</code>, has an integrated payment ID, typically used by exchanges.</li>
+<li><strong>subaddress</strong>: starts with <code>NS</code></li>
+</ul>
+<h4 id="concerning-chain-reorganizations">Concerning Chain Reorganizations:</h4>
+<p>Nodes always broadcast what they think is the right block height but this is not necessarily the correct one.</p>
+<ul>
+<li>It used to happen a lot after hardforks that outdated nodes kept broadcasting their bad chain top block as the right one. This is no longer an issue (since the CN-A v3 algorithm) because outdated nodes now get blocked as soon as they send a bad block or announce their invalid version height.</li>
+<li>The other possibility is that two miners find a block simultaneously (a so called uncle block situation) and both get half the network behind 'their' chain. This creates a temporary fork and happens every so often (daily). It goes like this:</li>
+</ul>
+<p>Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganised" onto the right one.</p>
+<h4 id="concerning-seed-nodes">Concerning Seed Nodes</h4>
+<p>The seed nodes are the basic nodes in the NERVA network. When you start your daemon for the first time, it will connect to the seed nodes to get started. Seed nodes are really nothing special: They are IP addresses hardcoded into the daemon, so if you run out of connections, you know at least a few nodes you can contact. NERVA developers are actively looking at alternate ways of getting a list of nodes you can connect to because seed nodes introduce a certain level of centralization. DNS-based node lists and port scanning to find other nodes are several of the options that are being considered.</p>
+<h4 id="concerning-the-nodemap">Concerning the Nodemap</h4>
+<p>NERVA has a <a href="https://map.getnerva.org">nodemap</a> which shows you approximately where the full nodes are in the world. Isn't that bad for privacy? First and foremost, there is the possibility to opt-out by starting the daemon with the <code>--no-analytics</code> flag. Besides that, no personally identifiable information is being stored and you always have the option to run the node from behind a proxy or VPN if you are worried.  The analytics aren't really analytics either: it's a simple matter of geolocating IP addresses which anyone could do with their own node. In fact, a core member (syzygy) playing around with this is exactly how the node map came to be. The functionality was later added to explicitly support it in the daemon.</p>
+<h4 id="log-location">Log location</h4>
+<p>By default, log files are stored in the following locations:</p>
+<ul>
+<li><code>C:\ProgramData\nerva</code> on Windows</li>
+<li><code>~/.nerva</code> on Linux and macOS</li>
+</ul>
+<p>You can change this with the <code>--log-file</code> launch paramater if you so wish.</p>
+<h4 id="changing-log-level">Changing log level</h4>
+<p>If you're having a problem but aren't receiving any error or warning messages in the terminal or logs, it can be a bit of a guessing game to find out what is going on.</p>
+<p>Increasing the log level will output much more information, which can help to identify issues. You can do this in both nervad and nerva-wallet-cli, with the command <code>set_log &lt;level&gt;</code>, or by launching them with the parameter <code>--log-level &lt;level&gt;</code>.</p>
+<p>Replace <code>&lt;level&gt;</code> with a number from 0-4, with 0 being minimal information, and 4 being a constant stream of text. It is recommended to increment the number by 1 until you find what you are looking for.</p>
+<h4 id="how-do-i-update">How do I update?</h4>
+<p>Download the latest version and simply overwrite the existing files.</p>
+<h4 id="how-do-i-sync-even-faster">How do I sync even faster?</h4>
+<p>Syncing the NERVA blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
+The preferred method is to use <a href="https://getnerva.org/content/bootstrap/quicksync.raw">quicksync</a>, as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:</p>
+<p><code>nervad --quicksync &lt;path/to/quicksync.raw&gt;</code>.</p>
+<p>An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest <a href="https://getnerva.org/content/bootstrap/mainnet.raw">full bootstrap</a> and import this via the command:</p>
+<p><code>nerva-blockchain-import --input-file &lt;path/to/mainnet.raw&gt; --verify 0</code></p>
+<p>Excluding the time to download the bootstrap, the import process should take less than a minute.
+<strong>You'll need to run the import command twice to sync to the top block of the bootstrap.</strong> You then only need to sync the remaining blocks that weren't included in the bootstrap file.</p>
+<p>What's the difference between NERVA's quicksync method and a regular bootstrap? The bootstrap is a copy of all the blocks up to a certain point; it is possible to enable full block verification with a bootstrap file if you wish to do so.
+Quicksync, on the other hand, is a binary file that contains all of the chain's block hashes up to a certain height. While quicksyncing, the block hashes are compared to what is in the quicksync file rather than being computed on the fly. That saves your daemon from hashing each block itself, which is what makes the synchronization quick. It doesn't fully bypass the verification process, only the slow part of hashing the block.  </p>
+<h4 id="what-are-node-blocked-messages">What are node blocked messages?</h4>
+<p>Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. NERVA also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. </p>
+<p>If you are worried about these errors, you should type <code>status</code> into your node. If you have connections to the network, then there is nothing to worry about. If it reports you have no connections, then it is highly probable that it is in fact your node that is blocked from the network.</p>
+<hr>
+
+<h2 id="updating-nerva">Updating NERVA</h2>
+<p>Each new release of the software brings new features, improvements or optimisations. It's recommended to always keep your node up to date with the latest version. Occasionally, <a href="../../about/#hard-forks">hard forks occur</a> which makes updating your node mandatory.</p>
+<p>To update, simply close all NERVA processes, download the new binaries, extract them and copy your wallet files from the old version to the new. Alternatively you can paste the new binaries into your existing NERVA directory, overwriting the old contents. Before updating, you should ensure that your wallet seed phrase is backed up, just in case something goes wrong.</p>
+<hr>
+
+<h2 id="common-issues">Common issues</h2>
+<h4 id="created-a-new-wallet-but-transactions-or-found-blocks-do-not-display">Created a new wallet but transactions or found blocks do not display</h4>
+<p>If this happens please use the command <code>rescan_bc</code>.  If this does not help the current solutuion is to restore your wallet from its seed phrase.  This will fix the issue.</p>
+<h4 id="aes-ni-error">AES-NI error</h4>
+<p>Use the <strong>noaes</strong> version of nervad.</p>
+<h4 id="nervad-will-not-launch-or-crashes-after-launching">nervad will not launch or crashes after launching</h4>
+<p>The most common reason this occurs is if you already have another instance of nervad running in the background. If in doubt, try restarting your computer.</p>
+<p>If this did not fix the issue, check <a href="#log-location">the logs</a> for more information.</p>
+<h4 id="node-not-syncing">Node not syncing</h4>
+<p>There are a number of reasons this can occur. Following these steps should resolve it in most cases:</p>
+<ul>
+<li>Restart the daemon</li>
+<li>Restart your computer</li>
+<li>Check your system's clock. If you clock's time is off from the network time by more than the future time limit, the local daemon will reject the block.</li>
+<li>Ensure you are running the latest version of NERVA.</li>
+<li>It is possible your blockchain is corrupted or you are on a forked chain. Run this command:
+<code>nerva-blockchain-import --pop-blocks 1000</code>, then restart the daemon again.</li>
+<li>You may have been blocked by the seed nodes. Waiting or changing your IP should resolve this, or you can unblock yourself in the #atom channel in Discord.</li>
+</ul>
+<p>If you're still having issues, Discord is the right place to be so we can investigate further.</p>
+<h4 id="wallet-created-prior-to-v0156-will-not-open">Wallet created prior to v0.1.5.6 will not open</h4>
+<p>You'll need to restore from seed.</p>
+<h4 id="mdb_readers_full-error">MDB_READERS_FULL error</h4>
+<p>Launch nervad with the flag: <code>--db-readers 256</code></p>
+<p>Increase this number until you don't get the error any more.</p>
+<h4 id="macos-lazy-symbol-binding-failed-symbol-not-found-_clock_gettime">(macOS) 'lazy symbol binding failed: Symbol not found: _clock_gettime'</h4>
+<p>The Mac CLI is built on Mojave. The minimum required version for running the Mac CLI is reported as Sierra. There is no plan to support versions older than that for mining on Mac.</p>
+<p>If you have git installed, you may also try building from source: <code>git clone --recursive https://bitbucket.org/nerva-project/nerva &amp;&amp; ./nerva/builder/mac</code></p>
+<h4 id="linux-nerva-wallet-cli-hangs-on-launch">(Linux) nerva-wallet-cli hangs on launch</h4>
+<p>Try launching the wallet with the flag <code>--daemon-ssl disabled</code>.</p>
+<hr>
+
+<h2 id="getting-help">Getting help</h2>
+<p>If you have questions that are not answered here or with the <code>help</code> command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on <a href="https://discord.gg/xBHxnGN">Discord</a> (in the <strong>#cli-help</strong> channel), our community is active and helpful.</p>
+
+<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+  <li class="last-updated-holder displayDate loading">
+    <span class="last-updated-text">Last updated:</span>
+    <time role="presentation" datetime="2018-10-25T00:00:00.000Z" data-article-date-source="ms.date">2020-03-16</time>
+  </li>
+<!--
+  <li class="readingTime">
+    2 minutes to read
+  </li>
+-->
+  <li class="contributors-holder">
+    <span class="contributors-text">Contributors</span>
+    <ul class="contributors" data-bi-name="contributors"><li><a href="https://github.com/mrsyzygy" title="syzygy" data-bi-name="contributorprofile"><img src="../img/contributor.svg" data-src="https://avatars2.githubusercontent.com/u/21166356?v=4?size=32" alt="syzygy"></a></li><li><a href="https://github.com/superman32432432" title="None" data-bi-name="contributorprofile"><img src="../img/contributor.svg" data-src="https://avatars2.githubusercontent.com/u/7228420?v=4?size=32" alt="None"></a></li></ul>
+  </li>
+</ul>
+</div>
+        <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    <div id="toc-collapse" class="navbar-collapse collapse card">
+        <ul class="nav flex-column bs-sidenav">
+            <li class="nav-item main"><a class="nav-link" href="#nerva-cli-guide">NERVA CLI Guide</a></li>
+                <li class="nav-item">
+                    <a href="#getting-started" class="nav-link">Getting started</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#running-the-daemon" class="nav-link">Running the daemon</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#creating-a-wallet" class="nav-link">Creating a wallet</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#restoring-a-wallet" class="nav-link">Restoring a wallet</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#basic-usage" class="nav-link">Basic usage</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#mining" class="nav-link">Mining</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#things-to-consider-faq" class="nav-link">Things to consider &amp; FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#updating-nerva" class="nav-link">Updating NERVA</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#common-issues" class="nav-link">Common issues</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#getting-help" class="nav-link">Getting help</a>
+                </li>
+        </ul>
+    </div>
+</div></div>
+      </div>
+      </div>
+
+      <footer class="col-md-12">
+	<hr>
+	<div class="container">
+	  <p>&copy; 2019 <strong>The NERVA Project</strong></p>
+	</div>
+      </footer>
+      <script>
+	var base_url = "../..";
+      </script>
+      <script src="../../js/base.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+      <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
