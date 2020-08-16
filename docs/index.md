@@ -10,7 +10,7 @@ NERVA has both a graphical interface (GUI) and a command-line interface, with th
 * [Mining FAQ](guides/mining/)
 * [A list of community projects](projects/)
 
-If you can't find what you need with the search function, help is always available on [Discord](https://discord.gg/xBHxnGN).
+If you can't find what you need with the search function, help is always available on [Discord](https://discord.gg/jsdbEns).
 
 <hr>
 ### Contributing
