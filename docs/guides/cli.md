@@ -5,7 +5,7 @@ Running NERVA from the command-line gives you the most features, flexibility and
 ---
 #### WARNING!
 
-**As of the most current release** when downloading the CLI package you will be provided with 2 versions of the daemon.  **`nervad-aes` and `nervad-noaes`**.  In most cases you will want to use the AES version. No AES is intended for users who have older systems that are not cabaple of using AES-NI.  
+**As of the most current release** there are 2 binary packages available for download. The default minimal package contains rthe bare essentials for running a nde and transacting oin the network. This release requires your CPU to support the AES-NI instruction set (Most desktop CPUs made in the last 10 years). If you require any additional tooling or a version of nervad without the AES-NI instruction set then you need to download the full package. All downloads are available on [BitBucket](https://bitbucket.org/nerva-xnv/nerva/downloads)
 
 ---
 
