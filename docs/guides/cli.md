@@ -17,7 +17,7 @@ NERVA consists of 2 primary components:
 
 There are other programs which are part of NERVA, but these are only used in specific circumstances.
 
-To get these programs, open the [NERVA downloads page](https://getnerva.org/#downloads) and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file - this will save you a lot of time. Then follow the instructions below for your specific operating system:
+To get these programs, open the [NERVA downloads page][nerva-downloads-link] and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file - this will save you a lot of time. Then follow the instructions below for your specific operating system:
 
 #### Getting started: Windows
 **Tip for Windows users:** [Cmder](https://cmder.net/) is an alternative command prompt which improves the CLI experience. It is not required but is being used in the screenshots in this guide.
@@ -208,7 +208,7 @@ The seed nodes are the basic nodes in the NERVA network. When you start your dae
 
 #### Concerning the Nodemap
 
-NERVA has a [nodemap](https://map.getnerva.org) which shows you approximately where the full nodes are in the world. Isn't that bad for privacy? First and foremost, there is the possibility to opt-out by starting the daemon with the `--no-analytics` flag. Besides that, no personally identifiable information is being stored and you always have the option to run the node from behind a proxy or VPN if you are worried.  The analytics aren't really analytics either: it's a simple matter of geolocating IP addresses which anyone could do with their own node. In fact, a core member (syzygy) playing around with this is exactly how the node map came to be. The functionality was later added to explicitly support it in the daemon.
+NERVA has a [nodemap][nerva-nodemap-link] which shows you approximately where the full nodes are in the world. Isn't that bad for privacy? First and foremost, there is the possibility to opt-out by starting the daemon with the `--no-analytics` flag. Besides that, no personally identifiable information is being stored and you always have the option to run the node from behind a proxy or VPN if you are worried.  The analytics aren't really analytics either: it's a simple matter of geolocating IP addresses which anyone could do with their own node. In fact, a core member (syzygy) playing around with this is exactly how the node map came to be. The functionality was later added to explicitly support it in the daemon.
 
 #### Log location
 By default, log files are stored in the following locations:
@@ -230,11 +230,11 @@ Download the latest version and simply overwrite the existing files.
 
 #### How do I sync even faster?
 Syncing the NERVA blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
-The preferred method is to use [quicksync](https://getnerva.org/content/bootstrap/quicksync.raw), as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:
+The preferred method is to use [quicksync][nerva-quicksync-link], as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:
 
 `nervad --quicksync <path/to/quicksync.raw>`.
 
-An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest [full bootstrap](https://getnerva.org/content/bootstrap/mainnet.raw) and import this via the command:
+An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest [full bootstrap][nerva-full-bootstrap-link] and import this via the command:
 
 `nerva-blockchain-import --input-file <path/to/mainnet.raw> --verify 0`
 
@@ -302,3 +302,12 @@ Try launching the wallet with the flag `--daemon-ssl disabled`.
 <hr>
 ## Getting help
 If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/jsdbEns) (in the **#cli-help** channel), our community is active and helpful.
+
+
+
+
+<!--Reference links -->
+[nerva-downloads-link]: https://getnerva.org/#downloads
+[nerva-nodemap-link]: https://map.getnerva.org
+[nerva-quicksync-link]: https://getnerva.org/content/bootstrap/quicksync.raw
+[nerva-full-bootstrap-link]: https://getnerva.org/content/bootstrap/mainnet.raw

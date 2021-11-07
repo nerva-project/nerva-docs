@@ -1,7 +1,7 @@
 # nerva-docs
-Official NERVA documentation (https://docs.getnerva.org)
+Official NERVA documentation (https://docs.nerva.one)
 
-Copyright (c) 2019 The NERVA Project
+Copyright (c) 2021 The NERVA Project
 
 ## Contributing
 All you need to help us write the docs is a basic knowledge of the [Markdown formatting language](https://www.markdowntutorial.com/), which is easy to learn. To contribute you'll need to fork this repository, make your desired changes and then submit a pull request to merge those changes. If you're unfamiliar with this process, feel free to ask for help on [Discord](https://discord.gg/jsdbEns).
