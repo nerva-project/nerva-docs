@@ -9,7 +9,7 @@ Please remember that the GUI is still a Beta version.
 
 ## Downloading
 
-Binary distributions can be found [here](https://getnerva.org/#downloads).
+Binary distributions can be found [here][nerva-downloads-link].
 
 Select the appropriate file for the target platform (Windows, Ubuntu, Fedora, Debian).
 
@@ -113,3 +113,9 @@ Your transaction should now be on the way to the recipient's wallet!
 ## Exiting the Wallet
 
 To exit the GUI Wallet, simply click on “File – Quit”
+
+
+
+
+<!--Reference links -->
+[nerva-downloads-link]: https://getnerva.org/#downloads

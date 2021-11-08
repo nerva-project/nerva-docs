@@ -1,5 +1,5 @@
 site_name: NERVA Docs
-site_url: https://docs.getnerva.org
+site_url: https://docs.nerva.one
 repo_url: https://github.com/nerva-project/nerva-docs
 site_description: Official NERVA documentation
 edit_uri: blob/master/docs/
@@ -8,10 +8,11 @@ theme:
     custom_dir: 'mkdocs-bootstrap4/mkdocs_bootstrap4/'
     suppress_nextprev: true
 extra_css: [nerva.css]
-copyright: "&copy; 2019 <strong>The NERVA Project</strong>"
+copyright: "&copy; 2021 <strong>The NERVA Project</strong>"
 nav:
     - About: 'about.md'
     - User Guides:
+        - 'Developer Guide': 'guides/develop.md'
         - 'CLI Guide': 'guides/cli.md'
         - 'GUI Guide': 'guides/gui.md'
         - 'Mining FAQ': 'guides/mining.md'

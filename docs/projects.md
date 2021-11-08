@@ -10,7 +10,7 @@ Live network statistics, by **xmranon**. [https://freeboard.io/board/EV5-se](htt
 ### Nodemap
 ![nodemap](img/nodemap.jpg)
 
-A map of NERVA full nodes around the world with stats, by **syzygy**. [https://map.getnerva.org](https://map.getnerva.org)
+A map of NERVA full nodes around the world with stats, by **syzygy**. [Nerva node map][nerva-nodemap-link]
 
 <hr>
 ### Nerva Store Project
@@ -33,3 +33,9 @@ An easy way to buy XNV with BTC, by **Nithronium**. The code is available [on Gi
 - A calculator for NERVA mining profitability: [https://gitlab.com/yas3/nerva-calculator](https://gitlab.com/yas3/nerva-calculator)
 - A faucet for free XNV coins: [https://gitlab.com/yas3/nerva-faucet](https://gitlab.com/yas3/nerva-faucet)
 - A dice game played with XNV: [https://gitlab.com/yas3/nerva-games](https://gitlab.com/yas3/nerva-games)
+
+
+
+
+<!--Reference links -->
+[nerva-nodemap-link]: https://map.getnerva.org

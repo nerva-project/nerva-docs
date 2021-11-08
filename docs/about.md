@@ -1,5 +1,5 @@
 # About
-This page aims to provide some more information about the NERVA project and answer common (non-technical) questions. For help using the NERVA software, refer to the Guides section. You can also read more about the project on the [main website](https://getnerva.org), and join our growing community on [Discord](https://discord.gg/jsdbEns), [Telegram](https://t.me/NervaXNV) and [Reddit](https://www.reddit.com/r/Nerva/).
+This page aims to provide some more information about the NERVA project and answer common (non-technical) questions. For help using the NERVA software, refer to the Guides section. You can also read more about the project on the [main website][nerva-website-link], and join our growing community on [Discord][nerva-discord-link], [Telegram](https://t.me/NervaXNV) and [Reddit](https://www.reddit.com/r/Nerva/).
 
 ## What is NERVA?
 *"Proof-of-work is essentially one-CPU-one-vote" - Satoshi Nakamoto*
@@ -56,7 +56,7 @@ NERVA's unique approach to mining is important, but mining is only part of a coi
 * Premine: 1.05% (193,861 XNV)
 * Ring size: 5 (fixed for all transactions)
 
-NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here](https://explorer.getnerva.org/). Additional network statistics are available on [Freeboard](https://freeboard.io/board/EV5-se) and the [Nodemap](https://map.getnerva.org).
+NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Freeboard](https://freeboard.io/board/EV5-se) and the [Nodemap][nerva-website-link].
 
 <hr>
 ## Premine
@@ -115,4 +115,13 @@ We are actively working on integrating NERVA with other platforms and services t
 
 <hr>
 ## Exchanges
-XNV is currently traded on [TradeOgre](https://tradeogre.com/exchange/BTC-XNV), [Cratex](https://cratex.io/index.php?pair=XNV/BTC) and [QBTC](https://www.qbtc.com/trade?symbol=XNV_CNYT).
+XNV is currently traded on [TradeOgre][tradeogre-link], [Cratex](https://cratex.io/index.php?pair=XNV/BTC) and [QBTC](https://www.qbtc.com/trade?symbol=XNV_CNYT).
+
+
+
+
+<!--Reference links -->
+[nerva-discord-link]: https://discord.gg/jsdbEns
+[nerva-website-link]: https://nerva.one
+[nerva-explorer-link]: https://explorer.nerva.tools/
+[tradeogre-link]: https://tradeogre.com/exchange/BTC-XNV
