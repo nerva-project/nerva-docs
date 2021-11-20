@@ -18,7 +18,7 @@ A message will be displayed in the daemon along the lines of `Found block at hei
 If you have your wallet open, you will also see the block reward as an incoming transaction.
 
 #### What is the current block reward?
-Refer to the [block explorer](https://explorer.getnerva.org/) to see the current block reward.
+Refer to the [block explorer][nerva-explorer-link] to see the current block reward.
 
 #### Understanding threads
 A thread is simply a virtual representation of a CPU core. Modern CPU's have 2-8+ cores, with some very high end models packing 32 or more cores. Most modern CPU's also feature Simultaneous Multithreading (SMT), also known as HyperThreading, which allows for multiple threads per core.
@@ -63,3 +63,9 @@ This is a very common question and almost always just bad luck. Unless there is 
 
 #### Does my chance of finding a block increase over time?
 All else being equal (ie if the network difficulty and your hashrate have not changed), no. You have the same likelihood each block, of finding that block. There is no advantage from having mined longer than someone else.
+
+
+
+
+<!--Reference links -->
+[nerva-explorer-link]: https://explorer.nerva.tools/

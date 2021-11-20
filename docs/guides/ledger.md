@@ -1,5 +1,5 @@
 # Use a Ledger Hardware Wallet with NERVA
-NERVA has support for the Ledger Nano S hardware wallet, but is not currently included in the Ledger Live application, so some configuration is required to 'sideload' the NERVA app onto your Ledger device. You will need to have Python installed on your computer, and to [download the NERVA Ledger files](https://getnerva.org/#downloads).
+NERVA has support for the Ledger Nano S hardware wallet, but is not currently included in the Ledger Live application, so some configuration is required to 'sideload' the NERVA app onto your Ledger device. You will need to have Python installed on your computer, and to [download the NERVA Ledger files][nerva-downloads-link].
 
 You should read and understand this document and ensure you are confident in the process before continuing. No responsibility will be taken for loss of funds or any unexpected behaviour of your device. If you aren't comfortable with this process, it's recommended to use a paper wallet to store your NERVA funds.
 
@@ -39,3 +39,9 @@ Generate a hardware wallet
 
 Once done, you can load the wallet in future with  
 `./nerva-wallet-cli --wallet-file <wallet-path> --hw-device "Ledger"`
+
+
+
+
+<!--Reference links -->
+[nerva-downloads-link]: https://getnerva.org/#downloads
