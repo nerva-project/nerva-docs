@@ -1,13 +1,12 @@
 # NERVA CLI Guide
 Running NERVA from the command-line gives you the most features, flexibility and stability, and is recommended for crypto veterans and newbies alike. If you're a less technical user and aren't familiar with the command-line, we know this can be intimidating at first. In truth, it's easy and you'll be a pro in no time at all. No prior knowledge is assumed in this guide, except basic computer skills. Let's get started!
 
-## Getting started
----
-#### WARNING!
+<hr>
 
-**As of the most current release** there are 2 binary packages available for download. The default minimal package contains rthe bare essentials for running a nde and transacting oin the network. This release requires your CPU to support the AES-NI instruction set (Most desktop CPUs made in the last 10 years). If you require any additional tooling or a version of nervad without the AES-NI instruction set then you need to download the full package. All downloads are available on [BitBucket](https://bitbucket.org/nerva-xnv/nerva/downloads)
+# Getting started
+There are 2 binary packages per operating system available for download. The default minimal package contains the bare essentials for running a node and transacting on the network. The other package includes additional software.  All downloads are available on [GitHub][nerva-github-nerva-releases-link]
 
----
+<hr>
 
 NERVA consists of 2 primary components:
 
@@ -17,10 +16,12 @@ NERVA consists of 2 primary components:
 
 There are other programs which are part of NERVA, but these are only used in specific circumstances.
 
-To get these programs, open the [NERVA downloads page][nerva-downloads-link] and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file - this will save you a lot of time. Then follow the instructions below for your specific operating system:
+To get these programs, open the [NERVA downloads page][nerva-downloads-link] and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file that will allow you to quickly synchronize with NERVA network. Then follow the instructions below for your specific operating system:
 
-#### Getting started: Windows
-**Tip for Windows users:** [Cmder](https://cmder.net/) is an alternative command prompt which improves the CLI experience. It is not required but is being used in the screenshots in this guide.
+<hr>
+
+## Getting started: Windows
+**Tip for Windows users:** [Cmder][cmder-link] is an alternative command prompt which improves the CLI experience. It is not required but is being used in the screenshots in this guide.
 
 1. Open your Downloads folder and extract the contents of `nerva-vx.x.x.x_windows-x64.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is.
 
@@ -34,7 +35,9 @@ To get these programs, open the [NERVA downloads page][nerva-downloads-link] and
 
 If you get a pop-up from Windows Firewall or any other security software, make sure to click 'Allow'. You are now running nervad. In the future you can launch it by simply double-clicking on `nervad.exe`, and you can launch the wallet by double-clicking `nerva-wallet-cli.exe`.
 
-#### Getting started: macOS
+<hr>
+
+## Getting started: macOS
 1. Open Finder and go to your Downloads folder. Right click on the `nerva-vx.x.x.x_osx-x64.zip` file and select **Open With > Archive Utility**. This should automatically extract the contents into a new folder with the same name.
  *If you downloaded the file with Safari, it may have automatically been extracted.*
 
@@ -52,7 +55,9 @@ If you get a pop-up from Windows Firewall or any other security software, make s
 
 You are now running nervad. In the future you can relaunch it by typing `nervad` in any Terminal window, and can launch the wallet with the command `nerva-wallet-cli`. You can open multiple terminals by clicking **Shell > New Terminal** from the top menu bar.
 
-#### Getting started: Linux
+<hr>
+
+## Getting started: Linux
 1. Download and unzip the Linux binaries into a new directory, and move the `quicksync.raw` file there.
 
 2. Run the command `./nervad --quicksync quicksync.raw` (*If you are not using quicksync, simply run `./nervad`*)
@@ -60,6 +65,7 @@ You are now running nervad. In the future you can relaunch it by typing `nervad`
 You are now running nervad. In the future you can relaunch it via the `./nervad` command. You can launch the wallet with the command `./nerva-wallet-cli`.
 
 <hr>
+
 ## Running the daemon
 Once all the necessary processes have booted up, the NERVA daemon will check how far along your copy of the blockchain is. If it finds that your copy of the database has not caught up to the current block, it will tell you how far behind you are. After that, it will start synchronizing your chain with those of the peers you connect to. *Synchronizing* refers to the daemon keeping an up to date copy of the blockchain on your computer. Your daemon must have a full copy of the blockchain to work properly. You cannot mine and your wallet balance will not be accurate unless the blockchain is synchronized.
 
@@ -75,6 +81,7 @@ This process will take a while. If you have opted to use the quicksync feature, 
 If you run nervad with an increased [log level](#changing-log-level), you'll see a lot of messages while the daemon starts up all the necessary processes. The first few lines initialize the CryptoNote core module, which is the base protocol of all CryptoNote coins. The lines after that are all about booting up the servers required for accepting network requests and Remote Procedure Call (RPC) requests, which basically means the peer-to-peer stuff on the network or in simpler terms: this lets your computer talk to other computers on the NERVA network.
 
 <hr>
+
 ## Creating a wallet
 *If you wish to store your funds on a Ledger hardware wallet, refer to the [Ledger guide](../ledger/).*
 
@@ -105,7 +112,8 @@ Therefore, your wallet file is really nothing more than a cache for storing info
 The 25 word mnemonic seed is the private view and spend keys combined in a human readable form. It is a convenience option to recover your wallet. Both the CLI and GUI wallet will provide you a way to recover your funds from the seed, or from the private keys.
 
 <hr>
-## Restoring a wallet
+
+# Restoring a wallet
 You can open a previously created wallet by simply launching nerva-wallet-cli and typing the name of the wallet.
 If the wallet file was lost or corrupted, or you have forgotten the password, you will need to restore the wallet through one of these methods:
 
@@ -125,7 +133,8 @@ Next choose a strong password for your wallet and confirm it, then choose your l
 Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
 
 <hr>
-## Basic usage
+
+# Basic usage
 **In both nervad and nerva-wallet-cli, you can see a full list of commands with `help`, and more information on a given command with `help <command>`.** Some commands are explained in further detail below.
 
 You can view your public address (that you can receive funds to) with the wallet command `address`. You can see your current balance with `balance`.
@@ -163,7 +172,8 @@ This shows you the height, network you are connected to, hash rate, number of co
 You should always use the `exit` command to safely close both nervad and nerva-wallet-cli.
 
 <hr>
-## Mining
+
+# Mining
 Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. There are two ways to start mining:
 
 * In `nerva-wallet-cli`, with the command `start_mining <threads>` - this will mine to your wallet address
@@ -175,7 +185,8 @@ You can also set nervad to mine automatically after launching, with the command:
 If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
 
 <hr>
-## Things to consider & FAQ
+
+# Things to consider & FAQ
 #### Concerning Nethash
 
 As mentioned earlier, when you type `status` in the daemon one of the things you see is the network's total hashrate; this value is only an estimate, and so it can depart from the true network hashrate, which cannot be directly observed. The nethash value you see derives from the recent rate at which blocks have been produced. Consequently, luck may cause the nethash reading to fluctuate substantially, even if the real network hashrate hasn't changed at all.
@@ -193,14 +204,14 @@ To summarize:
 * **integrated address**: starts with `Niz`, has an integrated payment ID, typically used by exchanges.
 *  **subaddress**: starts with `NS`
 
-#### Concerning Chain Reorganizations:
+#### Concerning Chain Reorganizations
 
 Nodes always broadcast what they think is the right block height but this is not necessarily the correct one.
 
 * It used to happen a lot after hardforks that outdated nodes kept broadcasting their bad chain top block as the right one. This is no longer an issue (since the CN-A v3 algorithm) because outdated nodes now get blocked as soon as they send a bad block or announce their invalid version height.
 * The other possibility is that two miners find a block simultaneously (a so called uncle block situation) and both get half the network behind 'their' chain. This creates a temporary fork and happens every so often (daily). It goes like this:
 
-Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganised" onto the right one.
+Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganized" onto the right one.
 
 #### Concerning Seed Nodes
 
@@ -216,7 +227,7 @@ By default, log files are stored in the following locations:
 * `C:\ProgramData\nerva` on Windows
 * `~/.nerva` on Linux and macOS
 
-You can change this with the `--log-file` launch paramater if you so wish.
+You can change this with the `--log-file` launch parameter if you so wish.
 
 #### Changing log level
 If you're having a problem but aren't receiving any error or warning messages in the terminal or logs, it can be a bit of a guessing game to find out what is going on.
@@ -228,39 +239,25 @@ Replace `<level>` with a number from 0-4, with 0 being minimal information, and 
 #### How do I update?
 Download the latest version and simply overwrite the existing files.
 
-#### How do I sync even faster?
-Syncing the NERVA blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
-The preferred method is to use [quicksync][nerva-quicksync-link], as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:
-
-`nervad --quicksync <path/to/quicksync.raw>`.
-
-An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest [full bootstrap][nerva-full-bootstrap-link] and import this via the command:
-
-`nerva-blockchain-import --input-file <path/to/mainnet.raw> --verify 0`
-
-Excluding the time to download the bootstrap, the import process should take less than a minute.
-**You'll need to run the import command twice to sync to the top block of the bootstrap.** You then only need to sync the remaining blocks that weren't included in the bootstrap file.
-
-What's the difference between NERVA's quicksync method and a regular bootstrap? The bootstrap is a copy of all the blocks up to a certain point; it is possible to enable full block verification with a bootstrap file if you wish to do so.
-Quicksync, on the other hand, is a binary file that contains all of the chain's block hashes up to a certain height. While quicksyncing, the block hashes are compared to what is in the quicksync file rather than being computed on the fly. That saves your daemon from hashing each block itself, which is what makes the synchronization quick. It doesn't fully bypass the verification process, only the slow part of hashing the block.  
-
 #### What are node blocked messages?
 Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. NERVA also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
 
 If you are worried about these errors, you should type `status` into your node. If you have connections to the network, then there is nothing to worry about. If it reports you have no connections, then it is highly probable that it is in fact your node that is blocked from the network.
 
 <hr>
-## Updating NERVA
 
-Each new release of the software brings new features, improvements or optimisations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../../about/#hard-forks) which makes updating your node mandatory.
+# Updating NERVA
+
+Each new release of the software brings new features, improvements or optimizations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../../about/#hard-forks) which makes updating your node mandatory.
 
 To update, simply close all NERVA processes, download the new binaries, extract them and copy your wallet files from the old version to the new. Alternatively you can paste the new binaries into your existing NERVA directory, overwriting the old contents. Before updating, you should ensure that your wallet seed phrase is backed up, just in case something goes wrong.
 
 <hr>
-## Common issues
+
+# Common issues
 
 #### Created a new wallet but transactions or found blocks do not display
-If this happens please use the command `rescan_bc`.  If this does not help the current solutuion is to restore your wallet from its seed phrase.  This will fix the issue.
+If this happens please use the command `rescan_bc`.  If this does not help the current solution is to restore your wallet from its seed phrase.  This will fix the issue.
 
 #### AES-NI error
 Use the **noaes** version of nervad.
@@ -294,20 +291,25 @@ Increase this number until you don't get the error any more.
 #### (macOS) 'lazy symbol binding failed: Symbol not found: _clock_gettime'
 The Mac CLI is built on Mojave. The minimum required version for running the Mac CLI is reported as Sierra. There is no plan to support versions older than that for mining on Mac.
 
-If you have git installed, you may also try building from source: `git clone --recursive https://bitbucket.org/nerva-project/nerva && ./nerva/builder/mac`
+If you have git installed, you may also try building from source: `git clone --recursive [nerva-github-nerva-link] && ./nerva/builder/mac`
 
 #### (Linux) nerva-wallet-cli hangs on launch
 Try launching the wallet with the flag `--daemon-ssl disabled`.
 
 <hr>
-## Getting help
-If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord](https://discord.gg/jsdbEns) (in the **#cli-help** channel), our community is active and helpful.
+
+# Getting help
+If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord][nerva-discord-link] (in the **#cli-help** channel), our community is active and helpful.
 
 
 
 
 <!--Reference links -->
-[nerva-downloads-link]: https://getnerva.org/#downloads
-[nerva-nodemap-link]: https://map.getnerva.org
-[nerva-quicksync-link]: https://getnerva.org/content/bootstrap/quicksync.raw
-[nerva-full-bootstrap-link]: https://getnerva.org/content/bootstrap/mainnet.raw
+[nerva-downloads-link]: https://nerva.one/#downloads
+[nerva-nodemap-link]: https://map.nerva.one
+[nerva-quicksync-link]: https://github.com/nerva-project/nerva/releases/download/v0.1.7.4/quicksync.raw
+[nerva-github-nerva-link]: https://github.com/nerva-project/nerva
+[nerva-github-nerva-releases-link]: https://github.com/nerva-project/nerva/releases
+[nerva-discord-link]: https://discord.gg/jsdbEns
+
+[cmder-link]: https://cmder.net/
