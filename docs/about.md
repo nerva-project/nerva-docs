@@ -1,5 +1,5 @@
 # About
-This page aims to provide information about the NERVA project and answer common questions. For help using the NERVA software, refer to User Guides section. You can also read more about the project on the [main website][nerva-website-link], and join our growing community on [Discord][nerva-discord-link], [Telegram][nerva-telegram-link] and [Reddit][nerva-reddit-link].
+This page aims to provide information about the NERVA project and answer common questions. For help using the NERVA software, refer to User Guides section. You can also read more about the project on the [main website][nerva-website-link], and join our growing community on [Discord][nerva-discord-link] and [Reddit][nerva-reddit-link].
 
 <hr>
 
@@ -131,10 +131,9 @@ NERVA's unique approach to mining is important, but mining is only part of a coi
 
 <!--Reference links -->
 [nerva-website-link]: https://nerva.one/
-[nerva-explorer-link]: https://explorer.nerva.tools/
+[nerva-explorer-link]: https://explorer.nerva.one/
 
 [nerva-discord-link]: https://discord.gg/ufysfvcFwe
-[nerva-telegram-link]: https://t.me/NervaXNV
 [nerva-reddit-link]: https://www.reddit.com/r/Nerva/
 [nerva-freeboard-link]: https://freeboard.io/board/EV5-se
 

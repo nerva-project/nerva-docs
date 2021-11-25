@@ -68,4 +68,4 @@ All else being equal (ie if the network difficulty and your hashrate have not ch
 
 
 <!--Reference links -->
-[nerva-explorer-link]: https://explorer.nerva.tools/
+[nerva-explorer-link]: https://explorer.nerva.one/
