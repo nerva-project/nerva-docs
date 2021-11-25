@@ -239,22 +239,6 @@ Replace `<level>` with a number from 0-4, with 0 being minimal information, and 
 #### How do I update?
 Download the latest version and simply overwrite the existing files.
 
-#### How do I sync even faster?
-Syncing the NERVA blockchain from scratch is relatively fast, but there are several ways to speed it up significantly.
-The preferred method is to use [quicksync][nerva-quicksync-link], as demonstrated in earlier in this guide. This is a small file which, once downloaded, will allow you to sync the full blockchain in around 20 minutes, with the command:
-
-`nervad --quicksync <path/to/quicksync.raw>`.
-
-An even faster method, especially useful if deploying NERVA to multiple machines, is to download the latest [full bootstrap][nerva-full-bootstrap-link] and import this via the command:
-
-`nerva-blockchain-import --input-file <path/to/mainnet.raw> --verify 0`
-
-Excluding the time to download the bootstrap, the import process should take less than a minute.
-**You'll need to run the import command twice to sync to the top block of the bootstrap.** You then only need to sync the remaining blocks that weren't included in the bootstrap file.
-
-What's the difference between NERVA's quicksync method and a regular bootstrap? The bootstrap is a copy of all the blocks up to a certain point; it is possible to enable full block verification with a bootstrap file if you wish to do so.
-Quicksync, on the other hand, is a binary file that contains all of the chain's block hashes up to a certain height. While quicksyncing, the block hashes are compared to what is in the quicksync file rather than being computed on the fly. That saves your daemon from hashing each block itself, which is what makes the synchronization quick. It doesn't fully bypass the verification process, only the slow part of hashing the block.  
-
 #### What are node blocked messages?
 Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. NERVA also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
 
@@ -321,10 +305,9 @@ If you have questions that are not answered here or with the `help` command, rem
 
 
 <!--Reference links -->
-[nerva-downloads-link]: https://getnerva.org/#downloads
-[nerva-nodemap-link]: https://map.getnerva.org
-[nerva-quicksync-link]: https://getnerva.org/content/bootstrap/quicksync.raw
-[nerva-full-bootstrap-link]: https://getnerva.org/content/bootstrap/mainnet.raw
+[nerva-downloads-link]: https://nerva.one/#downloads
+[nerva-nodemap-link]: https://map.nerva.one
+[nerva-quicksync-link]: https://github.com/nerva-project/nerva/releases/download/v0.1.7.4/quicksync.raw
 [nerva-github-nerva-link]: https://github.com/nerva-project/nerva
 [nerva-github-nerva-releases-link]: https://github.com/nerva-project/nerva/releases
 [nerva-discord-link]: https://discord.gg/jsdbEns

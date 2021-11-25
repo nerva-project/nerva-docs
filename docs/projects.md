@@ -1,10 +1,16 @@
 # Community Projects
-A list of community projects and initiatives is hosted here. This page is not exhaustive and does not cover the projects in active development. If you're working on something related to NERVA, be sure to let us know in the **#community-projects** channel on [Discord][nerva-discord-link].
+A list of community projects and initiatives is hosted here. This page is not exhaustive and does not cover the projects in active development. If you're working on something related to NERVA, be sure to let us know on [Discord][nerva-discord-link].
+
+### Nerva Tools 
+
+Mirror of Nerva projects, by **syzygy** [Nerva Tools][nerva-tools-link]
+
+<hr>
 
 ### Nerva Stats (Freeboard)
 ![freeboard](img/freeboard.jpg)
 
-Live network statistics, by **xmranon**. [https://freeboard.io/board/EV5-se][freeboard-link]
+Live network statistics, by **xmranon** [https://freeboard.io/board/EV5-se][freeboard-link]
 
 <hr>
 
@@ -47,9 +53,10 @@ An easy way to buy XNV with BTC, by **Nithronium** The code is available [on Git
 
 
 <!--Reference links -->
-[nerva-nodemap-link]: https://map.getnerva.org
+[nerva-nodemap-link]: https://map.nerva.one/
 [nerva-discord-link]: https://discord.gg/jsdbEns
 
+[nerva-tools-link]: https://nerva.tools/
 [freeboard-link]: https://freeboard.io/board/EV5-se
 [forkmaps-link]: https://forkmaps.com/#/benchmarks
 [m4crypto-link]: https://m4crypto.com/

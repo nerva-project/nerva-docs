@@ -118,4 +118,4 @@ To exit the GUI Wallet, simply click on “File – Quit”
 
 
 <!--Reference links -->
-[nerva-downloads-link]: https://getnerva.org/#downloads
+[nerva-downloads-link]: https://nerva.one/#downloads
