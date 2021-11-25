@@ -9,10 +9,10 @@ This page aims to provide information about the NERVA project and answer common 
 **NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the Cryptonight Adaptive PoW algorithm, NERVA aims to force miners to keep a local copy of the blockchain, incentivizing miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporatisation and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network.
 
 Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by late 2021, the initial supply of 18.4 million coins have already been mined by the miners. From that point forward, tail emission started and each block has fixed miner reward of 0.3 XNV.  This is less than 1% annual inflation rate to incentivize further mining and replace lost coins.  Tail emission inflation translates to: 
-* 432 XNV per day
-* 3024 XNV per week
-* 12960 XNV per month
-* 153800 XNV per year
+- 432 XNV per day
+- 3024 XNV per week
+- 12960 XNV per month
+- 153800 XNV per year
 
 NERVA is a first Monero clone that reached its tail emission. What happens from this point forward, depends on the community behind NERVA project.
 
@@ -21,18 +21,18 @@ You're invited to join NERVA community of likeminded enthusiasts. In time, we ho
 <hr>
 
 # Technical Specifications
-* Name: NERVA
-* Ticker: XNV
-* Hash algorithm: Cryptonight-Adaptive (Proof-Of-Work)
-* Difficulty algorithm: LWMA
-* Total Supply: 18.44 million coins + tail emission (Tail emission started in late 2021)
-* Initial Block Reward: 70 XNV
-* Current Block Reward: 0.3 XNV
-* Emission Speed: 18
-* Block Time: 60 seconds
-* Maturity: 20 blocks
-* Premine: 1.05% (193,861 XNV)
-* Ring size: 5 (fixed for all transactions)
+- Name: NERVA
+- Ticker: XNV
+- Hash algorithm: Cryptonight-Adaptive (Proof-Of-Work)
+- Difficulty algorithm: LWMA
+- Total Supply: 18.44 million coins + tail emission (Tail emission started in late 2021)
+- Initial Block Reward: 70 XNV
+- Current Block Reward: 0.3 XNV
+- Emission Speed: 18
+- Block Time: 60 seconds
+- Maturity: 20 blocks
+- Premine: 1.05% (193,861 XNV)
+- Ring size: 5 (fixed for all transactions)
 
 NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Freeboard][nerva-freeboard-link] and the [Nodemap][nerva-website-link].
 

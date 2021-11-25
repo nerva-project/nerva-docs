@@ -33,10 +33,10 @@ Merchandise store that sells NERVA gear and accepts payment in NERVA by **R0BC0D
 # Graveyard
 Sometimes projects cease development and the people behind them move on to other things. Fortunately in many cases, the code is released by the author so that others can make use of it. Here are some examples.
 
-### Forkmaps Benchmarks
+#### Forkmaps Benchmarks
 A selection of NERVA mining benchmarks, by **JerMe404**
 
-### Nerva Store Project
+#### Nerva Store Project
 
 Proof-of-concept online store that accepts payment in XNV, by **ukminer**
 
