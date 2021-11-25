@@ -14,6 +14,6 @@ If you've never tried programming before, would you like to get your feet wet an
 
 
 <!--Reference links -->
-[nerva-discord-link]: https://discord.gg/jsdbEns
+[nerva-discord-link]: https://discord.gg/ufysfvcFwe
 [nerva-project-github-link]: https://github.com/nerva-project/
 [visual-code-link]: https://code.visualstudio.com/

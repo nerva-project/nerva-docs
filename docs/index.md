@@ -23,5 +23,5 @@ If you'd like to volunteer to help the NERVA project in another way - as a devel
 
 
 <!--Reference links -->
-[nerva-discord-link]: https://discord.gg/jsdbEns
+[nerva-discord-link]: https://discord.gg/ufysfvcFwe
 [nerva-docs-link]: https://github.com/nerva-project/nerva-docs

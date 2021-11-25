@@ -133,7 +133,7 @@ NERVA's unique approach to mining is important, but mining is only part of a coi
 [nerva-website-link]: https://nerva.one/
 [nerva-explorer-link]: https://explorer.nerva.tools/
 
-[nerva-discord-link]: https://discord.gg/jsdbEns
+[nerva-discord-link]: https://discord.gg/ufysfvcFwe
 [nerva-telegram-link]: https://t.me/NervaXNV
 [nerva-reddit-link]: https://www.reddit.com/r/Nerva/
 [nerva-freeboard-link]: https://freeboard.io/board/EV5-se
