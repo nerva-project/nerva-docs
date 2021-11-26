@@ -276,9 +276,9 @@ There are a number of reasons this can occur. Following these steps should resol
 * Ensure you are running the latest version of NERVA.
 * It is possible your blockchain is corrupted or you are on a forked chain. Run this command:
 `nerva-blockchain-import --pop-blocks 1000`, then restart the daemon again.
-* You may have been blocked by the seed nodes. Waiting or changing your IP should resolve this, or you can unblock yourself in the #atom channel in Discord.
+* You may have been blocked by the seed nodes. Waiting or changing your IP should resolve this, or you can unblock yourself in the #atom channel in [Discord][nerva-discord-link].
 
-If you're still having issues, Discord is the right place to be so we can investigate further.
+If you're still having issues, [Discord][nerva-discord-link] is the right place to be so we can investigate further.
 
 #### Wallet created prior to v0.1.5.6 will not open
 You'll need to restore from seed.
@@ -310,6 +310,6 @@ If you have questions that are not answered here or with the `help` command, rem
 [nerva-quicksync-link]: https://github.com/nerva-project/nerva/releases/download/v0.1.7.4/quicksync.raw
 [nerva-github-nerva-link]: https://github.com/nerva-project/nerva
 [nerva-github-nerva-releases-link]: https://github.com/nerva-project/nerva/releases
-[nerva-discord-link]: https://discord.gg/jsdbEns
+[nerva-discord-link]: https://discord.gg/ufysfvcFwe
 
 [cmder-link]: https://cmder.net/
