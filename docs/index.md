@@ -1,7 +1,7 @@
 # NERVA Documentation
-The purpose of this documentation is to provide users with information about NERVA, easy to follow tutorials, and to help resolve common problems. Some additional developer-oriented documentaton is available in the README files of individual repositories.
+The purpose of this documentation is to provide users with information about NERVA, easy to follow tutorials, and to help resolve common problems. Some additional developer-oriented documentation is available in the README files of individual repositories.
 
-NERVA has both a Graphical User Interface (GUI) and a Command-Line Interface (CLI), with the CLI being generally preferred as it's more stable and has more features. However, both options are supported and guides are available for each. Here's what you might be looking for:
+NERVA has both a Graphical User Interface (GUI) and a Command-Line Interface (CLI). Guides are available for both. Here's what you might be looking for:
 
 * [More information about NERVA](about/)
 * [NERVA Developer Guide](guides/develop/)

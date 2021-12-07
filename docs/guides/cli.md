@@ -1,5 +1,5 @@
 # NERVA CLI Guide
-Running NERVA from the command-line gives you the most features, flexibility and stability, and is recommended for crypto veterans and newbies alike. If you're a less technical user and aren't familiar with the command-line, we know this can be intimidating at first. In truth, it's easy and you'll be a pro in no time at all. No prior knowledge is assumed in this guide, except basic computer skills. Let's get started!
+Running NERVA from the command-line is a good option for those familiar with commands and those who prefer simplicity over Graphical User Interfaces.
 
 <hr>
 
@@ -21,7 +21,6 @@ To get these programs, open the [NERVA downloads page][nerva-downloads-link] and
 <hr>
 
 ## Getting started: Windows
-**Tip for Windows users:** [Cmder][cmder-link] is an alternative command prompt which improves the CLI experience. It is not required but is being used in the screenshots in this guide.
 
 1. Open your Downloads folder and extract the contents of `nerva-vx.x.x.x_windows-x64.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is.
 

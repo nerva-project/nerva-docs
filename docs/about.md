@@ -6,16 +6,18 @@ This page aims to provide information about the NERVA project and answer common 
 # What is NERVA?
 **"Proof-of-work is essentially one-CPU-one-vote" - Satoshi Nakamoto**
 
-**NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the Cryptonight Adaptive PoW algorithm, NERVA aims to force miners to keep a local copy of the blockchain, incentivizing miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporatisation and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network.
+**NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the Cryptonight Adaptive PoW algorithm, NERVA aims to force miners to keep a local copy of the blockchain, incentivizing miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporations and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network. 
 
-Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by late 2021, the initial supply of 18.4 million coins have already been mined by the miners. From that point forward, tail emission started and each block has fixed miner reward of 0.3 XNV.  This is less than 1% annual inflation rate to incentivize further mining and replace lost coins.  Tail emission inflation translates to: 
+Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by late 2021 the initial supply of 18.4 million coins have already been mined. We believe NERVA is the first Monero clone to reach its tail emission. 
 
-- 432 XNV per day
-- 3024 XNV per week
-- 12960 XNV per month
-- 153800 XNV per year
+Tail emission means that each block has fixed miner reward of 0.3 XNV.  Currently this is 0.85% annual inflation rate.  That percentage will decrease slightly each year.  Tail emission was programmed to incentivize further mining and replace lost coins (hard drives sometimes crash and keys or seeds printed on a piece of paper sometimes end up at the bottom of the ocean during fishing accidents). 
 
-NERVA is a first Monero clone that reached its tail emission. What happens from this point forward, depends on the community behind NERVA project.
+Tail emission inflation translates to (approximately): 
+
+- 432 new XNV per day
+- 3024 new XNV per week
+- 12960 new XNV per month
+- 153800 new XNV per year
 
 You're invited to join NERVA community of likeminded enthusiasts. In time, we hope that NERVA will gain further traction and visibility in the crowded field of cryptocurrencies. While many projects rely on hype and marketing, we're focused on providing the tools for individuals and businesses to integrate NERVA into their services and accept XNV as an alternative payment solution, leveraging the benefits of our fast and stable blockchain. In the end, we may succeed or fail, but NERVA is leading by example in demonstrating the viability of a purer vision of cryptocurrency: a currency of, by and for its users, where anybody with a CPU and an internet connection can actively contribute to and secure the network, with no centralized entities and no compromises.
 
@@ -50,7 +52,7 @@ The CryptoNight-Adaptive algorithm was developed for NERVA. The idea is quite si
 <hr>
 
 # Solo Mining
-NERVA prioritizes decentralisation, to which pools are antithetical. Many pool-mined coins are vulnerable to 51% attacks, and pool operators hold excessive influence on the wider network. To avoid these problems, NERVA has sought from day one to be solo mined only.
+NERVA prioritizes decentralization, to which pools are antithetical. Many pool-mined coins are vulnerable to 51% attacks, and pool operators hold excessive influence on the wider network. To avoid these problems, NERVA has sought from day one to be solo mined only.
 
 With solo mining, miner rewards are not as consistent as they often are with pools - depending on hashrate and difficulty, a miner may go unrewarded for an extended period of time. However, as pool rewards are still based on the percentage of hash power contributed, in the long run miners actually earn more from solo mining, due to lack of pool fees. Another potential upside to solo mining is that it incentivizes consistent, rather than on/off, mining. This can help to limit sudden swings in the overall network hashrate. Regardless, our primary motivation is to avoid centralization.
 
