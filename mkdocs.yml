@@ -5,7 +5,7 @@ site_description: Official NERVA documentation
 edit_uri: blob/master/docs/
 theme:
     name: null
-    custom_dir: 'mkdocs-bootstrap4/mkdocs_bootstrap4/'
+    custom_dir: 'nerva-docs-theme/mkdocs_bootstrap4/'
     suppress_nextprev: true
 extra_css: [nerva.css]
 copyright: "&copy; 2021 <strong>The NERVA Project</strong>"
