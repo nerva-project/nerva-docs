@@ -1,7 +1,7 @@
 # NERVA Whitepaper
 You can learn everything about the philosophy behind the NERVA project and the technology underlying our cryptocurrency on [About NERVA](about/) page.
 
-# NERVA in a nutshell
+## NERVA in a nutshell
 At the NERVA (XNV) project, we believe that crypto should be for everyone. That's why we stay true to Satoshi Nakamoto's original vision "1 CPU = 1 VOTE".
 
 Our a cryptocurrency has quite a few unique features:
