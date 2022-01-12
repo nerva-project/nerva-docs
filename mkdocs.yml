@@ -8,7 +8,7 @@ theme:
     custom_dir: 'nerva-docs-theme/mkdocs_bootstrap4/'
     suppress_nextprev: true
 extra_css: [nerva.css]
-copyright: "&copy; 2021 <strong>The NERVA Project</strong>"
+copyright: "&copy; 2018 - 2022 <strong>The NERVA Project</strong>"
 nav:
     - About: 'about.md'
     - User Guides:
