@@ -16,8 +16,8 @@ Tail emission inflation translates to (approximately):
 
 - 432 new XNV per day
 - 3024 new XNV per week
-- 12960 new XNV per month
-- 153800 new XNV per year
+- 13150 new XNV per month
+- 157800 new XNV per year
 
 You're invited to join NERVA community of likeminded enthusiasts. In time, we hope that NERVA will gain further traction and visibility in the crowded field of cryptocurrencies. While many projects rely on hype and marketing, we're focused on providing the tools for individuals and businesses to integrate NERVA into their services and accept XNV as an alternative payment solution, leveraging the benefits of our fast and stable blockchain. In the end, we may succeed or fail, but NERVA is leading by example in demonstrating the viability of a purer vision of cryptocurrency: a currency of, by and for its users, where anybody with a CPU and an internet connection can actively contribute to and secure the network, with no centralized entities and no compromises.
 
