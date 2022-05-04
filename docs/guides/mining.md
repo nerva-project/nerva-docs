@@ -64,33 +64,35 @@ This is a very common question and almost always just bad luck. Unless there is 
 #### Does my chance of finding a block increase over time?
 All else being equal (ie if the network difficulty and your hashrate have not changed), no. You have the same likelihood each block, of finding that block. There is no advantage from having mined longer than someone else.
 
-
 #### I don't have any IN/OUT connections
 There could be several reasons for this. Follow below steps to troubleshoot
 
 ##### Re-start popping some blocks 
 If you forked off to your own chain, below might help: 
-- CLI: Restart passing pop-blocks command: nervad --pop-blocks 10000
-- GUI: Go to Daemon > Restart with Command and put in: --pop-blocks 10000 
+
+* CLI: Restart passing pop-blocks command: nervad --pop-blocks 10000
+* GUI: Go to Daemon > Restart with Command and put in: --pop-blocks 10000
 
 ##### Reset p2pstate file
 If you still cannot connect to NERVA network or you have very few connections, try renaming your p2pstate file: 
-- Make sure your nervad is not running
-- Go to: C:\ProgramData\nerva\ and rename p2pstate.nerva.v11.bin to something else 
-- Restart your nervad
+
+* Make sure your nervad is not running
+* Go to: C:\ProgramData\nerva\ and rename p2pstate.nerva.v11.bin to something else
+* Restart your nervad
 
 P2pstate file keeps track of NERVA pears you connected to in the past. When you start nervad, it first tries to connect to other nodes that are saved in that file. If none of those are successful, seed node is called. Seed node returns 250 peers. Everything would work fine if nervad went through that entire list and tried to connect to each peer but that's not how it works. It will try to connect to couple of those peers BUT, it will prioritize the ones it connected to before so in reality it will try very few nodes that it does not know about if seed returns the nodes it knows about. Also, there is nothing in there that will keep track of the peers it already tried so it will keep trying to connect mostly to the same peers that are offline so they will not respond.
 
 ##### Open port 17565 in Firewall
 If you don't get any IN connections, add inbound firewall rule to allow port 17565 
-- In Windows, open Windows Defender Firewall with Advanced Security
-- Go to Inbound Rules
-- Click New Rule
-- Choose Port as Rule Type
-- In Specific local ports, put 17565
-- Allow the connection under Action
-- Make sure Domain, Private and Public are all selected in Profile
-- Give the rule a name such as: Allow Port 17565
+
+* In Windows, open Windows Defender Firewall with Advanced Security
+* Go to Inbound Rules
+* Click New Rule
+* Choose Port as Rule Type
+* In Specific local ports, put 17565
+* Allow the connection under Action
+* Make sure Domain, Private and Public are all selected in Profile
+* Give the rule a name such as: Allow Port 17565
 
 
 #### Software does not start
