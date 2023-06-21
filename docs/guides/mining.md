@@ -45,7 +45,7 @@ Definitely! Mining NERVA is actually great way to boost the efficiency and profi
 Yes, but be aware that mining may be against the ToS of some providers.
 
 #### Probability of finding a block
-For a quick answer, you can reference [Freeboard](https://freeboard.io/board/EV5-se) which has a live estimate of how long it will take to find a block with a hashrate of 1000H/s (simply divide/multiply this figure according to your actual hashrate). If using the GUI to mine, it also will provide an estimate based on the same mathematics.
+For a quick answer, look at Block Time in NERVA Desktop Wallet and Miner (GUI).
 
 The amount of time needed to have a certain probability of finding a block can be calculated through this formula:
 

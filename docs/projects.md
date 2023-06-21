@@ -3,19 +3,6 @@ A list of community projects and initiatives is hosted here. This page is not ex
 
 <hr>
 
-### Nerva Tools 
-
-Mirror of current Nerva projects, by **syzygy** [Nerva Tools][nerva-tools-link]
-
-<hr>
-
-### Nerva Stats (Freeboard)
-![freeboard](img/freeboard.jpg)
-
-Live network statistics, by **xmranon** [https://freeboard.io/board/EV5-se][freeboard-link]
-
-<hr>
-
 ### Nodemap
 ![nodemap](img/nodemap.jpg)
 
@@ -32,6 +19,12 @@ Merchandise store that sells NERVA gear and accepts payment in NERVA by **R0BC0D
 
 # Graveyard
 Sometimes projects cease development and the people behind them move on to other things. Fortunately in many cases, the code is released by the author so that others can make use of it. Here are some examples.
+
+#### Nerva Tools 
+Mirror of current Nerva projects, by **syzygy** [Nerva Tools][nerva-tools-link]
+
+#### Nerva Stats (Freeboard)
+Live network statistics, by **xmranon** [https://freeboard.io/board/EV5-se][freeboard-link]
 
 #### Forkmaps Benchmarks
 A selection of NERVA mining benchmarks, by **JerMe404**

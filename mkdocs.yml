@@ -8,14 +8,14 @@ theme:
     custom_dir: 'nerva-docs-theme/mkdocs_bootstrap4/'
     suppress_nextprev: true
 extra_css: [nerva.css]
-copyright: "&copy; 2018 - 2022 <strong>The NERVA Project</strong>"
+copyright: "&copy; 2018 - 2023 <strong>NERVA Project</strong>"
 nav:
     - About: 'about.md'
     - User Guides:
-        - 'Developer Guide': 'guides/develop.md'
-        - 'CLI Guide': 'guides/cli.md'
         - 'GUI Guide': 'guides/gui.md'
+        - 'CLI Guide': 'guides/cli.md'
         - 'Mining FAQ': 'guides/mining.md'
+        - 'Developer Guide': 'guides/develop.md'
         - 'Ledger Hardware Wallet': 'guides/ledger.md'
     - Community Projects: 'projects.md'
 plugins:

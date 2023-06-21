@@ -8,7 +8,7 @@ This page aims to provide information about the NERVA project and answer common 
 
 **NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the Cryptonight Adaptive PoW algorithm, NERVA aims to force miners to keep a local copy of the blockchain, incentivizing miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporations and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network. 
 
-Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by late 2021 the initial supply of 18.4 million coins have already been mined. We believe NERVA is the first Monero clone to reach its tail emission. 
+Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by January 2021 the initial supply of 18.4 million coins have already been mined. We believe NERVA is the first Monero clone to reach its tail emission. 
 
 Tail emission means that each block has fixed miner reward of 0.3 XNV.  Currently this is 0.85% annual inflation rate.  That percentage will decrease slightly each year.  Tail emission was programmed to incentivize further mining and replace lost coins (hard drives sometimes crash and keys or seeds printed on a piece of paper sometimes end up at the bottom of the ocean during fishing accidents). 
 
@@ -37,7 +37,7 @@ You're invited to join NERVA community of likeminded enthusiasts. In time, we ho
 - Premine: 1.05% (193,861 XNV)
 - Ring size: 5 (fixed for all transactions)
 
-NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Freeboard][nerva-freeboard-link] and the [Nodemap][nerva-website-link].
+NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Nodemap][nerva-website-link].
 
 <hr>
 
