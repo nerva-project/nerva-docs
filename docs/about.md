@@ -1,5 +1,5 @@
 # About
-This page aims to provide information about the NERVA project and answer common questions. For help using the NERVA software, refer to User Guides section. You can also read more about the project on the [main website][nerva-website-link], and join our growing community on [Discord][nerva-discord-link] and [Reddit][nerva-reddit-link].
+This page aims to provide information about the NERVA project and answer common questions. For help using the NERVA software, refer to User Guides section. You can also read more about the project on the [main website][nerva-website-link], and join our growing community on [Discord][nerva-discord-link].
 
 <hr>
 
