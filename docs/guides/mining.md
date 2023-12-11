@@ -64,6 +64,14 @@ This is a very common question and almost always just bad luck. Unless there is 
 #### Does my chance of finding a block increase over time?
 All else being equal (ie if the network difficulty and your hashrate have not changed), no. You have the same likelihood each block, of finding that block. There is no advantage from having mined longer than someone else.
 
+#### My transfer fails
+If you've been mining Nerva for a long time and you have a lot of tail emission rewards of 0.3 XNV, you might run into this issue when trying to transfer around 130 XNV.
+
+Do not fear, sweep_below is here. You need to run this command in nerva-wallet-cli (command line wallet):
+`sweep_below 0.5 YourWalletAddress`
+
+You can use the same address that you're trying to sweep in place of `YourWalletAddress`. This process can take some time, depending on how many 0.3 XNV rewards you have. It will combine 460 rewards into one transaction and send combined balance to itself. After this process is done, you should be able to send larger XNV amounts.
+
 #### I don't have any IN/OUT connections
 There could be several reasons for this. Follow below steps to troubleshoot
 
