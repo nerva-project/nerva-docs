@@ -68,6 +68,7 @@ All else being equal (ie if the network difficulty and your hashrate have not ch
 If you've been mining Nerva for a long time and you have a lot of tail emission rewards of 0.3 XNV, you might run into this issue when trying to transfer around 130 XNV.
 
 Do not fear, sweep_below is here. You need to run this command in nerva-wallet-cli (command line wallet):
+
 `sweep_below 0.5 YourWalletAddress`
 
 You can use the same address that you're trying to sweep in place of `YourWalletAddress`. This process can take some time, depending on how many 0.3 XNV rewards you have. It will combine 460 rewards into one transaction and send combined balance to itself. After this process is done, you should be able to send larger XNV amounts.
