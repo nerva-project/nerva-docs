@@ -103,6 +103,20 @@ If you don't get any IN connections, add inbound firewall rule to allow port 175
 * Make sure Domain, Private and Public are all selected in Profile
 * Give the rule a name such as: Allow Port 17565
 
+#### Running multiple nodes on the same network
+If you have multiple Nerva nodes on the same network or are using the same external IP address you might run into some issues with synchronization. Here are some things you can try to resolve them
+
+##### Use --add-priority-node option when starting nervad
+Have one main node that connects to Nerva network in a regular way and when starting other nodes on the same network pass the IP of your main node as a parameter:
+
+`nervad --add-priority-node 192.168.0.x ...`
+
+##### Use --add-exclusive-node option when starting nervad
+Have one node be primary node that connects to Nerva network and other nodes use it as exclusive node:
+
+`nervad --add-exclusive-node 192.168.0.x ...`
+
+With exclusive node, you can't connect to other nodes so you'll use your main node as a relay.
 
 #### Software does not start
 There could be many reasons for NERVA software not starting. See below for some solutions
