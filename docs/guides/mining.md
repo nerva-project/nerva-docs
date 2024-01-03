@@ -118,6 +118,8 @@ Have one node be primary node that connects to Nerva network and other nodes use
 
 With exclusive node, you can't connect to other nodes so you'll use your main node as a relay.
 
+In the event your exclusive node goes offline, your miner will no longer be able to mine as it will be out of sync with the network.
+
 #### Software does not start
 There could be many reasons for NERVA software not starting. See below for some solutions
 
