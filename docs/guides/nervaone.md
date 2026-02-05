@@ -2,15 +2,6 @@
 NervaOne is a new, modern GUI application. It's a multi-coin, open source wallet and CPU miner that currently supports Nerva, Monero, Wownero and Dash. More coins will be added in the future. This is non-custodial wallet so you are running client tools on your own device.
 
 
-## NervaOne Videos
-
-@evanation81 created a few videos about NervaOne. You can view them below:
-
-[How to set up NervaOne, mine XNV, create wallet, save seed phrase, open wallet, view transactions][evanation-01].
-
-[Mining Nerva using multiple nodes on the same network][evanation-02].
-
-
 ## Screenshots
 
 Daemon view is where you see connections and control mining:

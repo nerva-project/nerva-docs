@@ -49,6 +49,7 @@ A premine of 180,000 coins was included in the genesis block. Additionally, each
 # CryptoNight-Adaptive
 The CryptoNight-Adaptive algorithm was developed for NERVA. The idea is quite simple: create a hash algorithm that changes automatically at regular intervals to break support for ASICS, mining pools, and GPU software, making solo-mining with a daemon and wallet the most efficient viable option. The initial release was based on the Monero v7 algorithm, with a few changes. First, the scratchpad was halved, like CryptoNight Lite. Second, we adapted the ASIC resistant changes from Alloy (XAO) which changes the number of mixing iterations every block. The number of mixing iterations is automatically incremented every block and reset every 1024 blocks.
 
+You can read more about our algo on [CryptUnit website][nerva-cryptunit-algo-link].
 <hr>
 
 # Solo Mining
@@ -146,3 +147,5 @@ NERVA's unique approach to mining is important, but mining is only part of a coi
 [tradeogre-link]: https://tradeogre.com/exchange/BTC-XNV
 
 [turtlecoin-angry-interview-link]: https://blog.turtlecoin.lol/archives/cn-adaptive-nerva-and-the-quest-for-fair-mining/
+
+[nerva-cryptunit-algo-link]: https://www.cryptunit.com/algo/CNAdaptive
