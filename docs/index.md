@@ -20,10 +20,11 @@ NERVA has both a Graphical User Interface (GUI) and a Command-Line Interface (CL
 * [NERVA Developer Guide](guides/develop/)
 * [NERVA CLI Guide](guides/cli/) (with common issues & FAQ)
 * [NervaOne Quick Guide](guides/nervaone/)
-* [NERVA GUI Quick Guide](guides/gui/)
-* [Ledger Hardware Wallet Guide](guides/ledger/)
 * [Mining FAQ](guides/mining/)
+* [Tor Guide](guides/tor/)
+* [Ledger Hardware Wallet Guide](guides/ledger/)
 * [A list of community projects](projects/)
+* [NERVA GUI OLD](guides/gui/)
 
 If you can't find what you need with the search function, help is always available on [Discord][nerva-discord-link].
 
