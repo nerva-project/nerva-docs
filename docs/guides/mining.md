@@ -120,6 +120,15 @@ With exclusive node, you can't connect to other nodes so you'll use your main no
 
 In the event your exclusive node goes offline, your miner will no longer be able to mine as it will be out of sync with the network.
 
+#### MDB_READERS_FULL error
+If you try to mine with more than 110 CPU threads, you will get this error:
+
+    Failed to create a read transaction for the db: MDB_READERS_FULL: Environment maxreaders limit reached
+
+To mine with more than 110 CPU threads, launch nervad with the flag: `--db-readers 256`
+
+Increase this number until you don't get that error anymore.
+
 #### Software does not start
 There could be many reasons for NERVA software not starting. See below for some solutions
 

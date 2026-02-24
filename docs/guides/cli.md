@@ -282,11 +282,6 @@ If you're still having issues, [Discord][nerva-discord-link] is the right place 
 #### Wallet created prior to v0.1.5.6 will not open
 You'll need to restore from seed.
 
-#### MDB_READERS_FULL error
-Launch nervad with the flag: `--db-readers 256`
-
-Increase this number until you don't get the error any more.
-
 #### (macOS) 'lazy symbol binding failed: Symbol not found: _clock_gettime'
 The Mac CLI is built on Mojave. The minimum required version for running the Mac CLI is reported as Sierra. There is no plan to support versions older than that for mining on Mac.
 
