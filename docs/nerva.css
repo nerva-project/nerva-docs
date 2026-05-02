@@ -129,3 +129,18 @@ html.dark-mode .jumbotron {
     background-color: #242b2e;
     color: #d4d7d9;
 }
+html.dark-mode .card {
+    background-color: #242b2e !important;
+    border-color: #2d3538 !important;
+    color: #d4d7d9;
+}
+html.dark-mode .navbar-light .nav-link {
+    color: #90b8cc !important;
+}
+html.dark-mode .navbar-light .nav-link:hover,
+html.dark-mode .navbar-light .nav-link:focus {
+    color: #55c8e8 !important;
+}
+html.dark-mode .navbar-light .nav-link.active {
+    color: #55c8e8 !important;
+}
