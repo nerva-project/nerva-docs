@@ -34,3 +34,98 @@ body {
 .nav-link,h1,h2,h3,h4,h5{
 	color: #486282;
 }
+
+/* ── Dark mode ── */
+html.dark-mode,
+html.dark-mode body {
+    background-color: #1a1d20;
+    color: #d4d7d9;
+}
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5 {
+    color: #7ab8d4;
+}
+html.dark-mode #content a {
+    color: #55c8e8;
+}
+html.dark-mode #content a:hover {
+    color: #7dd8f0;
+}
+html.dark-mode code {
+    background-color: #242b2e;
+    color: #e8c67d;
+    border: none;
+}
+html.dark-mode pre {
+    background-color: #1a2025;
+    border-color: #2d3538;
+    color: #d4d7d9;
+}
+html.dark-mode pre code {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+}
+html.dark-mode .hljs {
+    background: #1a2025;
+}
+html.dark-mode table {
+    color: #d4d7d9;
+}
+html.dark-mode thead th {
+    background-color: #242b2e;
+    border-color: #2d3538;
+}
+html.dark-mode td,
+html.dark-mode th {
+    border-color: #2d3538 !important;
+}
+html.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+html.dark-mode .table-striped tbody tr:nth-of-type(even) {
+    background-color: transparent;
+}
+html.dark-mode .bs-sidebar .nav > li > a {
+    color: #90b8cc;
+}
+html.dark-mode .bs-sidebar .nav > li > a:hover,
+html.dark-mode .bs-sidebar .nav > li > a:focus {
+    color: #55c8e8;
+    border-color: #55c8e8;
+}
+html.dark-mode .bs-sidebar .nav > .active > a,
+html.dark-mode .bs-sidebar .nav > .active:hover > a,
+html.dark-mode .bs-sidebar .nav > .active:focus > a {
+    color: #55c8e8;
+    border-color: #55c8e8;
+}
+html.dark-mode .dropdown-menu {
+    background-color: #242b2e;
+    border-color: #2d3538;
+}
+html.dark-mode .dropdown-item {
+    color: #d4d7d9;
+}
+html.dark-mode .dropdown-item:hover,
+html.dark-mode .dropdown-item:focus {
+    background-color: #2d3538;
+    color: #ffffff;
+}
+html.dark-mode hr {
+    border-color: #2d3538;
+}
+html.dark-mode footer {
+    color: #7a8590;
+}
+html.dark-mode blockquote {
+    border-left-color: #486282;
+    color: #b0bec5;
+}
+html.dark-mode .jumbotron {
+    background-color: #242b2e;
+    color: #d4d7d9;
+}
