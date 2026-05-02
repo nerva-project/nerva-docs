@@ -35,6 +35,10 @@ body {
 	color: #486282;
 }
 
+.navbar-dark .theme-toggle-btn {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
 /* ── Dark mode ── */
 html.dark-mode,
 html.dark-mode body {
