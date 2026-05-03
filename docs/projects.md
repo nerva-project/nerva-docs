@@ -3,22 +3,35 @@ A list of community projects and initiatives is hosted here. This page is not ex
 
 <hr>
 
+### Nerva Quest
+![nerva-quest](img/nervaquest.png)
+
+A community rewards platform where you earn XNV by completing Daily and Epic Quests that support the Nerva ecosystem. Submit proof, claim rewards — no email or KYC required, by **Ownski** [Nerva Quest][nervaquest-link]
+
+<hr>
+
+### NerVault
+![nervault](img/nervault.png)
+
+An open-source, web-based custodial wallet for securely and anonymously managing your XNV funds. Free to use — consider donating to the development fund if you find it useful, by **sn1f3rt** [NerVault][nervault-link]
+
+<hr>
+
 ### Nodemap
 ![nodemap](img/nodemap.jpg)
 
 A map of NERVA full nodes around the world with stats, by **syzygy** [Nerva node map][nerva-nodemap-link]
 
-<hr>
-
-### M4Crypto Store
-![m4crypto](img/m4crypto.jpg)
-
-Merchandise store that sells NERVA gear and accepts payment in NERVA by **R0BC0D3R** [M4Cryto Store][m4crypto-link]
 
 <hr>
 
 # Graveyard
 Sometimes projects cease development and the people behind them move on to other things. Fortunately in many cases, the code is released by the author so that others can make use of it. Here are some examples.
+
+### M4Crypto Store
+![m4crypto](img/m4crypto.jpg)
+
+Merchandise store that sells NERVA gear and accepts payment in NERVA by **R0BC0D3R** [M4Cryto Store][m4crypto-link]
 
 #### Nerva Tools 
 Mirror of current Nerva projects, by **syzygy** [Nerva Tools][nerva-tools-link]
@@ -56,3 +69,6 @@ An easy way to buy XNV with BTC, by **Nithronium** The code is available [on Git
 [yas3-calculator-link]: https://gitlab.com/yas3/nerva-calculator
 [yas3-faucet-link]: https://gitlab.com/yas3/nerva-faucet
 [yas3-games-link]: https://gitlab.com/yas3/nerva-games
+
+[nervaquest-link]: https://nervaquest.com/
+[nervault-link]: https://vault.nerva.one/
