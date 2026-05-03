@@ -1,10 +1,10 @@
 # NervaOne Guide
-NervaOne is a new, modern GUI application. It's a multi-coin, open source wallet and CPU miner that currently supports Nerva, Monero, Wownero and Dash. More coins will be added in the future. This is a non-custodial wallet so you are running client tools on your own device.
+NervaOne is a new, modern GUI application. It's a multi-coin, open source wallet and CPU miner that currently supports Nerva, Monero, Wownero and Dash. More coins might be added in the future. This is a non-custodial wallet. You either run client tools on your own device or connect to a remote node.
 
 
 ## Screenshots
 
-Daemon view is where you see connections and control mining:
+Daemon view on Desktop. You control mining from here:
 
 ![nervaone-daemon](img/nervaone-daemon.png)
 
@@ -38,11 +38,11 @@ First time you run NervaOne, it will ask you to select coin. Select Nerva (XNV) 
 
 ![nervaone-first-run-coin](img/nervaone-first-run-coin.png)
 
-After that, you choose if you want to run Full Node or Wallet Only
+After that, you choose if you want to run Full Node or Wallet Only.
 
 ![nervaone-first-run-node](img/nervaone-first-run-node.png)
 
-If you chose to run as Full Node, it will give up option to change client tools download link and once you confirm, it will download, extract and start nervad.
+If you chose to run as Full Node, it will give an option to change client tools download link and once you confirm, it will download, extract and start nervad.
 
 
 ## Full Node vs Wallet-Only Mode (Remote Node)
@@ -51,14 +51,14 @@ You can run as full node, blockchain and Nerva core software runs on your device
 
 If you don't want to run a full local node, you can connect to a remote node and use NervaOne purely as a wallet. This skips syncing the blockchain on your device. Note that mining is not available in wallet-only mode.
 
-After initial setup, if you want to switch between Full Node and Wallet Only, go to: Daemon Setup > Settings and you'll see an option to change there.
+After initial setup, if you want to switch between Full Node and Wallet Only, go to: Daemon Setup and you'll see an option to change there.
 
 
 ## Creating a Wallet / Restoring a Wallet
 
-To create new wallet, go to: Wallet Setup > Create New Wallet
+To create a new wallet, go to: Wallet Setup > Create New Wallet
 
-To restore existing wallet from keys or seed go to: Wallet Setup > Restore Wallet from Seed or Restore Wallet from Keys
+To restore an existing wallet from keys or seed go to: Wallet Setup > Restore Wallet from Seed or Restore Wallet from Keys
 
 ![nervaone-wallet-setup](img/nervaone-wallet-setup.png)
 
@@ -82,12 +82,12 @@ In NervaOne, go to Wallet Setup > View Keys and Mnemonic Seed
 
 Wallet public and private keys as well as 25  word mnemonic seed will be displayed.
 
-**safely save and store these words and keys**
+**Safely save and store these words and keys**
 
 
 ## Transferring funds
 
-Go to: Wallet > Transfer Funds, provide required fields and press OK
+Go to: Wallet > Transfer Funds, provide required fields and press Transfer.
 
 ![nervaone-transfer-funds](img/nervaone-transfer-funds.png)
 
@@ -137,7 +137,7 @@ Once both steps are done, your node will be reachable from outside your network.
 If your nervad does not start on macOS because you get error similar to this:
 
 dyld(9313): Library not loaded: '/usr/local/opt/hidapi/lib/libhidapi.0.dylib'
-Refrenced from: '....nervad'
+Referenced from: '....nervad'
 Reason: tried '....libhidapi.0.dylib' (no such file)
 
 Try fix from [here][macos-library-error].
