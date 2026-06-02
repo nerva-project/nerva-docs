@@ -148,3 +148,46 @@ html.dark-mode .navbar-light .nav-link:focus {
 html.dark-mode .navbar-light .nav-link.active {
     color: #55c8e8 !important;
 }
+html.dark-mode .modal-content {
+    background-color: #242b2e;
+    border-color: #2d3538;
+    color: #d4d7d9;
+}
+html.dark-mode .modal-header {
+    border-bottom-color: #2d3538;
+}
+html.dark-mode .modal-footer {
+    border-top-color: #2d3538;
+}
+html.dark-mode .modal-title {
+    color: #7ab8d4;
+}
+html.dark-mode .modal .close {
+    color: #d4d7d9;
+    text-shadow: none;
+    opacity: 0.7;
+}
+html.dark-mode .modal .close:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+html.dark-mode .modal .form-control {
+    background-color: #1a1d20;
+    border-color: #2d3538;
+    color: #d4d7d9;
+}
+html.dark-mode .modal .form-control::placeholder {
+    color: #7a8590;
+}
+html.dark-mode .modal .form-control:focus {
+    background-color: #1a1d20;
+    border-color: #55c8e8;
+    color: #d4d7d9;
+    box-shadow: 0 0 0 0.2rem rgba(85, 200, 232, 0.2);
+}
+html.dark-mode #mkdocs-search-results a {
+    color: #55c8e8;
+}
+html.dark-mode #mkdocs-search-results a:hover {
+    color: #7dd8f0;
+}
