@@ -41,7 +41,7 @@ You're invited to join NERVA community of likeminded enthusiasts. In time, we ho
 - Latest hard fork: v13 at block 4,320,000 (July 2026)
 - Current version: 0.3.0.0 "Legacy Remade"
 
-NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Nodemap][nerva-website-link].
+NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Nodemap][nerva-nodemap-link].
 
 <hr>
 
@@ -110,17 +110,18 @@ We are actively working on integrating NERVA with other platforms and services t
 <hr>
 
 # Exchanges
-XNV is currently traded on [NonKyc][nonkyc-link].
+XNV is traded on several exchanges. For the current list, see the [Exchanges section][nerva-exchanges-link] on the NERVA website.
 
 <!--Reference links -->
-[nerva-website-link]: https://map.nerva.one/
+[nerva-website-link]: https://nerva.one/
 [nerva-explorer-link]: https://explorer.nerva.one/
+[nerva-nodemap-link]: https://map.nerva.one/
 
 [nerva-discord-link]: https://discord.gg/ufysfvcFwe
 
 [nerva-woo-static-link]: https://github.com/nerva-project/woo-static
 [nerva-woo-dynamic-link]: https://github.com/nerva-project/woo-dynamic
 
-[nonkyc-link]: https://nonkyc.io/market/XNV_USDT
+[nerva-exchanges-link]: https://nerva.one/#exchanges
 
 [nerva-cryptunit-algo-link]: https://www.cryptunit.com/algo/CNAdaptive
