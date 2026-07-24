@@ -6,11 +6,13 @@ This page aims to provide information about the NERVA project and answer common 
 # What is NERVA?
 **"Proof-of-work is essentially one-CPU-one-vote" - Satoshi Nakamoto**
 
-**NERVA** (XNV) is a pioneering proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the Cryptonight Adaptive PoW algorithm, NERVA aims to force miners to keep a local copy of the blockchain, incentivizing miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporations and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network. 
+**NERVA** (XNV) is a privacy-focused proof-of-work cryptocurrency designed first and foremost to be truly GPU and FPGA/ASIC resistant. This means that NERVA can be mined competitively by standard computer processors - like the one in the device you're using to read this text. With the CryptoNight-Adaptive PoW algorithm, NERVA ties mining to a local copy of the blockchain, requiring miners to run full network nodes. This structure encourages solo mining, and helps avoid the hashrate centralization that plagues pool-mined coins. By engineering the network to be as decentralized as possible, NERVA is naturally resistant to 51% attacks, and this resistance will only strengthen as the network scales. NERVA aims to take crypto back to its roots - away from corporations and huge mining farms, and back to the people - whilst incorporating the latest advancements in blockchain technology that allow for a fast, secure, private and untraceable financial network.
 
-Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by January 2021 the initial supply of 18.4 million coins have already been mined. We believe NERVA is the first Monero clone to reach its tail emission. 
+NERVA remains under active development. Its most recent network upgrade, hard fork v13 in July 2026, introduced CryptoNight-Adaptive v6, a significant strengthening of the mining algorithm described further below.
 
-Tail emission means that each block has fixed miner reward of 0.3 XNV.  Currently this is 0.85% annual inflation rate.  That percentage will decrease slightly each year.  Tail emission was programmed to incentivize further mining and replace lost coins (hard drives sometimes crash and keys or seeds printed on a piece of paper sometimes end up at the bottom of the ocean during fishing accidents). 
+Another unique attribute of NERVA is the accelerated emission schedule. NERVA launched in May 2018 and by early 2021 the initial supply of roughly 18.4 million coins had already been mined. We believe NERVA is the first Monero clone to reach its tail emission. 
+
+Tail emission means that each block has fixed miner reward of 0.3 XNV.  Currently this is 0.82% annual inflation rate.  That percentage will decrease slightly each year.  Tail emission was programmed to incentivize further mining and replace lost coins (hard drives sometimes crash and keys or seeds printed on a piece of paper sometimes end up at the bottom of the ocean during fishing accidents). 
 
 Tail emission inflation translates to (approximately): 
 
@@ -26,30 +28,42 @@ You're invited to join NERVA community of likeminded enthusiasts. In time, we ho
 # Technical Specifications
 - Name: NERVA
 - Ticker: XNV
-- Hash algorithm: Cryptonight-Adaptive (Proof-Of-Work)
+- Hash algorithm: CryptoNight-Adaptive v6 (Proof-of-Work)
 - Difficulty algorithm: LWMA
-- Total Supply: 18.44 million coins + tail emission (Tail emission started in late 2021)
+- Total Supply: 18.44 million coins + tail emission (tail emission reached in early 2021)
 - Initial Block Reward: 70 XNV
 - Current Block Reward: 0.3 XNV
 - Emission Speed: 18
 - Block Time: 60 seconds
 - Maturity: 20 blocks
-- Premine: 1.05% (193,861 XNV)
+- Premine: 1% (180,000 XNV)
 - Ring size: 5 (fixed for all transactions)
+- Latest hard fork: v13 at block 4,320,000 (July 2026)
+- Current version: 0.3.0.0 "Legacy Remade"
 
 NERVA forked from Monero and had its genesis block on May 1st, 2018. The official NERVA blockchain explorer can be found [here][nerva-explorer-link]. Additional network statistics are available on [Nodemap][nerva-website-link].
 
 <hr>
 
 # Premine
-A premine of 180,000 coins was included in the genesis block. Additionally, each of the 3 seed nodes in place at launch were each mining on 1 CPU core as a temporary measure to establish the network. The first 200 blocks were mined, bringing the total funds in the dev wallet to 193,861 XNV. This results in a premine of slightly over 1% of the total supply (pre tail emission).
+A premine of 180,000 coins, roughly 1% of the total supply, was included in the genesis block and went to NERVA's original creator, who stepped away from the project in 2021. NERVA has been run entirely by its community ever since.
 
 <hr>
 
 # CryptoNight-Adaptive
-The CryptoNight-Adaptive algorithm was developed for NERVA. The idea is quite simple: create a hash algorithm that changes automatically at regular intervals to break support for ASICS, mining pools, and GPU software, making solo-mining with a daemon and wallet the most efficient viable option. The initial release was based on the Monero v7 algorithm, with a few changes. First, the scratchpad was halved, like CryptoNight Lite. Second, we adapted the ASIC resistant changes from Alloy (XAO) which changes the number of mixing iterations every block. The number of mixing iterations is automatically incremented every block and reset every 1024 blocks.
+The CryptoNight-Adaptive algorithm was developed for NERVA. The idea is quite simple: create a hash algorithm that changes automatically to break support for ASICs, mining pools, and GPU software, making solo-mining with a daemon and wallet the most efficient viable option. The initial release was based on the Monero v7 algorithm, with a few changes. First, the scratchpad was halved, like CryptoNight Lite. Second, we adapted the ASIC resistant changes from Alloy (XAO) which changes the number of mixing iterations every block. The number of mixing iterations was automatically incremented every block and reset every 1024 blocks.
+
+### CryptoNight-Adaptive v6 (hard fork v13, July 2026)
+Hard fork v13 replaced the mixing-iteration approach with a substantially stronger design, CryptoNight-Adaptive v6. Rather than tweaking a fixed hashing routine, each block now derives a random program that a small virtual machine executes against an 8 MB scratchpad. Three properties work together:
+
+- **Random per-block program**: every block generates a fresh sequence of instructions, so there is no fixed circuit for an ASIC or FPGA to bake into silicon.
+- **8 MB scratchpad with dependent memory access**: memory reads chain off previous results (pointer chasing), making the work memory-latency-bound. This kills the parallelism GPUs rely on and keeps per-core hashrate even across ordinary CPUs.
+- **Blockchain-seed dependency**: the program seed is tied to chain data, so a miner must hold a local copy of the blockchain to mine. This is what makes pool mining architecturally impractical.
+
+The net effect is that a typical CPU is competitive, and specialized or centralized mining gains little advantage. Because the v6 hash is heavier than the previous algorithm, network hashrate figures after the fork are far lower in raw H/s while security is unchanged; difficulty simply readjusts to the new algorithm.
 
 You can read more about our algo on [CryptUnit website][nerva-cryptunit-algo-link].
+
 <hr>
 
 # Solo Mining
@@ -57,7 +71,7 @@ NERVA prioritizes decentralization, to which pools are antithetical. Many pool-m
 
 With solo mining, miner rewards are not as consistent as they often are with pools - depending on hashrate and difficulty, a miner may go unrewarded for an extended period of time. However, as pool rewards are still based on the percentage of hash power contributed, in the long run miners actually earn more from solo mining, due to lack of pool fees. Another potential upside to solo mining is that it incentivizes consistent, rather than on/off, mining. This can help to limit sudden swings in the overall network hashrate. Regardless, our primary motivation is to avoid centralization.
 
-It should be noted that whilst it is difficult by design to develop a pool for NERVA, it is not impossible. Should a pool be developed in the future, the community consensus is that a hardfork would then occur to make it ineffectual.
+More importantly, pool resistance in NERVA is enforced at the protocol level, not just by policy. The PoW algorithm pulls parameters directly from blockchain data, so a miner cannot participate without a full node. A pool server cannot generate those parameters without running a full node itself, and even if it did, each "pool member" would still need their own chain access to verify and submit work, functionally collapsing back to solo mining. In short, it is not just a rule against pools: the algorithm physically requires blockchain data that only a full node has, making pool-style work distribution impossible without every participant running a full node, at which point they are simply solo mining anyway.
 
 For more information about mining, refer to the [Mining FAQ](../guides/mining).
 
@@ -83,7 +97,8 @@ Here is a summarized history of NERVA network upgrades. More detailed release no
 - **v9**, at block 240500 (15th October 2018). Iterated CryptoNight-Adaptive to v3. *Minimum version: 0.1.4.0*
 - **v10**, at block 341000 (24th December 2018). Iterated CryptoNight-Adaptive to v4. *Minimum version: 0.1.5.4*
 - **v11**, at block 500000 (13th April 2019). Introduced BulletProofs v2; iterated CryptoNight-Adaptive to v5. *Minimum version: 0.1.6.4*
-- **v12**, at block 930000
+- **v12**, at block 930000 (6th February 2020). Added blockchain pruning and long-term block weighting to prevent rapid block size fluctuations from spam attacks, plus full DNS support for dynamic seed node changes and update notifications. *Minimum version: 0.1.7.1 (Kakapo)*
+- **v13**, at block 4320000 (21st July 2026). Introduced CryptoNight-Adaptive v6: each block runs a random program over an 8 MB scratchpad with dependent memory access and a blockchain-seed dependency, hardening the network against ASIC, FPGA, GPU and pool mining. *Minimum version: 0.3.0.0 "Legacy Remade"*
 
 <hr>
 
@@ -95,57 +110,17 @@ We are actively working on integrating NERVA with other platforms and services t
 <hr>
 
 # Exchanges
-XNV is currently traded on [TradeOgre][tradeogre-link].
-
-<hr>
-
-# Motivations
-*(Edited extracts from ["CN Adaptive, Nerva, and the Quest For Fair Mining"][turtlecoin-angry-interview-link], an interview with ex-NERVA lead developer angrywasp)*
-
-#### Decentralization
-Centralization is a major concern for all coins and the consequences are many. Giving too much hash power to an individual or pool increases the risk of a 51% attack, where a blockchain can be hijacked and manipulated for malicious purposes, and increases the fragility of the network. If a pool holding for example 65% of a network hashrate goes down, the network instantly loses 65% of it’s hash power, struggling to validate transactions and progress the blockchain. This results in increased transaction times and difficulty in making transactions, causing a loss of reputation to the coin and frustration to end users.
-
-Centralization of hash power also causes the concentration of coin distribution. The vast majority of Cryptonight ASICs are operated by only a few companies in the business of making these devices. As a result, coins mined by ASICs are funneling the vast majority of their block rewards to only a small group of people, effectively centralizing price and distribution control and promoting cartel-like behavior among these individuals.
-
-NERVA's model of solo CPU mining maximizes hashrate distribution, making it much more difficult for any one entity to obtain the 51% threshold to stage an attack against the coin, while minimizing the network disruption caused by nodes going off the network. Distributed hashrate also has the added advantage of more equitable coin distribution creating a fairer system for all participants.
-
-#### Environmental Sustainability
-E-waste has in recent times become a major global concern. From the mining of heavy metals such as copper, to PCB and component manufacturing processes, to device assembly, pollution is present. Furthermore, the incorrect disposal of electronics results in heavy metal contamination to local environments and adverse health effects to the wildlife in these environments, as well as adverse health effects on the people responsible for the production and disposal of electronics.
-
-Through NERVA's ability to be mined on older hardware and by removing the ability of dedicated hardware to mine the coin, NERVA mitigates the issue of E-waste. Furthermore, scaling up hashing power in a CPU mined coin is more expensive, creating a financial disincentive for users to buy hardware specifically to mine NERVA, further mitigating the impact of E-waste on the environment.
-
-Anyone looking at the evolution of crypto mining over the last few years will have noticed an explosion in the amount of hardware being used for mining. GPUs have been sold out around the world and ASICs are being rolled out in increasing batches. This is creating an endless cycle of buying more hashpower to compete with other miners for coins. Besides the E-waste considerations previously discussed, we have witnessed an explosion in the amount of electricity being used to power these networks. It is estimated that Bitcoin alone uses more electricity than the entire Republic of Ireland. That is far from sustainable. NERVA on the other hand can be mined on the spare cores of your computer, with only a minimal increase in the amount of electricity being used by a device that would otherwise likely be running anyway.
-
-#### The Spirit of Satoshi
-It is worth remembering why crypto was developed in the first place. The driving force was to create a currency that could be used by anyone, anywhere, anytime. Across borders, free from taxation, unrestricted by government regulation and monetary policy. What people have been thinking all along, that banks are deceiving and stealing from the public, has been proven to be true. We need something else as a society. We need a way to transact with each other that bypasses the greed and corruption of the banking sector, and a way to manage our own money that no government or corporation can lay their hands on.
-
-Somewhere along the way, that vision was lost. Again, corrupted by greed and held at the mercy of an elite few. Only this time it isn’t governments and bankers, it’s wealthy ASIC manufacturers and rented hash services. Hijacking blockchains, stealing coins and controlling their price and distribution through excessive hash rates, well beyond what the average person is capable of. Once again, we have a select few corporations making massive profits acting in unethical ways to deceive and steal from the public.
-
-With NERVA, our aim is to take back control and show that a cryptocurrency is successful if it is owned by everyone. And by making it CPU mineable, we give everyone who owns a computer a chance to collect their own coins. NERVA is dedicated to existing in the same spirit in which cryptocurrency began.
-
-#### Challenging Conventional Wisdom
-Finally, there is some conventional wisdom we aim to challenge and some lingering questions that need to be answered if crypto is to have any future at all. It is said that a coin needs a large hashrate to be stable. NERVA challenges this wisdom: we believe that a stable coin comes from a highly distributed network and mitigation of network hashrate variance, by means of a robust difficulty adjustment algorithm and resistance to dedicated mining hardware. Monero, and by extension all Monero clones, also have a limited lifespan for mining. Every Cryptonote coin is on a ticking clock. One day, the Proof of Work will be done and the entire coin supply will be emitted. At which point the coin enters its ‘tail emission’ where only a very small proportion of the coin's original block reward is released to provide some inflation and replace lost coins.
-
-So if conventional wisdom dictates that block rewards keep miners incentivized to mine, and a blockchain relies on mining, then what happens when those block rewards are gone? Nobody exactly knows, because no Cryptonote coin has yet exhausted its emission. From a market and coin value perspective, what happens to the price once the selling pressure applied by miners is gone? Again, we just don’t know. But we need to know.
-
-NERVA's unique approach to mining is important, but mining is only part of a coin’s life. We need to be able to peek through that looking glass and see what’s on the other side. For this reason, NERVA will hit its tail emission just 3 years from the first block, around 1 May 2021. This will make NERVA a prominent first example of how cryptocurrencies make that transition and what is to be expected in the life after mining.
-
-
-
+XNV is currently traded on [NonKyc][nonkyc-link].
 
 <!--Reference links -->
-[nerva-website-link]: https://nerva.one/
+[nerva-website-link]: https://map.nerva.one/
 [nerva-explorer-link]: https://explorer.nerva.one/
 
 [nerva-discord-link]: https://discord.gg/ufysfvcFwe
-[nerva-reddit-link]: https://www.reddit.com/r/Nerva/
-[nerva-freeboard-link]: https://freeboard.io/board/EV5-se
 
 [nerva-woo-static-link]: https://github.com/nerva-project/woo-static
 [nerva-woo-dynamic-link]: https://github.com/nerva-project/woo-dynamic
 
-[tradeogre-link]: https://tradeogre.com/exchange/BTC-XNV
-
-[turtlecoin-angry-interview-link]: https://blog.turtlecoin.lol/archives/cn-adaptive-nerva-and-the-quest-for-fair-mining/
+[nonkyc-link]: https://nonkyc.io/market/XNV_USDT
 
 [nerva-cryptunit-algo-link]: https://www.cryptunit.com/algo/CNAdaptive
