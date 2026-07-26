@@ -3,10 +3,10 @@ A list of community projects and initiatives is hosted here. This page is not ex
 
 <hr>
 
-### Nerva Quest
-![nerva-quest](img/nervaquest.png)
+### Nodemap
+![nodemap](img/nodemap.jpg)
 
-A community rewards platform where you earn XNV by completing Daily and Epic Quests that support the Nerva ecosystem. Submit proof, claim rewards — no email or KYC required, by **Ownski** [Nerva Quest][nervaquest-link]
+A map of NERVA full nodes around the world with stats, by **syzygy** [Nerva node map][nerva-nodemap-link]
 
 <hr>
 
@@ -17,10 +17,24 @@ An open-source, web-based custodial wallet for securely and anonymously managing
 
 <hr>
 
-### Nodemap
-![nodemap](img/nodemap.jpg)
+### BoxWallet
+![boxwallet](img/boxwallet.png)
 
-A map of NERVA full nodes around the world with stats, by **syzygy** [Nerva node map][nerva-nodemap-link]
+A terminal-based wallet manager that installs, starts and monitors coin daemons — NERVA among them — from a single TUI. One binary, full self-custody, no browser or cloud, by **richardltc** [BoxWallet][boxwallet-link]
+
+<hr>
+
+### Nerva Quest
+![nerva-quest](img/nervaquest.png)
+
+A community rewards platform where you earn XNV by completing Daily and Epic Quests that support the Nerva ecosystem. Submit proof, claim rewards — no email or KYC required, by **Ownski** [Nerva Quest][nervaquest-link]
+
+<hr>
+
+### coinQuests
+![coinquests](img/coinquests.png)
+
+Complete simple social quests for the coins you follow — NERVA among them — submit the link as proof, and get paid straight from the project's treasury. Human-reviewed, real payouts rather than points, by **richardltc** [coinQuests][coinquests-link]
 
 
 <hr>
@@ -72,3 +86,5 @@ An easy way to buy XNV with BTC, by **Nithronium** The code is available [on Git
 
 [nervaquest-link]: https://nervaquest.com/
 [nervault-link]: https://vault.nerva.one/
+[boxwallet-link]: https://codeberg.org/richardltc/BoxWallet
+[coinquests-link]: https://coinquests.net/
