@@ -299,15 +299,36 @@ You'll need to restore from seed. Any wallet that old has earned a fresh start a
 # Getting help
 If you have questions that are not answered here or with the `help` command, remember that NERVA is very closely related to Monero, a larger project with more comprehensive documentation. Sometimes you'll be able to find an answer (quickly) by googling your question with 'monero' appended. Otherwise, please reach out on [Discord][nerva-discord-link] (in the **#cli-help** channel), our community is active and helpful.
 
+<hr>
 
+# Some launch options worth knowing
+Everything below is shown by `nervad --help` and `nerva-wallet-cli --help`, along with the rest of the list and the exact syntax. These are simply the ones that come up most often in practice, and all of them can also be written into a config file (`nerva.conf` in the data directory by default, see `--config-file`) instead of being typed every time:
 
+For the daemon:
+
+* `--start-mining <address>` and `--mining-threads <n>` — mine from the moment the node starts
+* `--quicksync <file>` — bootstrap the chain from a quicksync file
+* `--data-dir <path>` — put the blockchain somewhere other than the default
+* `--restricted-rpc` and `--rpc-bind-port <port>` — run the local RPC with public, view-only commands instead of the full set
+* `--public-node` — open that restricted RPC to others and advertise the node over the network as a usable remote node
+* `--rpc-login <user>:<pass>` — put HTTP digest authentication on the RPC
+* `--no-analytics` — keep off the node map
+* `--no-dns` / `--dns-server <ip>` — control how seeds and update links are resolved
+* `--out-peers <n>` / `--in-peers <n>` and `--limit-rate <kB/s>` — shape your bandwidth use
+* `--check-updates disabled` — stop the daemon from checking for new releases
+* `--testnet` — run against the test network instead of mainnet
+
+For the wallet:
+
+* `--daemon-address <host>:<port>` — talk to a remote node instead of a local one
+* `--restore-deterministic-wallet` (alias `--restore-from-seed`) — recover from the 25 word seed
+* `--generate-from-spend-key <name>` / `--generate-from-view-key <name>` — recover from raw keys
+* `--restore-height <n>` or `--restore-date <YYYY-MM-DD>` — skip scanning the early chain
+* `--log-level <0-4>` — chattier logs
 
 <!--Reference links -->
 [nerva-downloads-link]: https://nerva.one/#downloads
 [nerva-nodemap-link]: https://map.nerva.one
-[nerva-quicksync-link]: https://github.com/nerva-project/nerva/releases/download/v0.1.7.4/quicksync.raw
 [nerva-github-nerva-link]: https://github.com/nerva-project/nerva
 [nerva-github-nerva-releases-link]: https://github.com/nerva-project/nerva/releases
 [nerva-discord-link]: https://discord.gg/ufysfvcFwe
-
-[cmder-link]: https://cmder.net/
