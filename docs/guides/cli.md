@@ -43,7 +43,7 @@ If you get a pop-up from Windows Firewall or any other security software, make s
 
 3. *(Optional)* Drag the `quicksync.raw` file into this new folder.
 
-4. Open Terminal (press Command + Space, then type `terminal` and hit enter), navigate to the folder you just extracted, and type:
+4. Open Terminal (press Command + Space, then type `terminal` and hit enter). Type `cd` followed by a space, then drag the folder you just extracted from Finder into the Terminal window (this pastes its path) and hit enter. Now type:
  `./nervad --quicksync quicksync.raw` and hit enter. (*If you are not using quicksync, simply type `./nervad`*)
 
  **If you receive a warning about running software from an unidentified developer, open System Settings > Privacy & Security and click Allow Anyway at the bottom of that page.** Each program may ask once the first time you run it.
@@ -71,7 +71,7 @@ Once all the necessary processes have booted up, the NERVA daemon will check how
 
 ![syncing](img/nerva-syncing.png)
 
-This process will take a while. Recent versions skip proof of work verification for old blocks during the initial sync, so a full sync from scratch is far quicker than it used to be, and with quicksync it typically finishes in minutes rather than hours. The first sync also builds the node map data and checks for software updates, so give it a moment after the blocks are in before expecting connections to settle. Once your daemon has synchronised, you will receive a `SYNCHRONIZED OK` message and you then are ready to start using NERVA.
+This process will take a while. Recent versions skip proof of work verification for old blocks during the initial sync, so a full sync from scratch is far quicker than it used to be, and with quicksync it typically finishes in minutes rather than hours. Once your daemon has synchronised, you will receive a `SYNCHRONIZED OK` message and you then are ready to start using NERVA.
 
 The daemon talks to the network over port **17565**, and its local RPC interface listens on **17566**. If you run a firewall, make sure 17565 is open for both incoming and outgoing traffic, otherwise your node will struggle to find and keep peers.
 
