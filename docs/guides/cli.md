@@ -1,10 +1,10 @@
 # NERVA CLI Guide
-Running NERVA from the command-line is a good option for those familiar with commands and those who prefer simplicity over Graphical User Interfaces.
+Running NERVA from the command-line is a good option for those familiar with commands and those who prefer simplicity over Graphical User Interfaces. Everything NERVA can do is available from the CLI, and it tends to be where new features land first. If you would rather point and click, have a look at the [NervaOne Guide](../nervaone) instead.
 
 <hr>
 
 # Getting started
-There are 2 binary packages per operating system available for download. The default minimal package contains the bare essentials for running a node and transacting on the network. The other package includes additional software.  All downloads are available on [GitHub][nerva-github-nerva-releases-link]
+There are two binary packages per operating system available for download. The default minimal package contains the bare essentials for running a node and transacting on the network. The other package includes additional software. All downloads are available on [GitHub][nerva-github-nerva-releases-link]
 
 <hr>
 
@@ -12,17 +12,17 @@ NERVA consists of 2 primary components:
 
 **nervad** is the NERVA daemon. This is your node, your connection to the NERVA network. nervad manages your network connections, the blockchain and is the software you can use to mine.
 
-**nerva-wallet-cli** is the wallet program for NERVA. nerva-wallet-cli manages your balances, accounts and transfers of funds. *In order to make use of the wallet, nervad must also be running.*
+**nerva-wallet-cli** is the wallet program for NERVA. nerva-wallet-cli manages your balances, accounts and transfers of funds. *In order to make use of the wallet, nervad must also be running, unless you point it at a remote node* (more on that later).
 
-There are other programs which are part of NERVA, but these are only used in specific circumstances.
+There are other programs which are part of NERVA, such as nerva-wallet-rpc and the blockchain utilities, but these are only used in specific circumstances.
 
-To get these programs, open the [NERVA downloads page][nerva-downloads-link] and download the latest CLI files for your operating system. Optionally, you can also download the quicksync file that will allow you to quickly synchronize with NERVA network. Then follow the instructions below for your specific operating system:
+To get these programs, open the [NERVA downloads page][nerva-downloads-link] and download the latest CLI files for your operating system. Optionally, you can also download the `quicksync.raw` file published alongside each release, which will let you synchronize with the NERVA network much faster than downloading the chain block by block. Then follow the instructions below for your specific operating system.
 
 <hr>
 
 ## Getting started: Windows
 
-1. Open your Downloads folder and extract the contents of `nerva-vx.x.x.x_windows-x64.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is.
+1. Open your Downloads folder and extract the contents of `nerva-vx.x.x.x_windows-x64.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is. A 32-bit build is provided for very old hardware.
 
 2. (Optional) Move the `quicksync.raw` file we downloaded earlier into your NERVA folder.
 
@@ -37,31 +37,32 @@ If you get a pop-up from Windows Firewall or any other security software, make s
 <hr>
 
 ## Getting started: macOS
-1. Open Finder and go to your Downloads folder. Right click on the `nerva-vx.x.x.x_osx-x64.zip` file and select **Open With > Archive Utility**. This should automatically extract the contents into a new folder with the same name.
- *If you downloaded the file with Safari, it may have automatically been extracted.*
+1. There are two builds of the CLI, one for Apple Silicon (armv8) and one for Intel (x64). If you are not sure which CPU your Mac has, click the Apple menu in the top left corner and select **About This Mac** — the chip or processor line will tell you. Download the appropriate file for your computer.
 
-2. *(Optional)* Drag the `quicksync.raw` file into this new folder, and then open the folder. You should see an `install` file in here, but **don't open it yet**.
- ![osxdir](img/osx_nervacli_dir.png)
+2. Open Finder and go to your Downloads folder. Right click on the `.tar.bz2` file you downloaded and let Archive Utility extract it into a new folder with the same name. *If you downloaded the file with Safari, it may have been extracted automatically.* You can also unpack it from a terminal with `tar -xjf nerva-vx.x.x.x_macos-armv8.tar.bz2`.
 
-3. Open Terminal (by pressing Command + Space, then type `terminal` and hit enter).
- In the terminal window, we are going to type in `sudo` followed by a space. Now drag the `install` file from Finder into your Terminal window, and it should automatically add the location of the file to our command. Then hit enter to run the command.
+3. *(Optional)* Drag the `quicksync.raw` file into this new folder.
 
-4. You will be prompted for your Mac user account password. Type your password, and then hit enter. No dots will appear as you type the password - this is normal.
- **If at this or any point you receive a warning about running software from an unidentified developer, you need to open your System Preferences > Security & Privacy > General, and hit allow at the bottom of that page.**
+4. Open Terminal (press Command + Space, then type `terminal` and hit enter), navigate to the folder you just extracted, and type:
+ `./nervad --quicksync quicksync.raw` and hit enter. (*If you are not using quicksync, simply type `./nervad`*)
 
-5. If nothing happened except a new line in the terminal, the installation was successful. Now we will type another command:
-  `nervad --quicksync` followed by a space and this time drag the `quicksync.raw` file into Terminal. Now hit enter. (*If you are not using quicksync, simply type `nervad`*)
+ **If you receive a warning about running software from an unidentified developer, open System Settings > Privacy & Security and click Allow Anyway at the bottom of that page.** Each program may ask once the first time you run it.
 
-You are now running nervad. In the future you can relaunch it by typing `nervad` in any Terminal window, and can launch the wallet with the command `nerva-wallet-cli`. You can open multiple terminals by clicking **Shell > New Terminal** from the top menu bar.
+You are now running nervad. In the future you can relaunch it by running `./nervad` from that folder in a Terminal window, and the wallet with `./nerva-wallet-cli`. You can open more terminals by clicking **Shell > New Terminal** in the top menu bar. If you want to run the programs from anywhere without navigating to the folder first, copy them somewhere in your PATH, such as `/usr/local/bin`.
 
 <hr>
 
 ## Getting started: Linux
-1. Download and unzip the Linux binaries into a new directory, and move the `quicksync.raw` file there.
+1. Download the release archive for your architecture and unpack it into a new directory, for example `tar -xjf nerva-vx.x.x.x_linux-x86_64.tar.bz2`. ARM boards can use the armv7 or armv8 builds depending on the board. The `musl` builds are fully static and run on any distribution, which is handy if yours is exotic enough that the regular builds complain.
 
-2. Run the command `./nervad --quicksync quicksync.raw` (*If you are not using quicksync, simply run `./nervad`*)
+2. *(Optional)* Move the `quicksync.raw` file there, then run the command `./nervad --quicksync quicksync.raw` (*If you are not using quicksync, simply run `./nervad`*)
 
-You are now running nervad. In the future you can relaunch it via the `./nervad` command. You can launch the wallet with the command `./nerva-wallet-cli`.
+You are now running nervad. In the future you can relaunch it via the `./nervad` command from that directory. You can launch the wallet with the command `./nerva-wallet-cli`.
+
+If you plan on keeping a node running long term, consider running it under systemd or inside a `tmux`/`screen` session so it survives your terminal closing. People who prefer containers can run the official Docker image instead, published for `linux/amd64` and `linux/arm64` with each release.
+
+#### Verifying your download
+Each release ships a `hashes.txt` along with a GPG signature over it. If you care about running the code you actually downloaded, and you should, verify the archive against `hashes.txt` with `sha256sum -c` on Linux and macOS (or a checksum tool of your choice on Windows), and check the signature against the public key published in the [nerva repository][nerva-github-nerva-link].
 
 <hr>
 
