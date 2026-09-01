@@ -205,7 +205,7 @@ An example: Blocks get found quickly, so it looks like the total nethash has inc
 #### Concerning Addresses
 
 NERVA has different types of addresses:
-A **normal address** for NERVA starts with `NV`. If you send coins to an exchange or a merchant you have to add a payment ID to this kind of address. Due to the untraceability of transactions, they will need this to know the payment comes from you. Alternatively, you can use an **integrated address** which starts with `Niz`. Don't ask how the Z got there. This is likely a wrongly configured prefix; when the chain launched with it, it stayed forever. Integrated addresses don't require a separate payment ID because it is...integrated into it. A third kind of address is a **subaddress**. This is what you get if you create more than one address for a wallet. Subaddresses start with `NS`. Subaddresses are the next generation of privacy enhancing address.
+A **normal address** for NERVA starts with `NV`. If you send coins to an exchange or a merchant with a normal address, they will need a payment ID to know the payment comes from you, because the sender of a transaction cannot be read off the chain. The cleaner alternative is an **integrated address**, which starts with `Niz`. Don't ask how the Z got there. This is likely a wrongly configured prefix; when the chain launched with it, it stayed forever. Integrated addresses don't require a separate payment ID because it is...integrated into it. The third kind of address is a **subaddress**. This is what you get if you create more than one address for a wallet. Subaddresses start with `NS`. These days subaddresses are the preferred way of receiving multiple payments to one wallet, and most services that once asked for a payment ID are happy to hand out a subaddress or an integrated address instead. You can encode a payment ID into an integrated address yourself with the wallet's `integrated_address` command.
 
 To summarize:
 
@@ -217,14 +217,14 @@ To summarize:
 
 Nodes always broadcast what they think is the right block height but this is not necessarily the correct one.
 
-* It used to happen a lot after hardforks that outdated nodes kept broadcasting their bad chain top block as the right one. This is no longer an issue (since the CN-A v3 algorithm) because outdated nodes now get blocked as soon as they send a bad block or announce their invalid version height.
+* It used to happen a lot after hardforks that outdated nodes kept broadcasting their bad chain top block as the right one. NERVA now blocks outdated nodes as soon as they send a bad block or announce an invalid version height, and every hard fork additionally blocks versions from before the fork, so an un-upgraded daemon finds itself alone rather than dragging others onto a dead chain.
 * The other possibility is that two miners find a block simultaneously (a so called uncle block situation) and both get half the network behind 'their' chain. This creates a temporary fork and happens every so often (daily). It goes like this:
 
-Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganized" onto the right one.
+Miner A and Miner B find a block almost simultaneously and start broadcasting their solution. The nodes that think block A is the right block mine as if it was and the nodes that think block B is the right one also mine as if Miner B's chain is the right one. Both chains diverge for a time until the chain is able to determine which one has the most nodes working on it (calculated from cumulative difficulty). That becomes the right chain and everyone on the other chain gets their node "reorganized" onto the right one. Your daemon handles this by itself, and your wallet will pick up the corrected history on its next refresh, so a reorg is not something you need to act on.
 
 #### Concerning Seed Nodes
 
-The seed nodes are the basic nodes in the NERVA network. When you start your daemon for the first time, it will connect to the seed nodes to get started. Seed nodes are really nothing special: They are IP addresses hardcoded into the daemon, so if you run out of connections, you know at least a few nodes you can contact. NERVA developers are actively looking at alternate ways of getting a list of nodes you can connect to because seed nodes introduce a certain level of centralization. DNS-based node lists and port scanning to find other nodes are several of the options that are being considered.
+The seed nodes are the basic nodes in the NERVA network. When you start your daemon for the first time, it will connect to the seed nodes to get started. Seed nodes are really nothing special: they are the nodes your daemon knows about before it has met anyone, so if you run out of connections, you know at least a few nodes you can contact. The seed list is no longer hardcoded IP addresses only: the daemon also fetches it over DNS, which lets the developers rotate nodes and react to dead ones without shipping a new release. If you want no DNS traffic at all, start the daemon with `--no-dns`, or pick your own resolvers with `--dns-server`.
 
 #### Concerning the Nodemap
 
@@ -246,7 +246,7 @@ Increasing the log level will output much more information, which can help to id
 Replace `<level>` with a number from 0-4, with 0 being minimal information, and 4 being a constant stream of text. It is recommended to increment the number by 1 until you find what you are looking for.
 
 #### How do I update?
-Download the latest version and simply overwrite the existing files.
+Download the latest version and simply overwrite the existing files. The blockchain database and your wallet files are not touched by this, they live in separate directories, so replacing the programs is enough. See the [Updating NERVA](#updating-nerva) section below for the details.
 
 #### What are node blocked messages?
 Other nodes can be blocked from connecting to your node if they have mined an invalid block (i.e. are on a forked chain) or have possibly tampered with the code. You may also be blocked for being on a forked chain as well. NERVA also has specific measures in place to block other nodes if they report an incompatible software version (i.e. outdated software) or fail to report their version to the other nodes. These measures exist to protect the integrity of the blockchain and to ensure that all nodes are updated to a compatible version of the NERVA software. 
@@ -257,9 +257,11 @@ If you are worried about these errors, you should type `status` into your node. 
 
 # Updating NERVA
 
-Each new release of the software brings new features, improvements or optimizations. It's recommended to always keep your node up to date with the latest version. Occasionally, [hard forks occur](../../about/#hard-forks) which makes updating your node mandatory.
+Each new release of the software brings new features, improvements or optimizations. It's recommended to always keep your node up to date with the latest version, and the daemon itself will print a note in the log when a newer release is out. Occasionally, [hard forks occur](../../about/#hard-forks) which make updating your node mandatory: after the fork height, old versions are cut off from the network by design.
 
-To update, simply close all NERVA processes, download the new binaries, extract them and copy your wallet files from the old version to the new. Alternatively you can paste the new binaries into your existing NERVA directory, overwriting the old contents. Before updating, you should ensure that your wallet seed phrase is backed up, just in case something goes wrong.
+To update, close all NERVA processes, download the new binaries and put them in place of the old ones. Your wallets are not part of the download and are not overwritten, since they sit in the directory you made them in, and the blockchain database lives in the daemon's data directory, which no release ever deletes. In other words there is nothing to migrate: replace the programs and start them again. Before updating, you should still ensure your wallet seed phrase is backed up, just in case something goes wrong.
+
+If you skipped several versions at once and the node misbehaves afterwards, check [the release notes][nerva-github-nerva-releases-link] for any notes about re-syncing, and verify your download against `hashes.txt` as usual.
 
 <hr>
 
@@ -268,11 +270,8 @@ To update, simply close all NERVA processes, download the new binaries, extract 
 #### Created a new wallet but transactions or found blocks do not display
 If this happens please use the command `rescan_bc`.  If this does not help the current solution is to restore your wallet from its seed phrase.  This will fix the issue.
 
-#### AES-NI error
-Use the **noaes** version of nervad.
-
 #### nervad will not launch or crashes after launching
-The most common reason this occurs is if you already have another instance of nervad running in the background. If in doubt, try restarting your computer.
+The most common reason this occurs is if you already have another instance of nervad running in the background. On Windows, check the Task Manager for leftover `nervad.exe` processes and end them; on Linux and macOS, `ps aux | grep nervad` will find them. If in doubt, try restarting your computer.
 
 If this did not fix the issue, check [the logs](#log-location) for more information.
 
@@ -281,24 +280,19 @@ There are a number of reasons this can occur. Following these steps should resol
 
 * Restart the daemon
 * Restart your computer
-* Check your system's clock. If you clock's time is off from the network time by more than the future time limit, the local daemon will reject the block.
-* Ensure you are running the latest version of NERVA.
+* Check your system's clock. If your clock's time is off from the network time by more than the future time limit, the local daemon will reject the block.
+* Ensure you are running the latest version of NERVA. A daemon sitting on the wrong side of a hard fork will sync nothing at all.
 * It is possible your blockchain is corrupted or you are on a forked chain. Run this command:
 `nerva-blockchain-import --pop-blocks 1000`, then restart the daemon again.
 * You may have been blocked by the seed nodes. Waiting or changing your IP should resolve this, or you can unblock yourself in the #atom channel in [Discord][nerva-discord-link].
 
 If you're still having issues, [Discord][nerva-discord-link] is the right place to be so we can investigate further.
 
+#### MDB_READERS_FULL error on startup
+This one has a dedicated section in the [Mining FAQ](../mining), including what causes it and how to fix it on each platform.
+
 #### Wallet created prior to v0.1.5.6 will not open
-You'll need to restore from seed.
-
-#### (macOS) 'lazy symbol binding failed: Symbol not found: _clock_gettime'
-The Mac CLI is built on Mojave. The minimum required version for running the Mac CLI is reported as Sierra. There is no plan to support versions older than that for mining on Mac.
-
-If you have git installed, you may also try building from source: `git clone --recursive [nerva-github-nerva-link] && ./nerva/builder/mac`
-
-#### (Linux) nerva-wallet-cli hangs on launch
-Try launching the wallet with the flag `--daemon-ssl disabled`.
+You'll need to restore from seed. Any wallet that old has earned a fresh start anyway.
 
 <hr>
 
