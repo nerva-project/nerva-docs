@@ -71,10 +71,12 @@ Once all the necessary processes have booted up, the NERVA daemon will check how
 
 ![syncing](img/nerva-syncing.png)
 
-This process will take a while. If you have opted to use the quicksync feature, the sync should be completed in less than 20 minutes on most computers. Once your daemon has synchronised, you will receive a `SYNCHRONIZED OK` message and you then are ready to start using NERVA.
+This process will take a while. Recent versions skip proof of work verification for old blocks during the initial sync, so a full sync from scratch is far quicker than it used to be, and with quicksync it typically finishes in minutes rather than hours. The first sync also builds the node map data and checks for software updates, so give it a moment after the blocks are in before expecting connections to settle. Once your daemon has synchronised, you will receive a `SYNCHRONIZED OK` message and you then are ready to start using NERVA.
+
+The daemon talks to the network over port **17565**, and its local RPC interface listens on **17566**. If you run a firewall, make sure 17565 is open for both incoming and outgoing traffic, otherwise your node will struggle to find and keep peers.
 
 #### Understanding daemon messages
-* Every announcement has a **time stamp**: `YYYY-MM-DD` followed by `HH:MM:SS.sss` (yes, miliseconds).
+* Every announcement has a **time stamp**: `YYYY-MM-DD` followed by `HH:MM:SS.sss` (yes, milliseconds).
 * `INFO` (`I`) is a [log level](#changing-log-level) indicator. Other possibilities are `WARNING` (`W`) and `ERROR` (`E`). Only errors require you to take action, as they indicate a problem. It is usually safe to ignore warnings.
 * The **message** explains the event of interest.
 
@@ -85,13 +87,13 @@ If you run nervad with an increased [log level](#changing-log-level), you'll see
 ## Creating a wallet
 *If you wish to store your funds on a Ledger hardware wallet, refer to the [Ledger guide](../ledger/).*
 
-Once you have synchronized the blockchain, you'll need to create a wallet so that can you receive and spend NERVA. This is done through nerva-wallet-cli.
+Once you have synchronized the blockchain, you'll need to create a wallet so that can you receive and spend NERVA. This is done through nerva-wallet-cli. Technically the wallet only scans the chain, so it can be created before the sync is finished, but the balance it shows will not be complete until the daemon is caught up.
 
 The wallet creation process is straightforward. After launching nerva-wallet-cli, you'll be asked to specify a wallet name. You should use *only* alphanumeric characters (a-z,A-Z,0-9). Then confirm wallet creation by typing Yes and hitting enter.
 
 Next you'll be asked for a wallet password. The password you enter will be used to encrypt your wallet data, so that even if somebody else had access to your computer, your funds would remain safe (at least until/unless they brute forced the password). You *can* skip providing a password by just hitting enter, but it's recommended to enter a secure random password at this stage. You'll be required to enter this password whenever you open your wallet, when you spend coins and (by default) also when you receive coins. *Nothing will appear on the screen as you type your password - this is normal.*
 
-Finally, specify your language (1 for English) and your wallet is all set up.
+Finally, specify your language (1 for English) and your wallet is all set up. The wallet file and a `.keys` file holding the encrypted private keys are written to whatever directory you launched the wallet from. Back those files up if you like, but remember the seed phrase below is what actually matters, and the blockchain itself is not part of the wallet, it lives in the daemon's data directory.
 
 ![osxcli](img/nerva-wallet.png)
 
@@ -132,31 +134,29 @@ You'll be prompted to enter your (secret) spend key. Carefully type it in.
 Next choose a strong password for your wallet and confirm it, then choose your language (1 for English).
 Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
 
+#### A note on restore height
+When restoring, the wallet scans the blockchain from the height you give it (or from the beginning if you give it nothing) looking for outputs that belong to you. A height that is too early is only slower, never wrong: you can safely enter the approximate height or date the original wallet was created and let it scan from there. If you know the date instead, the restore prompt accepts `YYYY-MM-DD` and estimates the height for you. The `restore_height` command shows what a wallet currently uses.
+
 <hr>
 
 # Basic usage
 **In both nervad and nerva-wallet-cli, you can see a full list of commands with `help`, and more information on a given command with `help <command>`.** Some commands are explained in further detail below.
 
-You can view your public address (that you can receive funds to) with the wallet command `address`. You can see your current balance with `balance`.
+You can view your public address (that you can receive funds to) with the wallet command `address`. You can see your current balance with `balance`, and `balance detail` if you want it broken down per account and address. Since a wallet can hold several accounts, and each account can hold many addresses, `account` switches between them and `address new` makes another one. Receiving on multiple subaddresses is the NERVA way of keeping incoming payments separate without handing out payment IDs.
 
 #### Making transactions
 No currency is complete without a way to spend it. nerva-wallet-cli provides the means to transfer funds to other accounts. The most basic way to send funds is to use the command: `transfer <address> <amount>`, where `address` is the address to send XNV to and `amount` is the amount to send. After you press ENTER, you will be informed of the fee and asked to confirm. Confirm the transaction to send.
 
-There are other options when it comes to sending XNV. The following command includes some of the optional features: `transfer <priority> <address> <amount> <payment_id>`
+The full form is `transfer [index=<N1>[,<N2>,...]] [<priority>] (<URI> | <address> <amount>)`. The `index` part lets you send from specific accounts or subaddresses of your wallet. There are 4 priority levels: `default`, `low`, `medium` and `high`. Higher priority transactions are processed before lower priority ones, however they cost more in fees. In most cases the `default` priority, which is what you get when you omit it, is suitable. Fees go to the miner of the block that includes your transaction, so they double as the incentive that keeps the network running.
 
-Additional to `address` and `amount`, you now also have a `priority` which specifies the importance of the transaction and a `payment_id` which may optionally be required by the receiving party. There are 4 priority levels:
+The wallet also accepts a `nerva:` URI in place of the address and amount, which is what clicking a payment link on a website gives you.
 
-- default
-- low
-- medium
-- high
+To send everything in one go there is `sweep_all <address>`, which gathers your unlocked outputs and sends them to the address you give it. Related commands are `sweep_below` for sweeping only outputs under a threshold and `sweep_single` for sending one specific output.
 
-Higher priority transactions are processed before lower priority transactions, however they cost more in fees. In most cases, the `default` priority (automatically set when you omit the priority) is suitable. Transaction fees collected are placed into the next block and included as part of the block reward for the miner of the next block.
-
-The payment ID is an optional identifier used to label a transaction. This is most often used to distinguish who is sending funds to a particular wallet. For example, exchanges listing NERVA have only one address, and use the payment ID to determine which user is depositing funds to the exchange. Usually, exchanges use an [*integrated address*](#concerning-addresses).
+Payment IDs, which older guides may tell you to attach to transfers, are obsolete: long payment IDs are unencrypted and bad for privacy, and the wallet now refuses to send them unless you start it with `--long-payment-id-support` and insist. If a service asks you for a payment ID, check whether they accept subaddresses or integrated addresses instead, both of which the wallet still handles fine. See [Concerning Addresses](#concerning-addresses).
 
 #### Viewing transactions
-You can use the `show_transfers` command in nerva-wallet-cli to see your transaction history (both sent and received).
+You can use the `show_transfers` command in nerva-wallet-cli to see your transaction history (both sent and received). It accepts filters, for example `show_transfers in` or `show_transfers pending`, and a height range. `show_transfer <txid>` prints everything the wallet knows about one transaction, and `export_transfers` writes the lot to a CSV file for your accounting pleasure.
 
 Your wallet will automatically detect any new transactions, but if it doesn't (for example if it previously lost connection to nervad) you can manually refresh it with the `refresh` command. You can also fully rescan the blockchain with the command `rescan_bc` which will usually resolve any wallet issues.
 
@@ -164,9 +164,14 @@ Your wallet will automatically detect any new transactions, but if it doesn't (f
 In nervad, type the following command: `status`
 
 This will produce an output such as:
-`Height: 93582/93582 (100.0%) on mainnet, mining at 607 H/s, net hash 365.58 kH/s, v6, up to date, 8(out)+0(in) connections, uptime 0d 5h 35m 18s`
+`Height: 4342875/4342875 (100.0%) on mainnet, software version 0.3.0.0, mining at 607 H/s with 4 threads, net hash 365.58 kH/s, v13, 8(out)+0(in) connections, uptime 0d 5h 35m 18s`
 
-This shows you the height, network you are connected to, hash rate, number of connections and uptime. This comprises most information a user might require about the NERVA network.
+This shows you the height, the software version, whether you are mining and on how many threads, the estimated network hashrate, the current consensus version, the number of connections and the uptime. If a hard fork is coming up, the version field is followed by a note such as `next fork in 12.5 days` — that is your cue to check for a software update. This comprises most information a user might require about the NERVA network.
+
+#### Using a remote node
+If you do not want to run your own node, the wallet can talk to someone else's. Start it with `nerva-wallet-cli --daemon-address <host>:<port>`, or point a running wallet at a different node with the `set_daemon <host>[:<port>]` command. Community-run public nodes are listed in the NervaOne wallet and on the [node map][nerva-nodemap-link] (a node advertising itself as public shows up there with the restricted RPC port).
+
+Be aware of the trade-off: a remote node operator can see your IP address and the timing and size of your requests, though your keys, addresses and balances stay with you and cannot be read from the traffic. For day-to-day amounts most people consider public nodes an acceptable convenience; if that balance tips for you, run your own node. You can also run your own node somewhere else and point the wallet at it, which gives you the same convenience without trusting a third party.
 
 #### Exiting
 You should always use the `exit` command to safely close both nervad and nerva-wallet-cli.
@@ -174,7 +179,7 @@ You should always use the `exit` command to safely close both nervad and nerva-w
 <hr>
 
 # Mining
-Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. There are two ways to start mining:
+Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. NERVA is deliberately solo-mining only: there are no pools, because the proof of work needs data from a full node's copy of the chain, which is exactly what you are running. There are two ways to start mining:
 
 * In `nerva-wallet-cli`, with the command `start_mining <threads>` - this will mine to your wallet address
 * In `nervad`, with the command `start_mining <address> <threads>`
@@ -182,7 +187,11 @@ Mining is the process of validating transactions on the blockchain. The reward f
 You can also set nervad to mine automatically after launching, with the command:
 `nervad --start-mining <address> --mining-threads <threads>`
 
-If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
+If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. Since hard fork 13, the algorithm works on an 8 MB scratchpad per thread, so the useful thread count is capped by your cache and memory rather than by your core count: oversubscribing threads that share an L3 slice will slow each other down. Two options help here. On Windows, run `nervad --setup-large-pages` once from an administrator prompt (then log out and back in) to let the miner use large pages. Everywhere else, `--mining-affinity` pins mining threads to physical cores so they stay on one cache group. On Linux and FreeBSD no setup is needed for large pages.
+
+If you want to support development directly, `--donate-level <n>` donates a percentage of the blocks you mine to the development wallet. The default is 0, so nothing is shared unless you say so.
+
+If you have no idea what a thread is, or have other questions about mining, refer to the [Mining FAQ](../mining).
 
 <hr>
 
