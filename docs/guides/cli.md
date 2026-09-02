@@ -134,6 +134,9 @@ You'll be prompted to enter your (secret) spend key. Carefully type it in.
 Next choose a strong password for your wallet and confirm it, then choose your language (1 for English).
 Finally you'll be asked to enter a block height to scan your wallet from. If you're not sure, just press enter again. The wallet will then be regenerated.
 
+#### Restoring a watch-only wallet
+If you only hold the private view key of an address, you can still watch its incoming payments without being able to spend them. Use `nerva-wallet-cli --generate-from-view-key <name>` for that. You'll be asked for the standard address, the private view key, then a password and a scan height like any other restore. The resulting wallet sees everything that arrives but cannot sign transfers, since the spend key is not part of it.
+
 #### A note on restore height
 When restoring, the wallet scans the blockchain from the height you give it (or from the beginning if you give it nothing) looking for outputs that belong to you. A height that is too early is only slower, never wrong: you can safely enter the approximate height or date the original wallet was created and let it scan from there. If you know the date instead, the restore prompt accepts `YYYY-MM-DD` and estimates the height for you. The `restore_height` command shows what a wallet currently uses.
 
@@ -147,7 +150,7 @@ You can view your public address (that you can receive funds to) with the wallet
 #### Making transactions
 No currency is complete without a way to spend it. nerva-wallet-cli provides the means to transfer funds to other accounts. The most basic way to send funds is to use the command: `transfer <address> <amount>`, where `address` is the address to send XNV to and `amount` is the amount to send. After you press ENTER, you will be informed of the fee and asked to confirm. Confirm the transaction to send.
 
-The full form is `transfer [index=<N1>[,<N2>,...]] [<priority>] (<URI> | <address> <amount>)`. The `index` part lets you send from specific accounts or subaddresses of your wallet. There are 4 priority levels: `default`, `low`, `medium` and `high`. Higher priority transactions are processed before lower priority ones, however they cost more in fees. In most cases the `default` priority, which is what you get when you omit it, is suitable. Fees go to the miner of the block that includes your transaction, so they double as the incentive that keeps the network running.
+The full form is `transfer [index=<N1>[,<N2>,...]] [<priority>] (<URI> | <address> <amount>) [<payment_id>]`, that last optional argument being the payment ID, of which more below. The `index` part lets you send from specific accounts or subaddresses of your wallet. There are 4 priority levels: `default`, `low`, `medium` and `high`. Higher priority transactions are processed before lower priority ones, however they cost more in fees. In most cases the `default` priority, which is what you get when you omit it, is suitable. Fees go to the miner of the block that includes your transaction, so they double as the incentive that keeps the network running.
 
 The wallet also accepts a `nerva:` URI in place of the address and amount, which is what clicking a payment link on a website gives you.
 
@@ -169,7 +172,9 @@ This will produce an output such as:
 This shows you the height, the software version, whether you are mining and on how many threads, the estimated network hashrate, the current consensus version, the number of connections and the uptime. If a hard fork is coming up, the version field is followed by a note such as `next fork in 12.5 days` — that is your cue to check for a software update. This comprises most information a user might require about the NERVA network.
 
 #### Using a remote node
-If you do not want to run your own node, the wallet can talk to someone else's. Start it with `nerva-wallet-cli --daemon-address <host>:<port>`, or point a running wallet at a different node with the `set_daemon <host>[:<port>]` command. Community-run public nodes are listed in the NervaOne wallet and on the [node map][nerva-nodemap-link] (a node advertising itself as public shows up there with the restricted RPC port).
+If you do not want to run your own node, the wallet can talk to someone else's. Start it with `nerva-wallet-cli --daemon-address <host>:<port>`, or point a running wallet at a different node with the `set_daemon <host>[:<port>]` command. `set_daemon` also takes `trusted` or `untrusted`: by default a local node is trusted and a remote one is not, which mostly adds a warning that the spent status of your outputs may be out of date.
+
+Community-run public nodes are listed in the NervaOne wallet and on the [node map][nerva-nodemap-link] (a node advertising itself as public shows up there with the restricted RPC port).
 
 Be aware of the trade-off: a remote node operator can see your IP address and the timing and size of your requests, though your keys, addresses and balances stay with you and cannot be read from the traffic. For day-to-day amounts most people consider public nodes an acceptable convenience; if that balance tips for you, run your own node. You can also run your own node somewhere else and point the wallet at it, which gives you the same convenience without trusting a third party.
 
@@ -181,13 +186,15 @@ You should always use the `exit` command to safely close both nervad and nerva-w
 # Mining
 Mining is the process of validating transactions on the blockchain. The reward for your work is paid out in NERVA (XNV). If you are first to unlock the block, you get the coins. NERVA is deliberately solo-mining only: there are no pools, because the proof of work needs data from a full node's copy of the chain, which is exactly what you are running. There are two ways to start mining:
 
-* In `nerva-wallet-cli`, with the command `start_mining <threads>` - this will mine to your wallet address
-* In `nervad`, with the command `start_mining <address> <threads>`
+* In `nerva-wallet-cli`, with the command `start_mining [<threads>]` - this will mine to your wallet address
+* In `nervad`, with the command `start_mining <address> [<threads>|auto]`
 
 You can also set nervad to mine automatically after launching, with the command:
 `nervad --start-mining <address> --mining-threads <threads>`
 
 If you do not specify a number of CPU threads to mine on, the daemon will automatically detect the optimal number of threads, but you may get better results from experimentation, as each hardware configuration is different. Since hard fork 13, the algorithm works on an 8 MB scratchpad per thread, so the useful thread count is capped by your cache and memory rather than by your core count: oversubscribing threads that share an L3 slice will slow each other down. Two options help here. On Windows, run `nervad --setup-large-pages` once from an administrator prompt (then log out and back in) to let the miner use large pages. Everywhere else, `--mining-affinity` pins mining threads to physical cores so they stay on one cache group. On Linux and FreeBSD no setup is needed for large pages.
+
+`stop_mining` stops the miner again from either program, and the daemon's `mining_status` command tells you whether mining is running, on how many threads and at what hashrate.
 
 If you want to support development directly, `--donate-level <n>` donates a percentage of the blocks you mine to the development wallet. The default is 0, so nothing is shared unless you say so.
 
