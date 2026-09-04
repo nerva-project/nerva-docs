@@ -10,7 +10,7 @@ body {
 .navbar {
 	width: 100%;
 	position: fixed;
-	z-index: 100;
+	z-index: 1030;
 	background-image: -moz-linear-gradient( 90deg, rgba(85, 168, 191, 1) 0%, rgba(99, 88, 145, 1) 100%);
 	background-image: -webkit-linear-gradient( 90deg, rgba(85, 168, 191, 1) 0%, rgba(99, 88, 145, 1) 100%);
 	background-image: -ms-linear-gradient( 90deg, rgba(85, 168, 191, 1) 0%, rgba(99, 88, 145, 1) 100%);
@@ -57,6 +57,14 @@ body {
 }
 #content tbody tr:nth-of-type(odd) {
 	background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* A wide table scrolls inside itself rather than widening the whole page. */
+@media (max-width: 767.98px) {
+	#content table {
+		display: block;
+		overflow-x: auto;
+	}
 }
 
 /* ── Dark mode ── */
@@ -110,6 +118,7 @@ html.dark-mode th {
 html.dark-mode #content thead th {
 	background-color: #242b2e;
 }
+html.dark-mode #content tbody tr:nth-of-type(odd),
 html.dark-mode .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(255, 255, 255, 0.04);
 }
