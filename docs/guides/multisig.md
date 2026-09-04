@@ -18,14 +18,14 @@ The same applies to the offline `gen_multisig` helper that used to generate whol
 
 # If you have an existing multisig wallet
 
-Wallets that were already multisig before the feature was disabled keep opening, syncing and receiving funds normally. Spending from them keeps working until hard fork 14, which activates at block height 4,500,000, expected around the end of November 2026 at the current block pace.
+Wallets that were already multisig before the feature was disabled keep opening, syncing and receiving funds normally. Spending from them keeps working until hard fork 14. The activation height in the source is currently 4,500,000, but that is a placeholder held deliberately far out so that builds from master do not fork early; the real height is set once the validation gates pass and is expected to land earlier than that. Treat it as a moving deadline rather than a date you can plan around, and watch the announcement channels.
 
 From that point on, multisig wallets will no longer be able to spend at all. Recent wallet versions print a warning at startup to make this hard to miss:
 
     WARNING: multisig is a disabled legacy feature. From fork 14 this wallet
     cannot spend; move any funds before the fork.
 
-If you hold funds in a multisig wallet, the practical advice is simple: **move them to a regular wallet before the fork**. Gather the required signers, spend the balance to a normal wallet you control, and treat the multisig address as spent afterwards. Receiving continues to work after the fork, but coins sent to a multisig address after it would be stuck, so decommission the address properly and stop giving it out now.
+Because the date can move earlier, do not wait for it. If you hold funds in a multisig wallet, the practical advice is simple: **move them to a regular wallet now**. Gather the required signers, spend the balance to a normal wallet you control, and treat the multisig address as spent afterwards. Receiving continues to work after the fork, but coins sent to a multisig address after it would be stuck, so decommission the address properly and stop giving it out now.
 
 # Why it was disabled
 
