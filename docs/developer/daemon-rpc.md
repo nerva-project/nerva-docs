@@ -16,9 +16,9 @@ The options that matter for the RPC are:
 * `--rpc-access-control-origins <origins>` — allowed CORS origins, for browser applications
 * `--restricted-rpc` — serve restricted mode on the main RPC port
 * `--rpc-restricted-bind-port <port>` — serve restricted mode on a second port alongside the unrestricted one
-* `--public-node` — run restricted RPC on the main port and advertise the node to peers as a public remote node
+* `--public-node` — advertise the node to peers as a public remote node. It does not enable restricted mode: the daemon refuses to start with `--public-node` unless `--restricted-rpc` or `--rpc-restricted-bind-port` is also set
 
-Restricted mode exists for pointing strangers at your node. It redacts information that could be used to fingerprint or attack the node: connection and peer counts are zeroed in `get_info`, peer details are hidden, and bulk output queries are capped. The `--public-node` flag is the friendly shortcut, since it also makes the node advertise itself so wallets like NervaOne can discover it.
+Restricted mode exists for pointing strangers at your node. It redacts information that could be used to fingerprint or attack the node: connection and peer counts are zeroed in `get_info`, peer details are hidden, and bulk output queries are capped. Adding `--public-node` on top makes the node advertise itself so wallets like NervaOne can discover it. Reaching it from outside also needs `--rpc-bind-ip 0.0.0.0 --confirm-external-bind`; never pair those with an unrestricted RPC, or the full command set including `stop_daemon` is exposed to anyone who can route to you.
 
 Exposing an unrestricted, unauthenticated RPC to the internet is a bad idea, and the daemon will not let you do it by accident. If you need remote access, the usual combinations are restricted mode without authentication for read-only use, or an authenticated unrestricted port bound to the interfaces you actually need.
 
@@ -62,10 +62,10 @@ The total coins generated so far, a Nerva specific call that the website's suppl
 curl http://127.0.0.1:17566/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_generated_coins"}' -H 'Content-Type: application/json'
 ```
 
-The fee a transaction would currently pay, per kilobyte and for a given priority:
+The current per kilobyte fee. The optional `grace_blocks` asks what the fee would be if you wanted the transaction to still be valid that many blocks from now:
 
 ```
-curl http://127.0.0.1:17566/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_fee_estimate","params":{"priority":1}}' -H 'Content-Type: application/json'
+curl http://127.0.0.1:17566/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_fee_estimate","params":{"grace_blocks":10}}' -H 'Content-Type: application/json'
 ```
 
 Transactions by hash, either your own or ones seen in the mempool, as full blobs:
@@ -122,7 +122,7 @@ Through `/json_rpc`, the same server answers these methods:
 | `hard_fork_info` | current fork version, thresholds, heights |
 | `get_min_version` | earliest daemon version still accepted on the network |
 | `get_version` | RPC version of the daemon |
-| `get_fee_estimate` | expected fee per kilobyte for a priority |
+| `get_fee_estimate` | fee per kilobyte, optionally with `grace_blocks` |
 | `get_txpool_backlog` | mempool entries by fee and size |
 | `get_output_histogram` | distribution of outputs by amount |
 | `get_output_distribution` | amount distribution over heights, for decoy selection |

@@ -1,10 +1,10 @@
 # NERVA CLI Guide
-Running NERVA from the command-line is a good option for those familiar with commands and those who prefer simplicity over Graphical User Interfaces. Everything NERVA can do is available from the CLI, and it tends to be where new features land first. If you would rather point and click, have a look at the [NervaOne Guide](../nervaone) instead.
+Running NERVA from the command-line is a good option for those familiar with commands and those who prefer simplicity over Graphical User Interfaces. Everything NERVA can do is available from the CLI, and it tends to be where new features land first. If you would rather point and click, have a look at the [GUI Guide](../gui) instead.
 
 <hr>
 
 # Getting started
-There are two binary packages per operating system available for download. The default minimal package contains the bare essentials for running a node and transacting on the network. The other package includes additional software. All downloads are available on [GitHub][nerva-github-nerva-releases-link]
+Each release ships one archive per operating system and architecture, containing the daemon, the wallets and the blockchain utilities. Windows gets a 64-bit and a 32-bit build, macOS an Apple Silicon and an Intel build, and Linux covers x86_64, i686, armv7 and armv8, each with a fully static `musl` variant alongside it. All downloads are available on [GitHub][nerva-github-nerva-releases-link]
 
 <hr>
 
@@ -22,7 +22,7 @@ To get these programs, open the [NERVA downloads page][nerva-downloads-link] and
 
 ## Getting started: Windows
 
-1. Open your Downloads folder and extract the contents of `nerva-vx.x.x.x_windows-x64.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is. A 32-bit build is provided for very old hardware.
+1. Open your Downloads folder and extract the contents of `nerva-windows-x64-vx.x.x.x.zip` into a new folder. You can move this new folder wherever you'd like NERVA to be stored on your computer (for example, on your desktop) or just leave it where it is. A 32-bit build is provided for very old hardware.
 
 2. (Optional) Move the `quicksync.raw` file we downloaded earlier into your NERVA folder.
 
@@ -39,30 +39,46 @@ If you get a pop-up from Windows Firewall or any other security software, make s
 ## Getting started: macOS
 1. There are two builds of the CLI, one for Apple Silicon (armv8) and one for Intel (x64). If you are not sure which CPU your Mac has, click the Apple menu in the top left corner and select **About This Mac** — the chip or processor line will tell you. Download the appropriate file for your computer.
 
-2. Open Finder and go to your Downloads folder. Right click on the `.tar.bz2` file you downloaded and let Archive Utility extract it into a new folder with the same name. *If you downloaded the file with Safari, it may have been extracted automatically.* You can also unpack it from a terminal with `tar -xjf nerva-vx.x.x.x_macos-armv8.tar.bz2`.
+2. Open Finder and go to your Downloads folder. Right click on the `.tar.bz2` file you downloaded and let Archive Utility extract it into a new folder with the same name. *If you downloaded the file with Safari, it may have been extracted automatically.* You can also unpack it from a terminal with `tar -xjf nerva-macos-armv8-vx.x.x.x.tar.bz2`.
 
 3. *(Optional)* Drag the `quicksync.raw` file into this new folder.
 
 4. Open Terminal (press Command + Space, then type `terminal` and hit enter). Type `cd` followed by a space, then drag the folder you just extracted from Finder into the Terminal window (this pastes its path) and hit enter. Now type:
  `./nervad --quicksync quicksync.raw` and hit enter. (*If you are not using quicksync, simply type `./nervad`*)
 
- **If you receive a warning about running software from an unidentified developer, open System Settings > Privacy & Security and click Allow Anyway at the bottom of that page.** Each program may ask once the first time you run it.
+ **The macOS builds are not signed or notarized, so the first run is blocked.** Open System Settings > Privacy & Security and click Allow Anyway at the bottom of that page. Programs started from a Terminal are sometimes killed without that button ever appearing, in which case clear the quarantine flag directly:
+
+    xattr -d com.apple.quarantine ./nervad ./nerva-wallet-cli
 
 You are now running nervad. In the future you can relaunch it by running `./nervad` from that folder in a Terminal window, and the wallet with `./nerva-wallet-cli`. You can open more terminals by clicking **Shell > New Terminal** in the top menu bar. If you want to run the programs from anywhere without navigating to the folder first, copy them somewhere in your PATH, such as `/usr/local/bin`.
 
 <hr>
 
 ## Getting started: Linux
-1. Download the release archive for your architecture and unpack it into a new directory, for example `tar -xjf nerva-vx.x.x.x_linux-x86_64.tar.bz2`. ARM boards can use the armv7 or armv8 builds depending on the board. The `musl` builds are fully static and run on any distribution, which is handy if yours is exotic enough that the regular builds complain.
+1. Download the release archive for your architecture and unpack it into a new directory, for example `tar -xjf nerva-linux-x86_64-vx.x.x.x.tar.bz2`. ARM boards can use the armv7 or armv8 builds depending on the board. The `musl` builds are fully static and run on any distribution, which is handy if yours is exotic enough that the regular builds complain.
 
 2. *(Optional)* Move the `quicksync.raw` file there, then run the command `./nervad --quicksync quicksync.raw` (*If you are not using quicksync, simply run `./nervad`*)
 
 You are now running nervad. In the future you can relaunch it via the `./nervad` command from that directory. You can launch the wallet with the command `./nerva-wallet-cli`.
 
-If you plan on keeping a node running long term, consider running it under systemd or inside a `tmux`/`screen` session so it survives your terminal closing. People who prefer containers can run the official Docker image instead, published for `linux/amd64` and `linux/arm64` with each release.
+If you plan on keeping a node running long term, consider running it under systemd or inside a `tmux`/`screen` session so it survives your terminal closing. People who prefer containers can run the `sn1f3rt/nerva` image on Docker Hub instead, published for `linux/amd64` and `linux/arm64` with each release. The [Docker Guide](../docker) covers it.
 
-#### Verifying your download
-Each release ships a `hashes.txt` along with a GPG signature over it. If you care about running the code you actually downloaded, and you should, verify the archive against `hashes.txt` with `sha256sum -c` on Linux and macOS (or a checksum tool of your choice on Windows), and check the signature against the public key published in the [nerva repository][nerva-github-nerva-link].
+<hr>
+
+## Verifying your download
+This applies to every platform, whichever archive you downloaded.
+
+Each release ships a `hashes.txt` listing the SHA-256 of every file, and a `signatures-vx.x.x.x.zip` containing `hashes.txt.asc`, a detached GPG signature over it. If you care about running the code you actually downloaded, and you should, check both.
+
+Verify the archive against `hashes.txt` from the directory you downloaded into. The `--ignore-missing` flag matters: without it the tool reports a failure for every release file you did not download.
+
+    sha256sum -c hashes.txt --ignore-missing        # Linux
+    shasum -a 256 -c hashes.txt --ignore-missing    # macOS
+
+On Windows, `certutil -hashfile <file> SHA256` prints the hash to compare by eye. Then unzip `signatures-vx.x.x.x.zip` and check the signature against a maintainer key from `gpg_keys/` in the [nerva repository][nerva-github-nerva-link]:
+
+    gpg --import R0BC0D3R.asc
+    gpg --verify hashes.txt.asc hashes.txt
 
 <hr>
 
@@ -167,9 +183,9 @@ Your wallet will automatically detect any new transactions, but if it doesn't (f
 In nervad, type the following command: `status`
 
 This will produce an output such as:
-`Height: 4342875/4342875 (100.0%) on mainnet, software version 0.3.0.0, mining at 607 H/s with 4 threads, net hash 365.58 kH/s, v13, 8(out)+0(in) connections, uptime 0d 5h 35m 18s`
+`Height: 4342875/4342875 (100.0%) on mainnet, software version 0.3.0.0-release, mining at 607 H/s with 4 threads, net hash 365.58 kH/s, v13 (next fork in 12.5 days), 8(out)+0(in) connections, uptime 0d 5h 35m 18s`
 
-This shows you the height, the software version, whether you are mining and on how many threads, the estimated network hashrate, the current consensus version, the number of connections and the uptime. If a hard fork is coming up, the version field is followed by a note such as `next fork in 12.5 days` — that is your cue to check for a software update. This comprises most information a user might require about the NERVA network.
+This shows you the height, the software version, whether you are mining and on how many threads, the estimated network hashrate, the current consensus version, the number of connections and the uptime. If a hard fork is coming up, the consensus version is followed by a parenthesised countdown, shown above as `(next fork in 12.5 days)` and counted in blocks, hours or days depending on how close it is. That is your cue to check for a software update. This comprises most information a user might require about the NERVA network.
 
 #### Using a remote node
 If you do not want to run your own node, the wallet can talk to someone else's. Start it with `nerva-wallet-cli --daemon-address <host>:<port>`, or point a running wallet at a different node with the `set_daemon <host>[:<port>]` command. `set_daemon` also takes `trusted` or `untrusted`: by default a local node is trusted and a remote one is not, which mostly adds a warning that the spent status of your outputs may be out of date.
@@ -231,7 +247,7 @@ Miner A and Miner B find a block almost simultaneously and start broadcasting th
 
 #### Concerning Seed Nodes
 
-The seed nodes are the basic nodes in the NERVA network. When you start your daemon for the first time, it will connect to the seed nodes to get started. Seed nodes are really nothing special: they are the nodes your daemon knows about before it has met anyone, so if you run out of connections, you know at least a few nodes you can contact. The seed list is no longer hardcoded IP addresses only: the daemon also fetches it over DNS, which lets the developers rotate nodes and react to dead ones without shipping a new release. If you want no DNS traffic at all, start the daemon with `--no-dns`, or pick your own resolvers with `--dns-server`.
+The seed nodes are the basic nodes in the NERVA network. When you start your daemon for the first time, it will connect to the seed nodes to get started. Seed nodes are really nothing special: they are the nodes your daemon knows about before it has met anyone, so if you run out of connections, you know at least a few nodes you can contact. The seed list is not hardcoded at all any more: the daemon fetches it over DNS on first start, which lets the developers rotate nodes and react to dead ones without shipping a new release. You can pick your own resolvers with `--dns-server`. Note that `--no-dns` disables that lookup entirely, and since there is no hardcoded fallback, a node with no peer database yet will find nobody. If you use it, supply peers yourself with `--seed-node <host>:17565` or `--add-peer <host>:17565`.
 
 #### Concerning the Nodemap
 
@@ -296,7 +312,7 @@ There are a number of reasons this can occur. Following these steps should resol
 If you're still having issues, [Discord][nerva-discord-link] is the right place to be so we can investigate further.
 
 #### MDB_READERS_FULL error on startup
-This one has a dedicated section in the [Mining FAQ](../mining), including what causes it and how to fix it on each platform.
+This shows up when mining with a lot of threads. The [Mining FAQ](../mining) covers it: launch the daemon with `--db-readers 256`.
 
 #### Wallet created prior to v0.1.5.6 will not open
 You'll need to restore from seed. Any wallet that old has earned a fresh start anyway.
@@ -317,8 +333,8 @@ For the daemon:
 * `--quicksync <file>` — bootstrap the chain from a quicksync file
 * `--data-dir <path>` — put the blockchain somewhere other than the default
 * `--restricted-rpc` and `--rpc-bind-port <port>` — run the local RPC with public, view-only commands instead of the full set
-* `--public-node` — open that restricted RPC to others and advertise the node over the network as a usable remote node
-* `--rpc-login <user>:<pass>` — put HTTP digest authentication on the RPC
+* `--public-node` — advertise the node to peers as a usable remote node. It does not open anything by itself: it requires restricted mode (it refuses to start without it), and reaching the RPC from outside also needs `--rpc-bind-ip 0.0.0.0 --confirm-external-bind`. Never bind the RPC externally without `--restricted-rpc`, or you hand the internet the full command set, `stop_daemon` included
+* `--rpc-login <user>` — put HTTP digest authentication on the RPC. Give just the username and it prompts for the password; writing `<user>:<pass>` puts the password in your shell history and in `ps` output
 * `--no-analytics` — keep off the node map
 * `--no-dns` / `--dns-server <ip>` — control how seeds and update links are resolved
 * `--out-peers <n>` / `--in-peers <n>` and `--limit-rate <kB/s>` — shape your bandwidth use
