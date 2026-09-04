@@ -12,13 +12,18 @@ copyright: "&copy; 2018 - 2026 <strong>The Nerva Project</strong>"
 nav:
     - About: 'about.md'
     - User Guides:
-        - 'NervaOne Guide': 'guides/nervaone.md'
         - 'CLI Guide': 'guides/cli.md'
+        - 'GUI Guide': 'guides/gui.md'
+        - 'Docker Guide': 'guides/docker.md'
         - 'Mining FAQ': 'guides/mining.md'
         - 'Tor Guide' : 'guides/tor.md'
-        - 'Developer Guide': 'guides/develop.md'
+        - 'Multisig Guide': 'guides/multisig.md'
         - 'Ledger Hardware Wallet': 'guides/ledger.md'
-        - 'GUI Guide (OLD)': 'guides/gui.md'
+    - Developer:
+        - 'Developer Guide': 'guides/develop.md'
+        - 'Daemon RPC': 'developer/daemon-rpc.md'
+        - 'Wallet RPC': 'developer/wallet-rpc.md'
+        - 'Building From Source': 'developer/building-from-source.md'
     - Community Projects: 'projects.md'
 plugins:
     - git-committers:
