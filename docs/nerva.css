@@ -39,6 +39,26 @@ body {
     color: rgba(255, 255, 255, 0.85) !important;
 }
 
+/* Tables in page content */
+#content table {
+	width: 100%;
+	margin: 1rem 0;
+	border-collapse: collapse;
+}
+#content th,
+#content td {
+	padding: 0.35rem 0.65rem;
+	border: 1px solid #d6dde3;
+	text-align: left;
+	vertical-align: top;
+}
+#content thead th {
+	background-color: #eef1f4;
+}
+#content tbody tr:nth-of-type(odd) {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
 /* ── Dark mode ── */
 html.dark-mode,
 html.dark-mode body {
@@ -86,6 +106,9 @@ html.dark-mode thead th {
 html.dark-mode td,
 html.dark-mode th {
     border-color: #2d3538 !important;
+}
+html.dark-mode #content thead th {
+	background-color: #242b2e;
 }
 html.dark-mode .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(255, 255, 255, 0.04);
